@@ -1,6 +1,6 @@
-// Go offers built-in support for [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
-// Here are some examples of  common regexp-related tasks
-// in Go.
+// Go oferă suport integrat pentru [expresii regulate](https://en.wikipedia.org/wiki/Regular_expression).
+// Iată câteva exemple de operații obișnuite cu regexp-uri
+// în Go.
 
 package main
 
@@ -12,72 +12,76 @@ import (
 
 func main() {
 
-	// This tests whether a pattern matches a string.
+	// Aici testăm dacă un pattern se potrivește cu un
+	// string.
 	match, _ := regexp.MatchString("p([a-z]+)ch", "peach")
 	fmt.Println(match)
 
-	// Above we used a string pattern directly, but for
-	// other regexp tasks you'll need to `Compile` an
-	// optimized `Regexp` struct.
+	// Mai sus am folosit direct un pattern de tip string,
+	// dar pentru alte operații cu regexp-uri va trebui
+	// să compilezi (`Compile`) un struct `Regexp`
+	// optimizat.
 	r, _ := regexp.Compile("p([a-z]+)ch")
 
-	// Many methods are available on these structs. Here's
-	// a match test like we saw earlier.
+	// Aceste struct-uri au multe metode disponibile. Iată
+	// un test de potrivire ca cel de mai devreme.
 	fmt.Println(r.MatchString("peach"))
 
-	// This finds the match for the regexp.
+	// Aici găsim potrivirea pentru regexp.
 	fmt.Println(r.FindString("peach punch"))
 
-	// This also finds the first match but returns the
-	// start and end indexes for the match instead of the
-	// matching text.
+	// Și aici găsim prima potrivire, dar returnăm
+	// indicii de început și de sfârșit ai potrivirii în
+	// locul textului potrivit.
 	fmt.Println("idx:", r.FindStringIndex("peach punch"))
 
-	// The `Submatch` variants include information about
-	// both the whole-pattern matches and the submatches
-	// within those matches. For example this will return
-	// information for both `p([a-z]+)ch` and `([a-z]+)`.
+	// Variantele `Submatch` includ informații atât despre
+	// potrivirile întregului pattern, cât și despre
+	// subpotrivirile din interiorul acestora. De exemplu,
+	// aici vom primi informații atât pentru `p([a-z]+)ch`,
+	// cât și pentru `([a-z]+)`.
 	fmt.Println(r.FindStringSubmatch("peach punch"))
 
-	// Similarly this will return information about the
-	// indexes of matches and submatches.
+	// Similar, aici vom primi informații despre indicii
+	// potrivirilor și ai subpotrivirilor.
 	fmt.Println(r.FindStringSubmatchIndex("peach punch"))
 
-	// The `All` variants of these functions apply to all
-	// matches in the input, not just the first. For
-	// example to find all matches for a regexp.
+	// Variantele `All` ale acestor funcții se aplică
+	// tuturor potrivirilor din input, nu doar primei. De
+	// exemplu, pentru a găsi toate potrivirile unui
+	// regexp:
 	fmt.Println(r.FindAllString("peach punch pinch", -1))
 
-	// These `All` variants are available for the other
-	// functions we saw above as well.
+	// Aceste variante `All` sunt disponibile și pentru
+	// celelalte funcții văzute mai sus.
 	fmt.Println("all:", r.FindAllStringSubmatchIndex(
 		"peach punch pinch", -1))
 
-	// Providing a non-negative integer as the second
-	// argument to these functions will limit the number
-	// of matches.
+	// Dacă dăm un număr întreg nenegativ ca al doilea
+	// argument al acestor funcții, limităm numărul de
+	// potriviri.
 	fmt.Println(r.FindAllString("peach punch pinch", 2))
 
-	// Our examples above had string arguments and used
-	// names like `MatchString`. We can also provide
-	// `[]byte` arguments and drop `String` from the
-	// function name.
+	// Exemplele de mai sus aveau argumente de tip string
+	// și foloseau nume precum `MatchString`. Putem da și
+	// argumente `[]byte`, renunțând la `String` din
+	// numele funcției.
 	fmt.Println(r.Match([]byte("peach")))
 
-	// When creating global variables with regular
-	// expressions you can use the `MustCompile` variation
-	// of `Compile`. `MustCompile` panics instead of
-	// returning an error, which makes it safer to use for
-	// global variables.
+	// Când creezi variabile globale cu expresii regulate,
+	// poți folosi varianta `MustCompile` a lui `Compile`.
+	// `MustCompile` intră în panică în loc să returneze o
+	// eroare, ceea ce o face mai sigură pentru variabile
+	// globale.
 	r = regexp.MustCompile("p([a-z]+)ch")
 	fmt.Println("regexp:", r)
 
-	// The `regexp` package can also be used to replace
-	// subsets of strings with other values.
+	// Pachetul `regexp` poate fi folosit și pentru a
+	// înlocui porțiuni din string-uri cu alte valori.
 	fmt.Println(r.ReplaceAllString("a peach", "<fruit>"))
 
-	// The `Func` variant allows you to transform matched
-	// text with a given function.
+	// Varianta `Func` îți permite să transformi textul
+	// potrivit cu o funcție dată.
 	in := []byte("a peach")
 	out := r.ReplaceAllFunc(in, bytes.ToUpper)
 	fmt.Println(string(out))

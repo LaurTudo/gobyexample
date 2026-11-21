@@ -1,11 +1,13 @@
-// A Go string is a read-only slice of bytes. The language
-// and the standard library treat strings specially - as
-// containers of text encoded in [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
-// In other languages, strings are made of "characters".
-// In Go, the concept of a character is called a `rune` - it's
-// an integer that represents a Unicode code point.
-// [This Go blog post](https://go.dev/blog/strings) is a good
-// introduction to the topic.
+// Un string în Go este un slice de bytes doar pentru
+// citire. Limbajul și biblioteca standard tratează
+// string-urile în mod special - ca pe niște containere
+// de text codificat în [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
+// În alte limbaje, string-urile sunt formate din
+// „caractere”. În Go, conceptul de caracter se numește
+// `rune` - este un număr întreg care reprezintă un punct
+// de cod Unicode.
+// [Acest articol de pe blogul Go](https://go.dev/blog/strings)
+// este o introducere bună în subiect.
 
 package main
 
@@ -16,56 +18,62 @@ import (
 
 func main() {
 
-	// `s` is a `string` assigned a literal value
-	// representing the word "hello" in the Thai
-	// language. Go string literals are UTF-8
-	// encoded text.
+	// `s` este un `string` căruia i se atribuie o valoare
+	// literală ce reprezintă cuvântul „salut” în limba
+	// thailandeză. Literalii de tip string din Go sunt
+	// text codificat în UTF-8.
 	const s = "สวัสดี"
 
-	// Since strings are equivalent to `[]byte`, this
-	// will produce the length of the raw bytes stored within.
+	// Deoarece string-urile sunt echivalente cu `[]byte`,
+	// aceasta va returna lungimea, în bytes, a datelor
+	// brute stocate în string.
 	fmt.Println("Len:", len(s))
 
-	// Indexing into a string produces the raw byte values at
-	// each index. This loop generates the hex values of all
-	// the bytes that constitute the code points in `s`.
+	// Indexarea unui string produce valorile brute ale
+	// byte-ului de la fiecare index. Această buclă
+	// generează valorile hexazecimale ale tuturor
+	// byte-ilor care alcătuiesc punctele de cod din `s`.
 	for i := 0; i < len(s); i++ {
 		fmt.Printf("%x ", s[i])
 	}
 	fmt.Println()
 
-	// To count how many _runes_ are in a string, we can use
-	// the `utf8` package. Note that the run-time of
-	// `RuneCountInString` depends on the size of the string,
-	// because it has to decode each UTF-8 rune sequentially.
-	// Some Thai characters are represented by UTF-8 code points
-	// that can span multiple bytes, so the result of this count
-	// may be surprising.
+	// Pentru a număra câte _rune_ conține un string,
+	// putem folosi pachetul `utf8`. Observă că timpul de
+	// execuție al lui `RuneCountInString` depinde de
+	// mărimea string-ului, pentru că trebuie să decodeze
+	// secvențial fiecare rună UTF-8. Unele caractere
+	// thailandeze sunt reprezentate prin puncte de cod
+	// UTF-8 care se pot întinde pe mai mulți bytes, așa
+	// că rezultatul acestei numărări poate fi surprinzător.
 	fmt.Println("Rune count:", utf8.RuneCountInString(s))
 
-	// A `range` loop handles strings specially and decodes
-	// each `rune` along with its offset in the string.
+	// O buclă `range` tratează string-urile în mod special
+	// și decodează fiecare `rune` împreună cu poziția sa
+	// în string.
 	for idx, runeValue := range s {
 		fmt.Printf("%#U starts at %d\n", runeValue, idx)
 	}
 
-	// We can achieve the same iteration by using the
-	// `utf8.DecodeRuneInString` function explicitly.
+	// Putem obține aceeași iterație folosind explicit
+	// funcția `utf8.DecodeRuneInString`.
 	fmt.Println("\nUsing DecodeRuneInString")
 	for i, w := 0, 0; i < len(s); i += w {
 		runeValue, width := utf8.DecodeRuneInString(s[i:])
 		fmt.Printf("%#U starts at %d\n", runeValue, i)
 		w = width
 
-		// This demonstrates passing a `rune` value to a function.
+		// Aici demonstrăm transmiterea unei valori `rune`
+		// către o funcție.
 		examineRune(runeValue)
 	}
 }
 
 func examineRune(r rune) {
 
-	// Values enclosed in single quotes are _rune literals_. We
-	// can compare a `rune` value to a rune literal directly.
+	// Valorile încadrate de apostrofuri sunt _literali de
+	// tip rune_. Putem compara direct o valoare `rune` cu
+	// un literal de tip rune.
 	if r == 't' {
 		fmt.Println("found tee")
 	} else if r == 'ส' {

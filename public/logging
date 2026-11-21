@@ -30,16 +30,15 @@
         
         <tr>
           <td class="docs">
-            <p>The Go standard library provides straightforward
-tools for outputting logs from Go programs, with
-the <a href="https://pkg.go.dev/log">log</a> package for
-free-form output and the
-<a href="https://pkg.go.dev/log/slog">log/slog</a> package for
-structured output.</p>
+            <p>Biblioteca standard Go oferă unelte simple pentru
+scrierea de loguri din programele Go: pachetul
+<a href="https://pkg.go.dev/log">log</a> pentru output liber și
+pachetul <a href="https://pkg.go.dev/log/slog">log/slog</a>
+pentru output structurat.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Qd0uCqBlYUn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/3LlqA5vJT5O"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -81,12 +80,12 @@ structured output.</p>
         
         <tr>
           <td class="docs">
-            <p>Simply invoking functions like <code>Println</code> from the
-<code>log</code> package uses the <em>standard</em> logger, which
-is already pre-configured for reasonable logging
-output to <code>os.Stderr</code>. Additional methods like
-<code>Fatal*</code> or <code>Panic*</code> will exit the program after
-logging.</p>
+            <p>Simpla apelare a unor funcții precum <code>Println</code> din
+pachetul <code>log</code> folosește logger-ul <em>standard</em>, care
+este deja preconfigurat pentru un output de log
+rezonabil în <code>os.Stderr</code>. Metode suplimentare
+precum <code>Fatal*</code> sau <code>Panic*</code> vor opri programul
+după scrierea în log.</p>
 
           </td>
           <td class="code leading">
@@ -97,12 +96,13 @@ logging.</p>
         
         <tr>
           <td class="docs">
-            <p>Loggers can be configured with <em>flags</em> to set
-their output format. By default, the standard
-logger has the <code>log.Ldate</code> and <code>log.Ltime</code> flags
-set, and these are collected in <code>log.LstdFlags</code>.
-We can change its flags to emit time with
-microsecond accuracy, for example.</p>
+            <p>Logger-ele pot fi configurate cu <em>flag-uri</em> care
+le stabilesc formatul output-ului. Implicit,
+logger-ul standard are setate flag-urile
+<code>log.Ldate</code> și <code>log.Ltime</code>, reunite în
+<code>log.LstdFlags</code>. Putem să-i schimbăm flag-urile,
+de exemplu, ca să afișeze timpul cu precizie de
+microsecunde.</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +114,8 @@ microsecond accuracy, for example.</p>
         
         <tr>
           <td class="docs">
-            <p>It also supports emitting the file name and
-line from which the <code>log</code> function is called.</p>
+            <p>Suportă și afișarea numelui fișierului și a liniei
+din care este apelată funcția <code>log</code>.</p>
 
           </td>
           <td class="code leading">
@@ -127,10 +127,10 @@ line from which the <code>log</code> function is called.</p>
         
         <tr>
           <td class="docs">
-            <p>It may be useful to create a custom logger and
-pass it around. When creating a new logger, we
-can set a <em>prefix</em> to distinguish its output
-from other loggers.</p>
+            <p>Poate fi util să creăm un logger personalizat și
+să-l transmitem mai departe. Când creăm un logger
+nou, putem seta un <em>prefix</em> pentru a-i deosebi
+output-ul de cel al altor logger-e.</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +142,9 @@ from other loggers.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set the prefix
-on existing loggers (including the standard one)
-with the <code>SetPrefix</code> method.</p>
+            <p>Putem seta prefixul logger-elor existente
+(inclusiv al celui standard) cu metoda
+<code>SetPrefix</code>.</p>
 
           </td>
           <td class="code leading">
@@ -156,8 +156,8 @@ with the <code>SetPrefix</code> method.</p>
         
         <tr>
           <td class="docs">
-            <p>Loggers can have custom output targets;
-any <code>io.Writer</code> works.</p>
+            <p>Logger-ele pot avea destinații de output
+personalizate; merge orice <code>io.Writer</code>.</p>
 
           </td>
           <td class="code leading">
@@ -169,7 +169,7 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>This call writes the log output into <code>buf</code>.</p>
+            <p>Acest apel scrie output-ul de log în <code>buf</code>.</p>
 
           </td>
           <td class="code leading">
@@ -180,7 +180,7 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>This will actually show it on standard output.</p>
+            <p>Iar aici îl afișăm efectiv la ieșirea standard.</p>
 
           </td>
           <td class="code leading">
@@ -191,9 +191,9 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>slog</code> package provides
-<em>structured</em> log output. For example, logging
-in JSON format is straightforward.</p>
+            <p>Pachetul <code>slog</code> oferă output de log <em>structurat</em>.
+De exemplu, scrierea de loguri în format JSON
+este simplă.</p>
 
           </td>
           <td class="code leading">
@@ -206,9 +206,8 @@ in JSON format is straightforward.</p>
         
         <tr>
           <td class="docs">
-            <p>In addition to the message, <code>slog</code> output can
-contain an arbitrary number of key=value
-pairs.</p>
+            <p>Pe lângă mesaj, output-ul <code>slog</code> poate conține
+oricâte perechi cheie=valoare.</p>
 
           </td>
           <td class="code">
@@ -224,8 +223,8 @@ pairs.</p>
         
         <tr>
           <td class="docs">
-            <p>Sample output; the date and time
-emitted will depend on when the example ran.</p>
+            <p>Exemplu de output; data și ora afișate vor depinde
+de momentul în care a rulat exemplul.</p>
 
           </td>
           <td class="code leading">
@@ -242,9 +241,9 @@ emitted will depend on when the example ran.</p>
         
         <tr>
           <td class="docs">
-            <p>These are wrapped for clarity of presentation
-on the website; in reality they are emitted
-on a single line.</p>
+            <p>Acestea sunt împărțite pe mai multe rânduri pentru
+claritate pe site; în realitate sunt afișate pe un
+singur rând.</p>
 
           </td>
           <td class="code">
@@ -266,7 +265,7 @@ on a single line.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

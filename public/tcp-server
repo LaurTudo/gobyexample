@@ -30,12 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p>The <code>net</code> package provides the tools we need to easily build
-TCP socket servers.</p>
+            <p>Pachetul <code>net</code> oferă uneltele de care avem nevoie
+pentru a construi ușor servere cu socket-uri TCP.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/G0k2jHMA6ei"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Lh0ALDXuxnX"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,8 +68,9 @@ TCP socket servers.</p>
         
         <tr>
           <td class="docs">
-            <p><code>net.Listen</code> starts the server on the given network
-(TCP) and address (port 8090 on all interfaces).</p>
+            <p><code>net.Listen</code> pornește serverul pe rețeaua dată
+(TCP) și pe adresa dată (portul 8090 pe toate
+interfețele).</p>
 
           </td>
           <td class="code leading">
@@ -83,8 +84,8 @@ TCP socket servers.</p>
         
         <tr>
           <td class="docs">
-            <p>Close the listener to free the port
-when the application exits.</p>
+            <p>Închidem listener-ul pentru a elibera portul
+când aplicația se termină.</p>
 
           </td>
           <td class="code leading">
@@ -95,7 +96,8 @@ when the application exits.</p>
         
         <tr>
           <td class="docs">
-            <p>Loop indefinitely to accept new client connections.</p>
+            <p>Buclă infinită care acceptă conexiuni noi de la
+clienți.</p>
 
           </td>
           <td class="code leading">
@@ -106,7 +108,7 @@ when the application exits.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait for a connection.</p>
+            <p>Așteptăm o conexiune.</p>
 
           </td>
           <td class="code leading">
@@ -121,9 +123,9 @@ when the application exits.</p>
         
         <tr>
           <td class="docs">
-            <p>We use a goroutine here to handle the connection
-so that the main loop can continue accepting more
-connections.</p>
+            <p>Folosim aici o goroutine pentru a trata
+conexiunea, astfel încât bucla principală să
+poată accepta în continuare alte conexiuni.</p>
 
           </td>
           <td class="code leading">
@@ -136,8 +138,9 @@ connections.</p>
         
         <tr>
           <td class="docs">
-            <p><code>handleConnection</code> handles a single client connection,
-reading one line of text from the client and returning a response.</p>
+            <p><code>handleConnection</code> tratează o singură conexiune cu un
+client: citește o linie de text de la client și
+returnează un răspuns.</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +151,8 @@ reading one line of text from the client and returning a response.</p>
         
         <tr>
           <td class="docs">
-            <p>Closing the connection releases resources when
-we are finished interacting with the client.</p>
+            <p>Închiderea conexiunii eliberează resursele când am
+terminat interacțiunea cu clientul.</p>
 
           </td>
           <td class="code leading">
@@ -160,8 +163,8 @@ we are finished interacting with the client.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>bufio.NewReader</code> to read one line of data
-from the client (terminated by a newline).</p>
+            <p>Folosim <code>bufio.NewReader</code> pentru a citi o linie de
+date de la client (terminată cu un newline).</p>
 
           </td>
           <td class="code leading">
@@ -177,8 +180,8 @@ from the client (terminated by a newline).</p>
         
         <tr>
           <td class="docs">
-            <p>Create and send a response back to the client,
-demonstrating two-way communication.</p>
+            <p>Creăm și trimitem un răspuns înapoi clientului,
+demonstrând comunicarea în ambele sensuri.</p>
 
           </td>
           <td class="code">
@@ -199,7 +202,7 @@ demonstrating two-way communication.</p>
         
         <tr>
           <td class="docs">
-            <p>Run the TCP server in the background.</p>
+            <p>Rulăm serverul TCP în fundal.</p>
 
           </td>
           <td class="code leading">
@@ -210,7 +213,7 @@ demonstrating two-way communication.</p>
         
         <tr>
           <td class="docs">
-            <p>Send data and capture the response using netcat.</p>
+            <p>Trimitem date și preluăm răspunsul folosind netcat.</p>
 
           </td>
           <td class="code">
@@ -229,7 +232,7 @@ demonstrating two-way communication.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

@@ -1,7 +1,8 @@
-// [Environment variables](https://en.wikipedia.org/wiki/Environment_variable)
-// are a universal mechanism for [conveying configuration
-// information to Unix programs](https://www.12factor.net/config).
-// Let's look at how to set, get, and list environment variables.
+// [Variabilele de mediu](https://en.wikipedia.org/wiki/Environment_variable)
+// (environment variables) sunt un mecanism universal pentru
+// [transmiterea informațiilor de configurare către programele Unix](https://www.12factor.net/config).
+// Să vedem cum setăm, citim și listăm variabilele de
+// mediu.
 
 package main
 
@@ -13,18 +14,20 @@ import (
 
 func main() {
 
-	// To set a key/value pair, use `os.Setenv`. To get a
-	// value for a key, use `os.Getenv`. This will return
-	// an empty string if the key isn't present in the
-	// environment.
+	// Pentru a seta o pereche cheie/valoare, folosește
+	// `os.Setenv`. Pentru a obține valoarea unei chei,
+	// folosește `os.Getenv`. Aceasta va returna un string
+	// gol dacă cheia nu există în mediu.
 	os.Setenv("FOO", "1")
 	fmt.Println("FOO:", os.Getenv("FOO"))
 	fmt.Println("BAR:", os.Getenv("BAR"))
 
-	// Use `os.Environ` to list all key/value pairs in the
-	// environment. This returns a slice of strings in the
-	// form `KEY=value`. You can `strings.SplitN` them to
-	// get the key and value. Here we print all the keys.
+	// Folosește `os.Environ` pentru a lista toate
+	// perechile cheie/valoare din mediu. Aceasta
+	// returnează un slice de string-uri de forma
+	// `KEY=value`. Le poți împărți cu `strings.SplitN`
+	// pentru a obține cheia și valoarea. Aici afișăm toate
+	// cheile.
 	fmt.Println()
 	for _, e := range os.Environ() {
 		pair := strings.SplitN(e, "=", 2)

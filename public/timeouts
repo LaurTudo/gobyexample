@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p><em>Timeouts</em> are important for programs that connect to
-external resources or that otherwise need to bound
-execution time. Implementing timeouts in Go is easy and
-elegant thanks to channels and <code>select</code>.</p>
+            <p><em>Timeout-urile</em> sunt importante pentru programele care
+se conectează la resurse externe sau care, din alte
+motive, trebuie să-și limiteze timpul de execuție.
+Implementarea timeout-urilor în Go este simplă și
+elegantă datorită canalelor și lui <code>select</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ elegant thanks to channels and <code>select</code>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gyr0NbVKBVf"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/gTMZbsRSV0l"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,12 +78,13 @@ elegant thanks to channels and <code>select</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example, suppose we&rsquo;re executing an external
-call that returns its result on a channel <code>c1</code>
-after 2s. Note that the channel is buffered, so the
-send in the goroutine is nonblocking. This is a
-common pattern to prevent goroutine leaks in case the
-channel is never read.</p>
+            <p>În exemplul nostru, să presupunem că executăm un
+apel extern care își returnează rezultatul pe un
+canal <code>c1</code> după 2s. Observă că acest canal are
+buffer, deci trimiterea din goroutine nu este
+blocantă. Acesta este un tipar des folosit pentru a
+preveni scurgerile de goroutine-uri în cazul în care
+canalul nu este citit niciodată.</p>
 
           </td>
           <td class="code leading">
@@ -97,12 +99,12 @@ channel is never read.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>select</code> implementing a timeout.
-<code>res := &lt;-c1</code> awaits the result and <code>&lt;-time.After</code>
-awaits a value to be sent after the timeout of
-1s. Since <code>select</code> proceeds with the first
-receive that&rsquo;s ready, we&rsquo;ll take the timeout case
-if the operation takes more than the allowed 1s.</p>
+            <p>Iată <code>select</code>-ul care implementează un timeout.
+<code>res := &lt;-c1</code> așteaptă rezultatul, iar <code>&lt;-time.After</code>
+așteaptă o valoare trimisă după timeout-ul de 1s.
+Deoarece <code>select</code> continuă cu prima primire care
+este gata, vom intra pe ramura de timeout dacă
+operația durează mai mult decât 1s, cât e permis.</p>
 
           </td>
           <td class="code leading">
@@ -118,8 +120,8 @@ if the operation takes more than the allowed 1s.</p>
         
         <tr>
           <td class="docs">
-            <p>If we allow a longer timeout of 3s, then the receive
-from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
+            <p>Dacă permitem un timeout mai lung, de 3s, primirea
+din <code>c2</code> va reuși și vom afișa rezultatul.</p>
 
           </td>
           <td class="code">
@@ -145,8 +147,8 @@ from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
         
         <tr>
           <td class="docs">
-            <p>Running this program shows the first operation timing
-out and the second succeeding.</p>
+            <p>Rularea acestui program arată că prima operație
+expiră (timeout), iar a doua reușește.</p>
 
           </td>
           <td class="code">
@@ -166,7 +168,7 @@ out and the second succeeding.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

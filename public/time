@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers extensive support for times and durations;
-here are some examples.</p>
+            <p>Go oferă un suport amplu pentru momente de timp și
+durate; iată câteva exemple.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ here are some examples.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/YAM3s1KPc8c"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ATv8mSESJ-J"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,7 +76,7 @@ here are some examples.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start by getting the current time.</p>
+            <p>Vom începe prin a obține timpul curent.</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +88,9 @@ here are some examples.</p>
         
         <tr>
           <td class="docs">
-            <p>You can build a <code>time</code> struct by providing the
-year, month, day, etc. Times are always associated
-with a <code>Location</code>, i.e. time zone.</p>
+            <p>Poți construi un struct <code>time</code> specificând anul,
+luna, ziua etc. Momentele de timp sunt mereu
+asociate cu o <code>Location</code>, adică un fus orar.</p>
 
           </td>
           <td class="code leading">
@@ -103,8 +103,8 @@ with a <code>Location</code>, i.e. time zone.</p>
         
         <tr>
           <td class="docs">
-            <p>You can extract the various components of the time
-value as expected.</p>
+            <p>Poți extrage diversele componente ale valorii de
+timp, cum era de așteptat.</p>
 
           </td>
           <td class="code leading">
@@ -122,7 +122,8 @@ value as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>The Monday-Sunday <code>Weekday</code> is also available.</p>
+            <p>Este disponibilă și ziua săptămânii, <code>Weekday</code>
+(de luni până duminică).</p>
 
           </td>
           <td class="code leading">
@@ -133,9 +134,9 @@ value as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>These methods compare two times, testing if the
-first occurs before, after, or at the same time
-as the second, respectively.</p>
+            <p>Aceste metode compară două momente de timp,
+testând dacă primul are loc înainte, după, respectiv
+în același timp cu al doilea.</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +149,8 @@ as the second, respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Sub</code> methods returns a <code>Duration</code> representing
-the interval between two times.</p>
+            <p>Metoda <code>Sub</code> returnează o <code>Duration</code> care
+reprezintă intervalul dintre două momente de timp.</p>
 
           </td>
           <td class="code leading">
@@ -161,8 +162,8 @@ the interval between two times.</p>
         
         <tr>
           <td class="docs">
-            <p>We can compute the length of the duration in
-various units.</p>
+            <p>Putem calcula lungimea duratei în diverse unități
+de măsură.</p>
 
           </td>
           <td class="code leading">
@@ -176,9 +177,9 @@ various units.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use <code>Add</code> to advance a time by a given
-duration, or with a <code>-</code> to move backwards by a
-duration.</p>
+            <p>Poți folosi <code>Add</code> pentru a avansa un moment de timp
+cu o durată dată, sau cu <code>-</code> pentru a-l muta înapoi
+cu o durată.</p>
 
           </td>
           <td class="code">
@@ -226,8 +227,8 @@ duration.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at the related idea of time relative to
-the Unix epoch.</p>
+            <p>În continuare vom vedea conceptul înrudit de timp
+raportat la epoca Unix (Unix epoch).</p>
 
           </td>
           <td class="code empty">
@@ -245,7 +246,7 @@ the Unix epoch.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

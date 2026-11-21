@@ -1,26 +1,27 @@
-// _Closing_ a channel indicates that no more values
-// will be sent on it. This can be useful to communicate
-// completion to the channel's receivers.
+// _Închiderea_ unui canal indică faptul că nu vor mai fi
+// trimise valori pe el. Asta poate fi util pentru a le
+// comunica receptorilor canalului că s-a terminat.
 
 package main
 
 import "fmt"
 
-// In this example we'll use a `jobs` channel to
-// communicate work to be done from the `main()` goroutine
-// to a worker goroutine. When we have no more jobs for
-// the worker we'll `close` the `jobs` channel.
+// În acest exemplu vom folosi un canal `jobs` pentru a
+// transmite sarcinile de lucru din goroutine-a `main()`
+// către o goroutine worker. Când nu mai avem sarcini
+// pentru worker, vom închide canalul `jobs` cu `close`.
 func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here's the worker goroutine. It repeatedly receives
-	// from `jobs` with `j, more := <-jobs`. In this
-	// special 2-value form of receive, the `more` value
-	// will be `false` if `jobs` has been `close`d and all
-	// values in the channel have already been received.
-	// We use this to notify on `done` when we've worked
-	// all our jobs.
+	// Iată worker-ul, care rulează într-o goroutine.
+	// Primește în mod repetat din `jobs` cu
+	// `j, more := <-jobs`. În această formă specială de
+	// primire, cu 2 valori, `more` va fi `false` dacă
+	// `jobs` a fost închis cu `close` și toate valorile
+	// din canal au fost deja primite. Folosim asta pentru
+	// a trimite o notificare pe `done` când am terminat
+	// toate sarcinile.
 	go func() {
 		for {
 			j, more := <-jobs
@@ -34,8 +35,8 @@ func main() {
 		}
 	}()
 
-	// This sends 3 jobs to the worker over the `jobs`
-	// channel, then closes it.
+	// Aici trimitem 3 sarcini către worker prin canalul
+	// `jobs`, apoi îl închidem.
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -43,18 +44,18 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
-	// We await the worker using the
-	// [synchronization](channel-synchronization) approach
-	// we saw earlier.
+	// Așteptăm worker-ul folosind metoda de
+	// [sincronizare](channel-synchronization) pe care am
+	// văzut-o mai devreme.
 	<-done
 
-	// Reading from a closed channel succeeds immediately,
-	// returning the zero value of the underlying type.
-	// The optional second return value is `true` if the
-	// value received was delivered by a successful send
-	// operation to the channel, or `false` if it was a
-	// zero value generated because the channel is closed
-	// and empty.
+	// Citirea dintr-un canal închis reușește imediat și
+	// returnează valoarea zero a tipului de bază. A doua
+	// valoare returnată, opțională, este `true` dacă
+	// valoarea primită a fost livrată printr-o operație
+	// de trimitere reușită în canal, sau `false` dacă a
+	// fost o valoare zero generată pentru că canalul este
+	// închis și gol.
 	_, ok := <-jobs
 	fmt.Println("received more jobs:", ok)
 }

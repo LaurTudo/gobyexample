@@ -1,6 +1,7 @@
-// Go's `slices` package implements sorting for builtins
-// and user-defined types. We'll look at sorting for
-// builtins first.
+// Pachetul `slices` din Go implementează sortarea pentru
+// tipurile predefinite și pentru tipurile definite de
+// utilizator. Vom vedea mai întâi sortarea pentru
+// tipurile predefinite.
 
 package main
 
@@ -11,20 +12,20 @@ import (
 
 func main() {
 
-	// Sorting functions are generic, and work for any
-	// _ordered_ built-in type. For a list of ordered
-	// types, see [cmp.Ordered](https://pkg.go.dev/cmp#Ordered).
+	// Funcțiile de sortare sunt generice și funcționează
+	// pentru orice tip predefinit _ordonat_. Pentru lista
+	// tipurilor ordonate, vezi [cmp.Ordered](https://pkg.go.dev/cmp#Ordered).
 	strs := []string{"c", "a", "b"}
 	slices.Sort(strs)
 	fmt.Println("Strings:", strs)
 
-	// An example of sorting `int`s.
+	// Un exemplu de sortare a unor `int`-uri.
 	ints := []int{7, 2, 4}
 	slices.Sort(ints)
 	fmt.Println("Ints:   ", ints)
 
-	// We can also use the `slices` package to check if
-	// a slice is already in sorted order.
+	// Putem folosi pachetul `slices` și pentru a verifica
+	// dacă un slice este deja sortat.
 	s := slices.IsSorted(ints)
 	fmt.Println("Sorted: ", s)
 }

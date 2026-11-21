@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p><em>Interfaces</em> are named collections of method
-signatures.</p>
+            <p><em>Interfețele</em> sunt colecții denumite de semnături
+de metode.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ signatures.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/xAAbgd7GOKD"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/OPo1EVLT0-_F"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,7 +65,7 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic interface for geometric shapes.</p>
+            <p>Iată o interfață de bază pentru forme geometrice.</p>
 
           </td>
           <td class="code leading">
@@ -79,8 +79,8 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll implement this interface on
-<code>rect</code> and <code>circle</code> types.</p>
+            <p>În exemplul nostru vom implementa această interfață
+pe tipurile <code>rect</code> și <code>circle</code>.</p>
 
           </td>
           <td class="code leading">
@@ -96,9 +96,9 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>To implement an interface in Go, we just need to
-implement all the methods in the interface. Here we
-implement <code>geometry</code> on <code>rect</code>s.</p>
+            <p>Pentru a implementa o interfață în Go, trebuie doar
+să implementăm toate metodele din interfață. Aici
+implementăm <code>geometry</code> pentru tipul <code>rect</code>.</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +114,7 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>The implementation for <code>circle</code>s.</p>
+            <p>Implementarea pentru tipul <code>circle</code>.</p>
 
           </td>
           <td class="code leading">
@@ -130,10 +130,10 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>If a variable has an interface type, then we can call
-methods that are in the named interface. Here&rsquo;s a
-generic <code>measure</code> function taking advantage of this
-to work on any <code>geometry</code>.</p>
+            <p>Dacă o variabilă are un tip interfață, putem apela
+metodele din acea interfață. Iată o funcție generică
+<code>measure</code> care profită de asta ca să funcționeze cu
+orice <code>geometry</code>.</p>
 
           </td>
           <td class="code leading">
@@ -148,9 +148,9 @@ to work on any <code>geometry</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sometimes it&rsquo;s useful to know the runtime type of an
-interface value. One option is using a <em>type assertion</em>
-as shown here; another is a <a href="switch">type <code>switch</code></a>.</p>
+            <p>Uneori e util să știm tipul la runtime al unei valori
+de tip interfață. O opțiune este o <em>aserțiune de tip</em>,
+ca aici; alta este un <a href="switch"><code>switch</code> pe tipuri</a>.</p>
 
           </td>
           <td class="code leading">
@@ -177,10 +177,10 @@ as shown here; another is a <a href="switch">type <code>switch</code></a>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>circle</code> and <code>rect</code> struct types both
-implement the <code>geometry</code> interface so we can use
-instances of
-these structs as arguments to <code>measure</code>.</p>
+            <p>Tipurile struct <code>circle</code> și <code>rect</code> implementează
+amândouă interfața <code>geometry</code>, așa că putem folosi
+instanțe ale acestor struct-uri ca argumente pentru
+<code>measure</code>.</p>
 
           </td>
           <td class="code leading">
@@ -225,8 +225,9 @@ these structs as arguments to <code>measure</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To understand how Go&rsquo;s interfaces work under the hood,
-check out this <a href="https://research.swtch.com/interfaces">blog post</a>.</p>
+            <p>Ca să înțelegi cum funcționează interfețele din Go în
+culise, citește acest
+<a href="https://research.swtch.com/interfaces">articol</a>.</p>
 
           </td>
           <td class="code empty">
@@ -244,7 +245,7 @@ check out this <a href="https://research.swtch.com/interfaces">blog post</a>.</p
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

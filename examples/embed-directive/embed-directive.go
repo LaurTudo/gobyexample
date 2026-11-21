@@ -1,31 +1,35 @@
-// `//go:embed` is a [compiler
-// directive](https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives) that
-// allows programs to include arbitrary files and folders in the Go binary at
-// build time. Read more about the embed directive
-// [here](https://pkg.go.dev/embed).
+// `//go:embed` este o
+// [directivă de compilator](https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives)
+// care permite programelor să includă fișiere și foldere
+// arbitrare în binarul Go, la momentul compilării. Poți
+// citi mai multe despre directiva embed
+// [aici](https://pkg.go.dev/embed).
 package main
 
-// Import the `embed` package; if you don't use any exported
-// identifiers from this package, you can do a blank import with `_ "embed"`.
+// Importăm pachetul `embed`; dacă nu folosești niciun
+// identificator exportat din acest pachet, poți face un
+// import gol (blank import) cu `_ "embed"`.
 import (
 	"embed"
 )
 
-// `embed` directives accept paths relative to the directory containing the
-// Go source file. This directive embeds the contents of the file into the
-// `string` variable immediately following it.
+// Directivele `embed` acceptă căi relative la
+// directorul care conține fișierul sursă Go. Această
+// directivă include conținutul fișierului în variabila
+// `string` care urmează imediat după ea.
 //
 //go:embed folder/single_file.txt
 var fileString string
 
-// Or embed the contents of the file into a `[]byte`.
+// Sau includem conținutul fișierului într-un `[]byte`.
 //
 //go:embed folder/single_file.txt
 var fileByte []byte
 
-// We can also embed multiple files or even folders with wildcards. This uses
-// a variable of the [embed.FS type](https://pkg.go.dev/embed#FS), which
-// implements a simple virtual file system.
+// Putem include și mai multe fișiere sau chiar foldere,
+// folosind wildcard-uri. Pentru asta folosim o variabilă
+// de [tipul embed.FS](https://pkg.go.dev/embed#FS), care
+// implementează un sistem de fișiere virtual simplu.
 //
 //go:embed folder/single_file.txt
 //go:embed folder/*.hash
@@ -33,11 +37,11 @@ var folder embed.FS
 
 func main() {
 
-	// Print out the contents of `single_file.txt`.
+	// Afișăm conținutul lui `single_file.txt`.
 	print(fileString)
 	print(string(fileByte))
 
-	// Retrieve some files from the embedded folder.
+	// Citim câteva fișiere din folderul inclus.
 	content1, _ := folder.ReadFile("folder/file1.hash")
 	print(string(content1))
 

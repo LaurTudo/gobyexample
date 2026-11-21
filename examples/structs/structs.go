@@ -1,23 +1,25 @@
-// Go's _structs_ are typed collections of fields.
-// They're useful for grouping data together to form
-// records.
+// _Struct-urile_ din Go sunt colecții de câmpuri cu tip.
+// Sunt utile pentru a grupa date împreună, formând
+// înregistrări.
 
 package main
 
 import "fmt"
 
-// This `person` struct type has `name` and `age` fields.
+// Tipul struct `person` are câmpurile `name` și `age`.
 type person struct {
 	name string
 	age  int
 }
 
-// `newPerson` constructs a new person struct with the given name.
+// `newPerson` construiește un nou struct `person` cu
+// numele dat.
 func newPerson(name string) *person {
-	// Go is a garbage collected language; you can safely
-	// return a pointer to a local variable - it will only
-	// be cleaned up by the garbage collector when there
-	// are no active references to it.
+	// Go este un limbaj cu garbage collector; poți
+	// returna în siguranță un pointer la o variabilă
+	// locală - aceasta va fi eliberată de garbage
+	// collector doar când nu mai există referințe active
+	// către ea.
 	p := person{name: name}
 	p.age = 42
 	return &p
@@ -25,39 +27,41 @@ func newPerson(name string) *person {
 
 func main() {
 
-	// This syntax creates a new struct.
+	// Această sintaxă creează un struct nou.
 	fmt.Println(person{"Bob", 20})
 
-	// You can name the fields when initializing a struct.
+	// Poți numi câmpurile când inițializezi un struct.
 	fmt.Println(person{name: "Alice", age: 30})
 
-	// Omitted fields will be zero-valued.
+	// Câmpurile omise vor avea valoarea zero.
 	fmt.Println(person{name: "Fred"})
 
-	// An `&` prefix yields a pointer to the struct.
+	// Prefixul `&` produce un pointer la struct.
 	fmt.Println(&person{name: "Ann", age: 40})
 
-	// It's idiomatic to encapsulate new struct creation in constructor functions
+	// Este idiomatic să încapsulezi crearea unui struct
+	// nou în funcții constructor.
 	fmt.Println(newPerson("Jon"))
 
-	// Access struct fields with a dot.
+	// Accesează câmpurile unui struct cu punct.
 	s := person{name: "Sean", age: 50}
 	fmt.Println(s.name)
 
-	// Structs are mutable.
+	// Struct-urile sunt mutabile.
 	s.age = 51
 	fmt.Println(s)
 
-	// You can also use dots with struct pointers - the
-	// pointers are automatically dereferenced.
+	// Poți folosi punctul și cu pointeri la struct-uri -
+	// pointerii sunt dereferențiați automat.
 	sp := &s
 	sp.age = 52
 	fmt.Println(sp.age)
 
-	// If a struct type is only used for a single value, we don't
-	// have to give it a name. The value can have an anonymous
-	// struct type. This technique is commonly used for
-	// [table-driven tests](testing-and-benchmarking).
+	// Dacă un tip struct este folosit pentru o singură
+	// valoare, nu trebuie să-i dăm un nume. Valoarea poate
+	// avea un tip struct anonim. Această tehnică este
+	// folosită des în
+	// [testele bazate pe tabele](testing-and-benchmarking).
 	dog := struct {
 		name   string
 		isGood bool

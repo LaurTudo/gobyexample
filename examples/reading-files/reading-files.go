@@ -1,6 +1,6 @@
-// Reading and writing files are basic tasks needed for
-// many Go programs. First we'll look at some examples of
-// reading files.
+// Citirea și scrierea fișierelor sunt operații de bază
+// necesare în multe programe Go. Mai întâi vom vedea
+// câteva exemple de citire a fișierelor.
 
 package main
 
@@ -12,8 +12,9 @@ import (
 	"path/filepath"
 )
 
-// Reading files requires checking most calls for errors.
-// This helper will streamline our error checks below.
+// Citirea fișierelor presupune verificarea erorilor la
+// majoritatea apelurilor. Această funcție ajutătoare
+// ne va simplifica verificările de erori de mai jos.
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -22,29 +23,32 @@ func check(e error) {
 
 func main() {
 
-	// Perhaps the most basic file reading task is
-	// slurping a file's entire contents into memory.
+	// Poate cea mai simplă operație de citire a unui
+	// fișier este încărcarea întregului său conținut în
+	// memorie.
 	path := filepath.Join(os.TempDir(), "dat")
 	dat, err := os.ReadFile(path)
 	check(err)
 	fmt.Print(string(dat))
 
-	// You'll often want more control over how and what
-	// parts of a file are read. For these tasks, start
-	// by `Open`ing a file to obtain an `os.File` value.
+	// Adesea vei vrea mai mult control asupra modului în
+	// care se citește un fișier și a părților citite.
+	// Pentru asta, începe prin a deschide (`Open`) un
+	// fișier, ca să obții o valoare `os.File`.
 	f, err := os.Open(path)
 	check(err)
 
-	// Read some bytes from the beginning of the file.
-	// Allow up to 5 to be read but also note how many
-	// actually were read.
+	// Citim câțiva bytes de la începutul fișierului.
+	// Permitem citirea a cel mult 5, dar notăm și câți
+	// au fost citiți efectiv.
 	b1 := make([]byte, 5)
 	n1, err := f.Read(b1)
 	check(err)
 	fmt.Printf("%d bytes: %s\n", n1, string(b1[:n1]))
 
-	// You can also `Seek` to a known location in the file
-	// and `Read` from there.
+	// Poți și să te poziționezi (`Seek`) într-un loc
+	// cunoscut din fișier și să citești (`Read`) de
+	// acolo.
 	o2, err := f.Seek(6, io.SeekStart)
 	check(err)
 	b2 := make([]byte, 2)
@@ -53,19 +57,19 @@ func main() {
 	fmt.Printf("%d bytes @ %d: ", n2, o2)
 	fmt.Printf("%v\n", string(b2[:n2]))
 
-	// Other methods of seeking are relative to the
-	// current cursor position,
+	// Alte moduri de poziționare sunt relative la
+	// poziția curentă a cursorului,
 	_, err = f.Seek(2, io.SeekCurrent)
 	check(err)
 
-	// and relative to the end of the file.
+	// și relative la sfârșitul fișierului.
 	_, err = f.Seek(-4, io.SeekEnd)
 	check(err)
 
-	// The `io` package provides some functions that may
-	// be helpful for file reading. For example, reads
-	// like the ones above can be more robustly
-	// implemented with `ReadAtLeast`.
+	// Pachetul `io` oferă câteva funcții care pot fi
+	// utile la citirea fișierelor. De exemplu, citiri ca
+	// cele de mai sus pot fi implementate mai robust cu
+	// `ReadAtLeast`.
 	o3, err := f.Seek(6, io.SeekStart)
 	check(err)
 	b3 := make([]byte, 2)
@@ -73,22 +77,23 @@ func main() {
 	check(err)
 	fmt.Printf("%d bytes @ %d: %s\n", n3, o3, string(b3))
 
-	// There is no built-in rewind, but
-	// `Seek(0, io.SeekStart)` accomplishes this.
+	// Nu există o funcție predefinită de rewind
+	// (revenire la început), dar
+	// `Seek(0, io.SeekStart)` face exact asta.
 	_, err = f.Seek(0, io.SeekStart)
 	check(err)
 
-	// The `bufio` package implements a buffered
-	// reader that may be useful both for its efficiency
-	// with many small reads and because of the additional
-	// reading methods it provides.
+	// Pachetul `bufio` implementează un reader cu buffer,
+	// util atât pentru eficiența lui în cazul multor
+	// citiri mici, cât și pentru metodele de citire
+	// suplimentare pe care le oferă.
 	r4 := bufio.NewReader(f)
 	b4, err := r4.Peek(5)
 	check(err)
 	fmt.Printf("5 bytes: %s\n", string(b4))
 
-	// Close the file when you're done (usually this would
-	// be scheduled immediately after `Open`ing with
-	// `defer`).
+	// Închide fișierul când ai terminat (de obicei, asta
+	// s-ar programa cu `defer` imediat după deschiderea
+	// cu `Open`).
 	f.Close()
 }

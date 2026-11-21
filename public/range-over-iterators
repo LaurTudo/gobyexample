@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Starting with version 1.23, Go has added support for
-<a href="https://go.dev/blog/range-functions">iterators</a>,
-which lets us range over pretty much anything!</p>
+            <p>Începând cu versiunea 1.23, Go a adăugat suport pentru
+<a href="https://go.dev/blog/range-functions">iteratori</a>,
+care ne permit să folosim <code>range</code> peste aproape orice!</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ which lets us range over pretty much anything!</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/lHX3uDqdfUB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/M3KpX2pFcrg"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,11 +68,11 @@ which lets us range over pretty much anything!</p>
         
         <tr>
           <td class="docs">
-            <p>Let&rsquo;s look at the <code>List</code> type from the
-<a href="generics">previous example</a> again. In that example
-we had an <code>AllElements</code> method that returned a slice
-of all elements in the list. With Go iterators, we
-can do it better - as shown below.</p>
+            <p>Să ne uităm din nou la tipul <code>List</code> din
+<a href="generics">exemplul anterior</a>. Acolo aveam o metodă
+<code>AllElements</code> care returna un slice cu toate
+elementele din listă. Cu iteratorii din Go putem face
+asta mai bine - după cum se vede mai jos.</p>
 
           </td>
           <td class="code leading">
@@ -116,8 +116,9 @@ can do it better - as shown below.</p>
         
         <tr>
           <td class="docs">
-            <p>All returns an <em>iterator</em>, which in Go is a function
-with a <a href="https://pkg.go.dev/iter#Seq">special signature</a>.</p>
+            <p>All returnează un <em>iterator</em>, care în Go este o
+funcție cu o
+<a href="https://pkg.go.dev/iter#Seq">semnătură specială</a>.</p>
 
           </td>
           <td class="code leading">
@@ -129,11 +130,12 @@ with a <a href="https://pkg.go.dev/iter#Seq">special signature</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>The iterator function takes another function as
-a parameter, called <code>yield</code> by convention (but
-the name can be arbitrary). It will call <code>yield</code> for
-every element we want to iterate over, and note <code>yield</code>&rsquo;s
-return value for a potential early termination.</p>
+            <p>Funcția iterator primește ca parametru o altă
+funcție, numită prin convenție <code>yield</code> (dar
+numele poate fi oricare). Ea va apela <code>yield</code>
+pentru fiecare element peste care vrem să
+iterăm și va ține cont de valoarea returnată de
+<code>yield</code> pentru o eventuală oprire timpurie.</p>
 
           </td>
           <td class="code leading">
@@ -150,10 +152,10 @@ return value for a potential early termination.</p>
         
         <tr>
           <td class="docs">
-            <p>Iteration doesn&rsquo;t require an underlying data structure,
-and doesn&rsquo;t even have to be finite! Here&rsquo;s a function
-returning an iterator over Fibonacci numbers: it keeps
-running as long as <code>yield</code> keeps returning <code>true</code>.</p>
+            <p>Iterația nu necesită o structură de date în spate și
+nici măcar nu trebuie să fie finită! Iată o funcție
+care returnează un iterator peste numerele Fibonacci:
+rulează cât timp <code>yield</code> returnează <code>true</code>.</p>
 
           </td>
           <td class="code leading">
@@ -197,8 +199,8 @@ running as long as <code>yield</code> keeps returning <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Since <code>List.All</code> returns an iterator, we can use it
-in a regular <code>range</code> loop.</p>
+            <p>Deoarece <code>List.All</code> returnează un iterator, îl putem
+folosi într-o buclă <code>range</code> obișnuită.</p>
 
           </td>
           <td class="code leading">
@@ -211,10 +213,10 @@ in a regular <code>range</code> loop.</p>
         
         <tr>
           <td class="docs">
-            <p>Packages like <a href="https://pkg.go.dev/slices">slices</a> have
-a number of useful functions to work with iterators.
-For example, <code>Collect</code> takes any iterator and collects
-all its values into a slice.</p>
+            <p>Pachete precum <a href="https://pkg.go.dev/slices">slices</a>
+au o serie de funcții utile pentru lucrul cu
+iteratori. De exemplu, <code>Collect</code> primește orice
+iterator și adună toate valorile lui într-un slice.</p>
 
           </td>
           <td class="code leading">
@@ -226,9 +228,11 @@ all its values into a slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Standard library packages now expose iterator helpers
-too. For example, <code>strings.SplitSeq</code> iterates over parts
-of a byte slice without first building a result slice.</p>
+            <p>Pachetele din biblioteca standard oferă acum și
+funcții ajutătoare pentru iteratori. De exemplu,
+<code>strings.SplitSeq</code> iterează peste părțile unui
+string fără să construiască mai întâi un slice cu
+rezultatele.</p>
 
           </td>
           <td class="code leading">
@@ -251,8 +255,9 @@ of a byte slice without first building a result slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Once the loop hits <code>break</code> or an early return, the <code>yield</code> function
-passed to the iterator will return <code>false</code>.</p>
+            <p>Când bucla ajunge la <code>break</code> sau la un <code>return</code>
+timpuriu, funcția <code>yield</code> transmisă iteratorului
+va returna <code>false</code>.</p>
 
           </td>
           <td class="code">
@@ -303,7 +308,7 @@ passed to the iterator will return <code>false</code>.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

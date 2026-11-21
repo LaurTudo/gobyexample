@@ -13,6 +13,6 @@ loop
 3
 5
 
-# We'll see some other `for` forms later when we look at
-# `range` statements, channels, and other data
-# structures.
+# Vom vedea și alte forme ale lui `for` mai târziu, când
+# vom discuta despre instrucțiunile `range`, canale și
+# alte structuri de date.

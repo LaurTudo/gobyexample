@@ -1,5 +1,6 @@
-// In this example we'll look at how to implement
-// a _worker pool_ using goroutines and channels.
+// În acest exemplu vom vedea cum să implementăm un
+// _worker pool_ (un grup de workeri) folosind
+// goroutine-uri și canale.
 
 package main
 
@@ -8,11 +9,12 @@ import (
 	"time"
 )
 
-// Here's the worker, of which we'll run several
-// concurrent instances. These workers will receive
-// work on the `jobs` channel and send the corresponding
-// results on `results`. We'll sleep a second per job to
-// simulate an expensive task.
+// Iată worker-ul, din care vom rula mai multe instanțe
+// concurente. Acești workeri vor primi sarcini pe
+// canalul `jobs` și vor trimite rezultatele
+// corespunzătoare pe `results`. Vom aștepta câte o
+// secundă pentru fiecare sarcină, ca să simulăm o
+// operație costisitoare.
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started  job", j)
@@ -24,30 +26,32 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 
-	// In order to use our pool of workers we need to send
-	// them work and collect their results. We make 2
-	// channels for this.
+	// Pentru a folosi grupul nostru de workeri, trebuie
+	// să le trimitem sarcini și să le colectăm
+	// rezultatele. Pentru asta creăm 2 canale.
 	const numJobs = 5
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
-	// This starts up 3 workers, initially blocked
-	// because there are no jobs yet.
+	// Aici pornim 3 workeri, inițial blocați pentru că
+	// încă nu există sarcini.
 	for w := 1; w <= 3; w++ {
 		go worker(w, jobs, results)
 	}
 
-	// Here we send 5 `jobs` and then `close` that
-	// channel to indicate that's all the work we have.
+	// Aici trimitem 5 sarcini pe `jobs`, apoi închidem
+	// canalul cu `close` pentru a indica că asta e toată
+	// munca pe care o avem.
 	for j := 1; j <= numJobs; j++ {
 		jobs <- j
 	}
 	close(jobs)
 
-	// Finally we collect all the results of the work.
-	// This also ensures that the worker goroutines have
-	// finished. An alternative way to wait for multiple
-	// goroutines is to use a [WaitGroup](waitgroups).
+	// În final, colectăm toate rezultatele. Asta ne
+	// asigură și că goroutine-urile worker s-au terminat.
+	// O altă modalitate de a aștepta mai multe
+	// goroutine-uri este să folosești un
+	// [WaitGroup](waitgroups).
 	for a := 1; a <= numJobs; a++ {
 		<-results
 	}

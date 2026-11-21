@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Sometimes our Go programs need to spawn other
-processes.</p>
+            <p>Uneori, programele noastre Go trebuie să lanseze alte
+procese.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ processes.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IxGAEXe0I7U"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/fzADhVT2fP1"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,10 +77,10 @@ processes.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start with a simple command that takes no
-arguments or input and just prints something to
-stdout. The <code>exec.Command</code> helper creates an object
-to represent this external process.</p>
+            <p>Vom începe cu o comandă simplă, care nu primește
+argumente sau input și doar afișează ceva la
+stdout. Funcția ajutătoare <code>exec.Command</code> creează
+un obiect care reprezintă acest proces extern.</p>
 
           </td>
           <td class="code leading">
@@ -91,10 +91,10 @@ to represent this external process.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Output</code> method runs the command, waits for it
-to finish and collects its standard output.
- If there were no errors, <code>dateOut</code> will hold bytes
-with the date info.</p>
+            <p>Metoda <code>Output</code> rulează comanda, așteaptă să se
+termine și colectează ieșirea ei standard.
+Dacă nu au apărut erori, <code>dateOut</code> va conține
+bytes cu informațiile despre dată.</p>
 
           </td>
           <td class="code leading">
@@ -110,11 +110,11 @@ with the date info.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Output</code> and other methods of <code>Command</code> will return
-<code>*exec.Error</code> if there was a problem executing the
-command (e.g. wrong path), and <code>*exec.ExitError</code>
-if the command ran but exited with a non-zero return
-code.</p>
+            <p><code>Output</code> și alte metode ale lui <code>Command</code> vor
+returna <code>*exec.Error</code> dacă a apărut o problemă la
+executarea comenzii (de exemplu, o cale greșită) și
+<code>*exec.ExitError</code> dacă comanda a rulat, dar s-a
+terminat cu un cod de ieșire diferit de zero.</p>
 
           </td>
           <td class="code leading">
@@ -135,9 +135,10 @@ code.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at a slightly more involved case
-where we pipe data to the external process on its
-<code>stdin</code> and collect the results from its <code>stdout</code>.</p>
+            <p>În continuare vom vedea un caz puțin mai complicat,
+în care trimitem prin pipe date către procesul
+extern, pe <code>stdin</code>-ul lui, și colectăm rezultatele
+de pe <code>stdout</code>-ul lui.</p>
 
           </td>
           <td class="code leading">
@@ -148,10 +149,10 @@ where we pipe data to the external process on its
         
         <tr>
           <td class="docs">
-            <p>Here we explicitly grab input/output pipes, start
-the process, write some input to it, read the
-resulting output, and finally wait for the process
-to exit.</p>
+            <p>Aici obținem explicit pipe-urile de input/output,
+pornim procesul, îi scriem niște input, citim
+output-ul rezultat și, în final, așteptăm ca
+procesul să se termine.</p>
 
           </td>
           <td class="code leading">
@@ -168,11 +169,11 @@ to exit.</p>
         
         <tr>
           <td class="docs">
-            <p>We omitted error checks in the above example, but
-you could use the usual <code>if err != nil</code> pattern for
-all of them. We also only collect the <code>StdoutPipe</code>
-results, but you could collect the <code>StderrPipe</code> in
-exactly the same way.</p>
+            <p>Am omis verificările de erori în exemplul de mai
+sus, dar ai putea folosi tiparul obișnuit
+<code>if err != nil</code> pentru toate. De asemenea, colectăm
+doar rezultatele din <code>StdoutPipe</code>, dar ai putea
+colecta <code>StderrPipe</code> exact în același mod.</p>
 
           </td>
           <td class="code leading">
@@ -184,12 +185,12 @@ exactly the same way.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that when spawning commands we need to
-provide an explicitly delineated command and
-argument array, vs. being able to just pass in one
-command-line string. If you want to spawn a full
-command with a string, you can use <code>bash</code>&rsquo;s <code>-c</code>
-option:</p>
+            <p>Observă că, atunci când lansăm comenzi, trebuie să
+dăm explicit comanda și array-ul de argumente
+separat, în loc să putem transmite un singur string
+de linie de comandă. Dacă vrei să lansezi o comandă
+completă dintr-un string, poți folosi opțiunea <code>-c</code>
+a lui <code>bash</code>:</p>
 
           </td>
           <td class="code">
@@ -211,8 +212,8 @@ option:</p>
         
         <tr>
           <td class="docs">
-            <p>The spawned programs return output that is the same
-as if we had run them directly from the command-line.</p>
+            <p>Programele lansate returnează același output ca și
+cum le-am fi rulat direct din linia de comandă.</p>
 
           </td>
           <td class="code leading">
@@ -225,8 +226,8 @@ as if we had run them directly from the command-line.</p>
         
         <tr>
           <td class="docs">
-            <p>date doesn&rsquo;t have a <code>-x</code> flag so it will exit with
-an error message and non-zero return code.</p>
+            <p>date nu are flag-ul <code>-x</code>, așa că se va termina cu un
+mesaj de eroare și un cod de ieșire diferit de zero.</p>
 
           </td>
           <td class="code leading">
@@ -259,7 +260,7 @@ an error message and non-zero return code.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

@@ -1,15 +1,17 @@
-// In Go it's idiomatic to communicate errors via an
-// explicit, separate return value. This contrasts with
-// the exceptions used in languages like Java, Python and
-// Ruby and the overloaded single result / error value
-// sometimes used in C. Go's approach makes it easy to
-// see which functions return errors and to handle them
-// using the same language constructs employed for other,
-// non-error tasks.
+// În Go este idiomatic ca erorile să fie comunicate
+// printr-o valoare returnată explicită, separată. Asta
+// contrastează cu excepțiile folosite în limbaje precum
+// Java, Python și Ruby și cu valoarea unică, folosită
+// atât pentru rezultat, cât și pentru eroare, întâlnită
+// uneori în C. Abordarea din Go face ușor de văzut ce
+// funcții returnează erori și permite tratarea lor cu
+// aceleași construcții ale limbajului folosite și
+// pentru celelalte sarcini, care nu țin de erori.
 //
-// See the documentation of the [errors package](https://pkg.go.dev/errors)
-// and [this blog post](https://go.dev/blog/go1.13-errors) for additional
-// details.
+// Vezi documentația
+// [pachetului errors](https://pkg.go.dev/errors) și
+// [acest articol](https://go.dev/blog/go1.13-errors)
+// pentru detalii suplimentare.
 
 package main
 
@@ -18,22 +20,23 @@ import (
 	"fmt"
 )
 
-// By convention, errors are the last return value and
-// have type `error`, a built-in interface.
+// Prin convenție, erorile sunt ultima valoare returnată
+// și au tipul `error`, o interfață predefinită.
 func f(arg int) (int, error) {
 	if arg == 42 {
-		// `errors.New` constructs a basic `error` value
-		// with the given error message.
+		// `errors.New` construiește o valoare `error`
+		// simplă, cu mesajul de eroare dat.
 		return -1, errors.New("can't work with 42")
 	}
 
-	// A `nil` value in the error position indicates that
-	// there was no error.
+	// O valoare `nil` pe poziția erorii indică faptul că
+	// nu a existat nicio eroare.
 	return arg + 3, nil
 }
 
-// A sentinel error is a predeclared variable that is used to
-// signify a specific error condition.
+// O eroare santinelă (sentinel error) este o variabilă
+// declarată dinainte, folosită pentru a semnala o
+// anumită condiție de eroare.
 var ErrOutOfTea = errors.New("no more tea available")
 var ErrPower = errors.New("can't boil water")
 
@@ -42,12 +45,13 @@ func makeTea(arg int) error {
 		return ErrOutOfTea
 	} else if arg == 4 {
 
-		// We can wrap errors with higher-level errors to add
-		// context. The simplest way to do this is with the
-		// `%w` verb in `fmt.Errorf`. Wrapped errors
-		// create a logical chain (A wraps B, which wraps C, etc.)
-		// that can be queried with functions like `errors.Is`
-		// and `errors.AsType`.
+		// Putem împacheta erorile în erori de nivel mai
+		// înalt pentru a adăuga context. Cel mai simplu
+		// mod de a face asta este cu verbul `%w` din
+		// `fmt.Errorf`. Erorile împachetate formează un
+		// lanț logic (A împachetează B, care împachetează
+		// C etc.), care poate fi interogat cu funcții
+		// precum `errors.Is` și `errors.AsType`.
 		return fmt.Errorf("making tea: %w", ErrPower)
 	}
 	return nil
@@ -56,8 +60,8 @@ func makeTea(arg int) error {
 func main() {
 	for _, i := range []int{7, 42} {
 
-		// It's idiomatic to use an inline error check in the `if`
-		// line.
+		// Este idiomatic să verifici eroarea direct pe
+		// linia `if`.
 		if r, e := f(i); e != nil {
 			fmt.Println("f failed:", e)
 		} else {
@@ -68,10 +72,13 @@ func main() {
 	for i := range 5 {
 		if err := makeTea(i); err != nil {
 
-			// `errors.Is` checks that a given error (or any error in its chain)
-			// matches a specific error value. This is especially useful with wrapped or
-			// nested errors, allowing you to identify specific error types or sentinel
-			// errors in a chain of errors.
+			// `errors.Is` verifică dacă o eroare dată (sau
+			// orice eroare din lanțul ei) corespunde unei
+			// anumite valori de eroare. Este util mai ales
+			// cu erorile împachetate sau imbricate, pentru
+			// că îți permite să identifici anumite tipuri
+			// de erori sau erori santinelă într-un lanț de
+			// erori.
 			if errors.Is(err, ErrOutOfTea) {
 				fmt.Println("We should buy new tea!")
 			} else if errors.Is(err, ErrPower) {

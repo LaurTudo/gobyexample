@@ -1,6 +1,7 @@
 $ go run channel-synchronization.go      
 working...done                  
 
-# If you removed the `<- done` line from this program,
-# the program could exit before the `worker` finished
-# its work, or in some cases even before it started.
+# Dacă ai elimina linia `<- done` din acest program,
+# programul s-ar putea încheia înainte ca `worker` să-și
+# termine treaba sau, în unele cazuri, chiar înainte să
+# înceapă.

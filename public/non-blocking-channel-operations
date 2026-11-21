@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>Basic sends and receives on channels are blocking.
-However, we can use <code>select</code> with a <code>default</code> clause to
-implement <em>non-blocking</em> sends, receives, and even
-non-blocking multi-way <code>select</code>s.</p>
+            <p>Trimiterile și primirile simple pe canale sunt
+blocante. Totuși, putem folosi <code>select</code> cu o ramură
+<code>default</code> pentru a implementa trimiteri și primiri
+<em>neblocante</em> și chiar instrucțiuni <code>select</code> neblocante
+cu mai multe ramuri.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ non-blocking multi-way <code>select</code>s.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TFv6-7OVNVq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/561FtIBSZUC"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,10 +77,10 @@ non-blocking multi-way <code>select</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a non-blocking receive. If a value is
-available on <code>messages</code> then <code>select</code> will take
-the <code>&lt;-messages</code> <code>case</code> with that value. If not
-it will immediately take the <code>default</code> case.</p>
+            <p>Iată o primire neblocantă. Dacă pe <code>messages</code> este
+disponibilă o valoare, <code>select</code> va intra pe ramura
+<code>case</code> <code>&lt;-messages</code> cu acea valoare. Dacă nu, va
+intra imediat pe ramura <code>default</code>.</p>
 
           </td>
           <td class="code leading">
@@ -95,10 +96,10 @@ it will immediately take the <code>default</code> case.</p>
         
         <tr>
           <td class="docs">
-            <p>A non-blocking send works similarly. Here <code>msg</code>
-cannot be sent to the <code>messages</code> channel, because
-the channel has no buffer and there is no receiver.
-Therefore the <code>default</code> case is selected.</p>
+            <p>O trimitere neblocantă funcționează similar. Aici
+<code>msg</code> nu poate fi trimis în canalul <code>messages</code>,
+pentru că acesta nu are buffer și nu există niciun
+receptor. Prin urmare, este aleasă ramura <code>default</code>.</p>
 
           </td>
           <td class="code leading">
@@ -115,10 +116,11 @@ Therefore the <code>default</code> case is selected.</p>
         
         <tr>
           <td class="docs">
-            <p>We can use multiple <code>case</code>s above the <code>default</code>
-clause to implement a multi-way non-blocking
-select. Here we attempt non-blocking receives
-on both <code>messages</code> and <code>signals</code>.</p>
+            <p>Putem folosi mai multe ramuri <code>case</code> înaintea
+ramurii <code>default</code> pentru a implementa un select
+neblocant cu mai multe ramuri. Aici încercăm
+primiri neblocante atât pe <code>messages</code>, cât și pe
+<code>signals</code>.</p>
 
           </td>
           <td class="code">
@@ -161,7 +163,7 @@ on both <code>messages</code> and <code>signals</code>.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

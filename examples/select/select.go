@@ -1,6 +1,7 @@
-// Go's _select_ lets you wait on multiple channel
-// operations. Combining goroutines and channels with
-// select is a powerful feature of Go.
+// _select_ din Go îți permite să aștepți mai multe
+// operații pe canale. Combinarea goroutine-urilor și a
+// canalelor cu select este o facilitate puternică a
+// limbajului Go.
 
 package main
 
@@ -11,13 +12,14 @@ import (
 
 func main() {
 
-	// For our example we'll select across two channels.
+	// În exemplul nostru vom folosi `select` pe două
+	// canale.
 	c1 := make(chan string)
 	c2 := make(chan string)
 
-	// Each channel will receive a value after some amount
-	// of time, to simulate e.g. blocking RPC operations
-	// executing in concurrent goroutines.
+	// Fiecare canal va primi o valoare după un anumit
+	// timp, pentru a simula, de exemplu, operații RPC
+	// blocante executate în goroutine-uri concurente.
 	go func() {
 		time.Sleep(1 * time.Second)
 		c1 <- "one"
@@ -27,8 +29,9 @@ func main() {
 		c2 <- "two"
 	}()
 
-	// We'll use `select` to await both of these values
-	// simultaneously, printing each one as it arrives.
+	// Vom folosi `select` pentru a aștepta simultan ambele
+	// valori și o vom afișa pe fiecare pe măsură ce
+	// sosește.
 	for range 2 {
 		select {
 		case msg1 := <-c1:

@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go has several useful functions for working with
-<em>directories</em> in the file system.</p>
+            <p>Go are mai multe funcții utile pentru lucrul cu
+<em>directoare</em> din sistemul de fișiere.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/6saPJU8IfPL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/0JiHd4txgPD"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -91,8 +91,8 @@
         
         <tr>
           <td class="docs">
-            <p>Create a new sub-directory in the current working
-directory.</p>
+            <p>Creăm un subdirector nou în directorul de lucru
+curent.</p>
 
           </td>
           <td class="code leading">
@@ -104,10 +104,10 @@ directory.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating temporary directories, it&rsquo;s good
-practice to <code>defer</code> their removal. <code>os.RemoveAll</code>
-will delete a whole directory tree (similarly to
-<code>rm -rf</code>).</p>
+            <p>Când creăm directoare temporare, e o practică bună
+să le amânăm ștergerea cu <code>defer</code>. <code>os.RemoveAll</code>
+va șterge un întreg arbore de directoare (similar
+cu <code>rm -rf</code>).</p>
 
           </td>
           <td class="code leading">
@@ -118,7 +118,8 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>Helper function to create a new empty file.</p>
+            <p>Funcție ajutătoare pentru a crea un fișier nou,
+gol.</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +143,9 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>We can create a hierarchy of directories, including
-parents with <code>MkdirAll</code>. This is similar to the
-command-line <code>mkdir -p</code>.</p>
+            <p>Putem crea o ierarhie de directoare, inclusiv
+directoarele părinte, cu <code>MkdirAll</code>. Este similar
+cu comanda <code>mkdir -p</code> din linia de comandă.</p>
 
           </td>
           <td class="code leading">
@@ -168,8 +169,8 @@ command-line <code>mkdir -p</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ReadDir</code> lists directory contents, returning a
-slice of <code>os.DirEntry</code> objects.</p>
+            <p><code>ReadDir</code> listează conținutul unui director,
+returnând un slice de obiecte <code>os.DirEntry</code>.</p>
 
           </td>
           <td class="code leading">
@@ -194,8 +195,8 @@ slice of <code>os.DirEntry</code> objects.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Chdir</code> lets us change the current working directory,
-similarly to <code>cd</code>.</p>
+            <p><code>Chdir</code> ne permite să schimbăm directorul de lucru
+curent, similar cu <code>cd</code>.</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +208,8 @@ similarly to <code>cd</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
-when listing the <em>current</em> directory.</p>
+            <p>Acum vom vedea conținutul lui <code>subdir/parent/child</code>
+când listăm directorul <em>curent</em>.</p>
 
           </td>
           <td class="code leading">
@@ -233,7 +234,7 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p><code>cd</code> back to where we started.</p>
+            <p>Ne întoarcem cu <code>cd</code> de unde am pornit.</p>
 
           </td>
           <td class="code leading">
@@ -245,10 +246,10 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also visit a directory <em>recursively</em>,
-including all its sub-directories. <code>WalkDir</code> accepts
-a callback function to handle every file or
-directory visited.</p>
+            <p>Putem parcurge un director și <em>recursiv</em>, inclusiv
+toate subdirectoarele lui. <code>WalkDir</code> acceptă o
+funcție callback care tratează fiecare fișier sau
+director vizitat.</p>
 
           </td>
           <td class="code leading">
@@ -262,8 +263,8 @@ directory visited.</p>
         
         <tr>
           <td class="docs">
-            <p><code>visit</code> is called for every file or directory found
-recursively by <code>filepath.WalkDir</code>.</p>
+            <p><code>visit</code> este apelată pentru fiecare fișier sau
+director găsit recursiv de <code>filepath.WalkDir</code>.</p>
 
           </td>
           <td class="code">
@@ -315,7 +316,7 @@ recursively by <code>filepath.WalkDir</code>.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

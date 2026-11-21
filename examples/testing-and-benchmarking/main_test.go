@@ -1,11 +1,13 @@
-// Unit testing is an important part of writing
-// principled Go programs. The `testing` package
-// provides the tools we need to write unit tests
-// and the `go test` command runs tests.
+// Testarea unitară (unit testing) este o parte
+// importantă a scrierii unor programe Go bine
+// structurate. Pachetul `testing` oferă instrumentele
+// de care avem nevoie pentru a scrie teste unitare, iar
+// comanda `go test` rulează testele.
 
-// For the sake of demonstration, this code is in package
-// `main`, but it could be any package. Testing code
-// typically lives in the same package as the code it tests.
+// Pentru demonstrație, acest cod se află în pachetul
+// `main`, dar ar putea fi în orice pachet. Codul de test
+// se află de obicei în același pachet cu codul pe care
+// îl testează.
 package main
 
 import (
@@ -13,11 +15,11 @@ import (
 	"testing"
 )
 
-// We'll be testing this simple implementation of an
-// integer minimum. Typically, the code we're testing
-// would be in a source file named something like
-// `intutils.go`, and the test file for it would then
-// be named `intutils_test.go`.
+// Vom testa această implementare simplă a minimului a
+// două numere întregi. De obicei, codul pe care îl
+// testăm s-ar afla într-un fișier sursă cu un nume de
+// genul `intutils.go`, iar fișierul de test pentru el
+// s-ar numi `intutils_test.go`.
 func IntMin(a, b int) int {
 	if a < b {
 		return a
@@ -25,22 +27,24 @@ func IntMin(a, b int) int {
 	return b
 }
 
-// A test is created by writing a function with a name
-// beginning with `Test`.
+// Un test se creează scriind o funcție al cărei nume
+// începe cu `Test`.
 func TestIntMinBasic(t *testing.T) {
 	ans := IntMin(2, -2)
 	if ans != -2 {
-		// `t.Error*` will report test failures but continue
-		// executing the test. `t.Fatal*` will report test
-		// failures and stop the test immediately.
+		// `t.Error*` raportează eșecurile testului, dar
+		// continuă execuția lui. `t.Fatal*` raportează
+		// eșecurile și oprește testul imediat.
 		t.Errorf("IntMin(2, -2) = %d; want -2", ans)
 	}
 }
 
-// Writing tests can be repetitive, so it's idiomatic to
-// use a *table-driven style*, where test inputs and
-// expected outputs are listed in a table and a single loop
-// walks over them and performs the test logic.
+// Scrierea testelor poate fi repetitivă, așa că este
+// idiomatic să folosim un *stil bazat pe tabele*
+// (table-driven), în care input-urile testelor și
+// output-urile așteptate sunt listate într-un tabel,
+// iar o singură buclă le parcurge și execută logica de
+// test.
 func TestIntMinTableDriven(t *testing.T) {
 	var tests = []struct {
 		a, b int
@@ -54,9 +58,9 @@ func TestIntMinTableDriven(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		// `t.Run` enables running "subtests", one for each
-		// table entry. These are shown separately
-		// when executing `go test -v`.
+		// `t.Run` permite rularea de „subteste”, câte unul
+		// pentru fiecare intrare din tabel. Acestea sunt
+		// afișate separat la rularea `go test -v`.
 		testname := fmt.Sprintf("%d,%d", tt.a, tt.b)
 		t.Run(testname, func(t *testing.T) {
 			ans := IntMin(tt.a, tt.b)
@@ -67,15 +71,17 @@ func TestIntMinTableDriven(t *testing.T) {
 	}
 }
 
-// Benchmark tests typically go in `_test.go` files and are
-// named beginning with `Benchmark`.
-// Any code that's required for the benchmark to run but should
-// not be measured goes before this loop.
+// Testele de benchmark se pun de obicei în fișiere
+// `_test.go` și au nume care încep cu `Benchmark`.
+// Orice cod necesar pentru rularea benchmark-ului, dar
+// care nu trebuie măsurat, se pune înaintea acestei
+// bucle.
 func BenchmarkIntMin(b *testing.B) {
 	for b.Loop() {
-		// The benchmark runner will automatically execute this loop
-		// body many times to determine a reasonable estimate of the
-		// run-time of a single iteration.
+		// Runner-ul de benchmark va executa automat corpul
+		// acestei bucle de multe ori, pentru a obține o
+		// estimare rezonabilă a timpului de execuție al
+		// unei singure iterații.
 		IntMin(1, 2)
 	}
 }

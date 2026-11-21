@@ -1,6 +1,6 @@
-// Starting with version 1.23, Go has added support for
-// [iterators](https://go.dev/blog/range-functions),
-// which lets us range over pretty much anything!
+// Începând cu versiunea 1.23, Go a adăugat suport pentru
+// [iteratori](https://go.dev/blog/range-functions),
+// care ne permit să folosim `range` peste aproape orice!
 
 package main
 
@@ -11,11 +11,11 @@ import (
 	"strings"
 )
 
-// Let's look at the `List` type from the
-// [previous example](generics) again. In that example
-// we had an `AllElements` method that returned a slice
-// of all elements in the list. With Go iterators, we
-// can do it better - as shown below.
+// Să ne uităm din nou la tipul `List` din
+// [exemplul anterior](generics). Acolo aveam o metodă
+// `AllElements` care returna un slice cu toate
+// elementele din listă. Cu iteratorii din Go putem face
+// asta mai bine - după cum se vede mai jos.
 type List[T any] struct {
 	head, tail *element[T]
 }
@@ -35,15 +35,17 @@ func (lst *List[T]) Push(v T) {
 	}
 }
 
-// All returns an _iterator_, which in Go is a function
-// with a [special signature](https://pkg.go.dev/iter#Seq).
+// All returnează un _iterator_, care în Go este o
+// funcție cu o
+// [semnătură specială](https://pkg.go.dev/iter#Seq).
 func (lst *List[T]) All() iter.Seq[T] {
 	return func(yield func(T) bool) {
-		// The iterator function takes another function as
-		// a parameter, called `yield` by convention (but
-		// the name can be arbitrary). It will call `yield` for
-		// every element we want to iterate over, and note `yield`'s
-		// return value for a potential early termination.
+		// Funcția iterator primește ca parametru o altă
+		// funcție, numită prin convenție `yield` (dar
+		// numele poate fi oricare). Ea va apela `yield`
+		// pentru fiecare element peste care vrem să
+		// iterăm și va ține cont de valoarea returnată de
+		// `yield` pentru o eventuală oprire timpurie.
 		for e := lst.head; e != nil; e = e.next {
 			if !yield(e.val) {
 				return
@@ -52,10 +54,10 @@ func (lst *List[T]) All() iter.Seq[T] {
 	}
 }
 
-// Iteration doesn't require an underlying data structure,
-// and doesn't even have to be finite! Here's a function
-// returning an iterator over Fibonacci numbers: it keeps
-// running as long as `yield` keeps returning `true`.
+// Iterația nu necesită o structură de date în spate și
+// nici măcar nu trebuie să fie finită! Iată o funcție
+// care returnează un iterator peste numerele Fibonacci:
+// rulează cât timp `yield` returnează `true`.
 func genFib() iter.Seq[int] {
 	return func(yield func(int) bool) {
 		a, b := 0, 1
@@ -75,30 +77,33 @@ func main() {
 	lst.Push(13)
 	lst.Push(23)
 
-	// Since `List.All` returns an iterator, we can use it
-	// in a regular `range` loop.
+	// Deoarece `List.All` returnează un iterator, îl putem
+	// folosi într-o buclă `range` obișnuită.
 	for e := range lst.All() {
 		fmt.Println(e)
 	}
 
-	// Packages like [slices](https://pkg.go.dev/slices) have
-	// a number of useful functions to work with iterators.
-	// For example, `Collect` takes any iterator and collects
-	// all its values into a slice.
+	// Pachete precum [slices](https://pkg.go.dev/slices)
+	// au o serie de funcții utile pentru lucrul cu
+	// iteratori. De exemplu, `Collect` primește orice
+	// iterator și adună toate valorile lui într-un slice.
 	all := slices.Collect(lst.All())
 	fmt.Println("all:", all)
 
-	// Standard library packages now expose iterator helpers
-	// too. For example, `strings.SplitSeq` iterates over parts
-	// of a byte slice without first building a result slice.
+	// Pachetele din biblioteca standard oferă acum și
+	// funcții ajutătoare pentru iteratori. De exemplu,
+	// `strings.SplitSeq` iterează peste părțile unui
+	// string fără să construiască mai întâi un slice cu
+	// rezultatele.
 	for part := range strings.SplitSeq("go-by-example", "-") {
 		fmt.Printf("part: %s\n", part)
 	}
 
 	for n := range genFib() {
 
-		// Once the loop hits `break` or an early return, the `yield` function
-		// passed to the iterator will return `false`.
+		// Când bucla ajunge la `break` sau la un `return`
+		// timpuriu, funcția `yield` transmisă iteratorului
+		// va returna `false`.
 		if n >= 10 {
 			break
 		}

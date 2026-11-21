@@ -30,12 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p>Writing a basic HTTP server is easy using the
-<code>net/http</code> package.</p>
+            <p>Scrierea unui server HTTP simplu este ușoară cu
+pachetul <code>net/http</code>.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/s3xMMt9Ytry"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/KhIKwYFcoCY"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -55,11 +55,12 @@
         
         <tr>
           <td class="docs">
-            <p>A fundamental concept in <code>net/http</code> servers is
-<em>handlers</em>. A handler is an object implementing the
-<code>http.Handler</code> interface. A common way to write
-a handler is by using the <code>http.HandlerFunc</code> adapter
-on functions with the appropriate signature.</p>
+            <p>Un concept fundamental al serverelor <code>net/http</code> îl
+reprezintă <em>handler-ele</em>. Un handler este un obiect
+care implementează interfața <code>http.Handler</code>. Un mod
+obișnuit de a scrie un handler este folosirea
+adaptorului <code>http.HandlerFunc</code> pe funcții cu
+semnătura potrivită.</p>
 
           </td>
           <td class="code leading">
@@ -70,11 +71,11 @@ on functions with the appropriate signature.</p>
         
         <tr>
           <td class="docs">
-            <p>Functions serving as handlers take a
-<code>http.ResponseWriter</code> and a <code>http.Request</code> as
-arguments. The response writer is used to fill in the
-HTTP response. Here our simple response is just
-&ldquo;hello\n&rdquo;.</p>
+            <p>Funcțiile care servesc drept handler-e primesc ca
+argumente un <code>http.ResponseWriter</code> și un
+<code>http.Request</code>. Response writer-ul este folosit
+pentru a completa răspunsul HTTP. Aici, răspunsul
+nostru simplu este doar &ldquo;hello\n&rdquo;.</p>
 
           </td>
           <td class="code leading">
@@ -96,9 +97,9 @@ HTTP response. Here our simple response is just
         
         <tr>
           <td class="docs">
-            <p>This handler does something a little more
-sophisticated by reading all the HTTP request
-headers and echoing them into the response body.</p>
+            <p>Acest handler face ceva puțin mai sofisticat:
+citește toate header-ele cererii HTTP și le
+reproduce în corpul răspunsului.</p>
 
           </td>
           <td class="code leading">
@@ -124,10 +125,10 @@ headers and echoing them into the response body.</p>
         
         <tr>
           <td class="docs">
-            <p>We register our handlers on server routes using the
-<code>http.HandleFunc</code> convenience function. It sets up
-the <em>default router</em> in the <code>net/http</code> package and
-takes a function as an argument.</p>
+            <p>Înregistrăm handler-ele pe rutele serverului
+folosind funcția comodă <code>http.HandleFunc</code>. Aceasta
+configurează <em>router-ul implicit</em> din pachetul
+<code>net/http</code> și primește o funcție ca argument.</p>
 
           </td>
           <td class="code leading">
@@ -139,9 +140,9 @@ takes a function as an argument.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, we call the <code>ListenAndServe</code> with the port
-and a handler. <code>nil</code> tells it to use the default
-router we&rsquo;ve just set up.</p>
+            <p>În final, apelăm <code>ListenAndServe</code> cu portul și un
+handler. <code>nil</code> îi spune să folosească router-ul
+implicit pe care tocmai l-am configurat.</p>
 
           </td>
           <td class="code">
@@ -157,7 +158,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Run the server in the background.</p>
+            <p>Rulăm serverul în fundal.</p>
 
           </td>
           <td class="code leading">
@@ -168,7 +169,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Access the <code>/hello</code> route.</p>
+            <p>Accesăm ruta <code>/hello</code>.</p>
 
           </td>
           <td class="code">
@@ -187,7 +188,7 @@ router we&rsquo;ve just set up.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

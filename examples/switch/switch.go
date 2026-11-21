@@ -1,5 +1,5 @@
-// _Switch statements_ express conditionals across many
-// branches.
+// _Instrucțiunile switch_ exprimă condiții cu
+// multe ramuri.
 
 package main
 
@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	// Here's a basic `switch`.
+	// Iată un `switch` de bază.
 	i := 2
 	fmt.Print("Write ", i, " as ")
 	switch i {
@@ -22,9 +22,9 @@ func main() {
 		fmt.Println("three")
 	}
 
-	// You can use commas to separate multiple expressions
-	// in the same `case` statement. We use the optional
-	// `default` case in this example as well.
+	// Poți folosi virgule pentru a separa mai multe expresii
+	// în aceeași ramură `case`. În acest exemplu folosim și
+	// ramura opțională `default`.
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		fmt.Println("It's the weekend")
@@ -32,9 +32,9 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
-	// `switch` without an expression is an alternate way
-	// to express if/else logic. Here we also show how the
-	// `case` expressions can be non-constants.
+	// `switch` fără expresie este o modalitate alternativă
+	// de a exprima logica if/else. Aici arătăm și că
+	// expresiile din `case` pot fi neconstante.
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
@@ -43,10 +43,10 @@ func main() {
 		fmt.Println("It's after noon")
 	}
 
-	// A type `switch` compares types instead of values.  You
-	// can use this to discover the type of an interface
-	// value.  In this example, the variable `t` will have the
-	// type corresponding to its clause.
+	// Un `switch` pe tipuri compară tipuri în loc de valori.
+	// Îl poți folosi pentru a afla tipul unei valori de tip
+	// interfață. În acest exemplu, variabila `t` va avea
+	// tipul corespunzător ramurii în care se află.
 	whatAmI := func(i any) {
 		switch t := i.(type) {
 		case bool:

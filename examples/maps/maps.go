@@ -1,5 +1,7 @@
-// _Maps_ are Go's built-in [associative data type](https://en.wikipedia.org/wiki/Associative_array)
-// (sometimes called _hashes_ or _dicts_ in other languages).
+// _Map-urile_ sunt
+// [tipul de date asociativ](https://en.wikipedia.org/wiki/Associative_array)
+// predefinit din Go (numite uneori _hashes_ sau _dicts_
+// în alte limbaje).
 
 package main
 
@@ -10,60 +12,60 @@ import (
 
 func main() {
 
-	// To create an empty map, use the builtin `make`:
-	// `make(map[key-type]val-type)`.
+	// Pentru a crea un map gol, folosește funcția
+	// predefinită `make`: `make(map[key-type]val-type)`.
 	m := make(map[string]int)
 
-	// Set key/value pairs using typical `name[key] = val`
-	// syntax.
+	// Setează perechi cheie/valoare folosind sintaxa
+	// obișnuită `name[key] = val`.
 	m["k1"] = 7
 	m["k2"] = 13
 
-	// Printing a map with e.g. `fmt.Println` will show all of
-	// its key/value pairs.
+	// Afișarea unui map, de exemplu cu `fmt.Println`, va
+	// arăta toate perechile lui cheie/valoare.
 	fmt.Println("map:", m)
 
-	// Get a value for a key with `name[key]`.
+	// Obține valoarea pentru o cheie cu `name[key]`.
 	v1 := m["k1"]
 	fmt.Println("v1:", v1)
 
-	// If the key doesn't exist, the
-	// [zero value](https://go.dev/ref/spec#The_zero_value) of the
-	// value type is returned.
+	// Dacă cheia nu există, se returnează
+	// [valoarea zero](https://go.dev/ref/spec#The_zero_value)
+	// a tipului valorii.
 	v3 := m["k3"]
 	fmt.Println("v3:", v3)
 
-	// The builtin `len` returns the number of key/value
-	// pairs when called on a map.
+	// Funcția predefinită `len`, apelată pe un map,
+	// returnează numărul de perechi cheie/valoare.
 	fmt.Println("len:", len(m))
 
-	// The builtin `delete` removes key/value pairs from
-	// a map.
+	// Funcția predefinită `delete` elimină perechi
+	// cheie/valoare dintr-un map.
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
-	// To remove *all* key/value pairs from a map, use
-	// the `clear` builtin.
+	// Pentru a elimina *toate* perechile cheie/valoare
+	// dintr-un map, folosește funcția predefinită `clear`.
 	clear(m)
 	fmt.Println("map:", m)
 
-	// The optional second return value when getting a
-	// value from a map indicates if the key was present
-	// in the map. This can be used to disambiguate
-	// between missing keys and keys with zero values
-	// like `0` or `""`. Here we didn't need the value
-	// itself, so we ignored it with the _blank identifier_
-	// `_`.
+	// A doua valoare returnată, opțională, la citirea
+	// unei valori dintr-un map indică dacă cheia există
+	// în map. Aceasta poate fi folosită pentru a face
+	// diferența între cheile lipsă și cheile cu valori
+	// zero, precum `0` sau `""`. Aici nu aveam nevoie de
+	// valoarea propriu-zisă, așa că am ignorat-o cu
+	// _identificatorul gol_ `_`.
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
-	// You can also declare and initialize a new map in
-	// the same line with this syntax.
+	// Poți și declara și inițializa un map nou pe aceeași
+	// linie, cu această sintaxă.
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
 
-	// The `maps` package contains a number of useful
-	// utility functions for maps.
+	// Pachetul `maps` conține o serie de funcții
+	// utilitare folositoare pentru map-uri.
 	n2 := map[string]int{"foo": 1, "bar": 2}
 	if maps.Equal(n, n2) {
 		fmt.Println("n == n2")

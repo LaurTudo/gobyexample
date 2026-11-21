@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
-are a universal mechanism for <a href="https://www.12factor.net/config">conveying configuration
-information to Unix programs</a>.
-Let&rsquo;s look at how to set, get, and list environment variables.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Variabilele de mediu</a>
+(environment variables) sunt un mecanism universal pentru
+<a href="https://www.12factor.net/config">transmiterea informațiilor de configurare către programele Unix</a>.
+Să vedem cum setăm, citim și listăm variabilele de
+mediu.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/2jmwXM264NC"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/YvV1Os-pHUb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +79,10 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
         
         <tr>
           <td class="docs">
-            <p>To set a key/value pair, use <code>os.Setenv</code>. To get a
-value for a key, use <code>os.Getenv</code>. This will return
-an empty string if the key isn&rsquo;t present in the
-environment.</p>
+            <p>Pentru a seta o pereche cheie/valoare, folosește
+<code>os.Setenv</code>. Pentru a obține valoarea unei chei,
+folosește <code>os.Getenv</code>. Aceasta va returna un string
+gol dacă cheia nu există în mediu.</p>
 
           </td>
           <td class="code leading">
@@ -94,10 +95,12 @@ environment.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>os.Environ</code> to list all key/value pairs in the
-environment. This returns a slice of strings in the
-form <code>KEY=value</code>. You can <code>strings.SplitN</code> them to
-get the key and value. Here we print all the keys.</p>
+            <p>Folosește <code>os.Environ</code> pentru a lista toate
+perechile cheie/valoare din mediu. Aceasta
+returnează un slice de string-uri de forma
+<code>KEY=value</code>. Le poți împărți cu <code>strings.SplitN</code>
+pentru a obține cheia și valoarea. Aici afișăm toate
+cheile.</p>
 
           </td>
           <td class="code">
@@ -117,9 +120,9 @@ get the key and value. Here we print all the keys.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that we pick up the value
-for <code>FOO</code> that we set in the program, but that
-<code>BAR</code> is empty.</p>
+            <p>Rulând programul, vedem că preluăm valoarea lui <code>FOO</code>
+pe care am setat-o în program, dar că <code>BAR</code> este
+gol.</p>
 
           </td>
           <td class="code leading">
@@ -132,8 +135,7 @@ for <code>FOO</code> that we set in the program, but that
         
         <tr>
           <td class="docs">
-            <p>The list of keys in the environment will depend on your
-particular machine.</p>
+            <p>Lista cheilor din mediu va depinde de mașina ta.</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +150,8 @@ particular machine.</p>
         
         <tr>
           <td class="docs">
-            <p>If we set <code>BAR</code> in the environment first, the running
-program picks that value up.</p>
+            <p>Dacă setăm mai întâi <code>BAR</code> în mediu, programul rulat
+preia acea valoare.</p>
 
           </td>
           <td class="code">
@@ -170,7 +172,7 @@ program picks that value up.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

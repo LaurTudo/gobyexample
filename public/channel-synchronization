@@ -30,11 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p>We can use channels to synchronize execution
-across goroutines. Here&rsquo;s an example of using a
-blocking receive to wait for a goroutine to finish.
-When waiting for multiple goroutines to finish,
-you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>Putem folosi canale pentru a sincroniza execuția
+între goroutine-uri. Iată un exemplu în care folosim
+o primire blocantă pentru a aștepta terminarea unei
+goroutine. Când aștepți terminarea mai multor
+goroutine-uri, s-ar putea să preferi un
+<a href="waitgroups">WaitGroup</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +49,7 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Nw-1DzIGk5f"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/P7t2ydxUBVt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,9 +69,10 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in a goroutine. The
-<code>done</code> channel will be used to notify another
-goroutine that this function&rsquo;s work is done.</p>
+            <p>Aceasta este funcția pe care o vom rula într-o
+goroutine. Canalul <code>done</code> va fi folosit pentru a
+anunța o altă goroutine că funcția și-a terminat
+treaba.</p>
 
           </td>
           <td class="code leading">
@@ -84,7 +86,7 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Send a value to notify that we&rsquo;re done.</p>
+            <p>Trimitem o valoare pentru a anunța că am terminat.</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +108,8 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Start a worker goroutine, giving it the channel to
-notify on.</p>
+            <p>Pornim o goroutine worker și îi dăm canalul pe care
+să trimită notificarea.</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +121,8 @@ notify on.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until we receive a notification from the
-worker on the channel.</p>
+            <p>Ne blocăm până când primim pe canal o notificare
+de la worker.</p>
 
           </td>
           <td class="code">
@@ -147,9 +149,10 @@ worker on the channel.</p>
         
         <tr>
           <td class="docs">
-            <p>If you removed the <code>&lt;- done</code> line from this program,
-the program could exit before the <code>worker</code> finished
-its work, or in some cases even before it started.</p>
+            <p>Dacă ai elimina linia <code>&lt;- done</code> din acest program,
+programul s-ar putea încheia înainte ca <code>worker</code> să-și
+termine treaba sau, în unele cazuri, chiar înainte să
+înceapă.</p>
 
           </td>
           <td class="code empty">
@@ -167,7 +170,7 @@ its work, or in some cases even before it started.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

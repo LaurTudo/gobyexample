@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s possible to define custom error types by
-implementing the <code>Error()</code> method on them. Here&rsquo;s a
-variant on the example above that uses a custom type
-to explicitly represent an argument error.</p>
+            <p>Putem defini tipuri de erori personalizate
+implementând pe ele metoda <code>Error()</code>. Iată o variantă
+a exemplului anterior, care folosește un tip
+personalizat pentru a reprezenta explicit o eroare de
+argument.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ to explicitly represent an argument error.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/0WHh8JFOjQq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/J5iecLqvPIG"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,7 +68,8 @@ to explicitly represent an argument error.</p>
         
         <tr>
           <td class="docs">
-            <p>A custom error type usually has the suffix &ldquo;Error&rdquo;.</p>
+            <p>Un tip de eroare personalizat are de obicei sufixul
+&ldquo;Error&rdquo;.</p>
 
           </td>
           <td class="code leading">
@@ -81,8 +83,8 @@ to explicitly represent an argument error.</p>
         
         <tr>
           <td class="docs">
-            <p>Adding this <code>Error</code> method makes <code>argError</code> implement
-the <code>error</code> interface.</p>
+            <p>Prin adăugarea acestei metode <code>Error</code>, <code>argError</code>
+implementează interfața <code>error</code>.</p>
 
           </td>
           <td class="code leading">
@@ -106,7 +108,7 @@ the <code>error</code> interface.</p>
         
         <tr>
           <td class="docs">
-            <p>Return our custom error.</p>
+            <p>Returnăm eroarea noastră personalizată.</p>
 
           </td>
           <td class="code leading">
@@ -130,11 +132,12 @@ the <code>error</code> interface.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.AsType</code> is a more advanced version of <code>errors.Is</code>.
-It checks that a given error (or any error in its chain)
-matches a specific error type and converts to a value
-of that type, also returning <code>true</code>. If there&rsquo;s no match, the
-second return value is <code>false</code>.</p>
+            <p><code>errors.AsType</code> este o versiune mai avansată a lui
+<code>errors.Is</code>. Verifică dacă o eroare dată (sau orice
+eroare din lanțul ei) corespunde unui anumit tip de
+eroare și o convertește la o valoare de acel tip,
+returnând și <code>true</code>. Dacă nu există potrivire, a
+doua valoare returnată este <code>false</code>.</p>
 
           </td>
           <td class="code">
@@ -175,7 +178,7 @@ second return value is <code>false</code>.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

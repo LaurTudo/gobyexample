@@ -30,9 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go has built-in support for <em>multiple return values</em>.
-This feature is used often in idiomatic Go, for example
-to return both result and error values from a function.</p>
+            <p>Go are suport integrat pentru <em>valori returnate
+multiple</em>. Această facilitate este folosită des în
+codul Go idiomatic, de exemplu pentru a returna dintr-o
+funcție atât rezultatul, cât și o eroare.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +47,7 @@ to return both result and error values from a function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vZdUvLB1WbK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/G2bphGvnrNq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,8 +64,8 @@ to return both result and error values from a function.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>(int, int)</code> in this function signature shows that
-the function returns 2 <code>int</code>s.</p>
+            <p><code>(int, int)</code> din semnătura acestei funcții arată că
+funcția returnează 2 valori <code>int</code>.</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +88,8 @@ the function returns 2 <code>int</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use the 2 different return values from the
-call with <em>multiple assignment</em>.</p>
+            <p>Aici folosim cele 2 valori returnate de apel prin
+<em>atribuire multiplă</em>.</p>
 
           </td>
           <td class="code leading">
@@ -101,8 +102,8 @@ call with <em>multiple assignment</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you only want a subset of the returned values,
-use the blank identifier <code>_</code>.</p>
+            <p>Dacă vrei doar o parte din valorile returnate,
+folosește identificatorul gol <code>_</code>.</p>
 
           </td>
           <td class="code">
@@ -132,8 +133,9 @@ use the blank identifier <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Accepting a variable number of arguments is another nice
-feature of Go functions; we&rsquo;ll look at this next.</p>
+            <p>Acceptarea unui număr variabil de argumente este o altă
+facilitate utilă a funcțiilor din Go; o vom vedea în
+continuare.</p>
 
           </td>
           <td class="code empty">
@@ -151,7 +153,7 @@ feature of Go functions; we&rsquo;ll look at this next.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

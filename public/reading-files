@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Reading and writing files are basic tasks needed for
-many Go programs. First we&rsquo;ll look at some examples of
-reading files.</p>
+            <p>Citirea și scrierea fișierelor sunt operații de bază
+necesare în multe programe Go. Mai întâi vom vedea
+câteva exemple de citire a fișierelor.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ reading files.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/J710-KJyC8z"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/pKF-Jk6i3cs"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -69,8 +69,9 @@ reading files.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading files requires checking most calls for errors.
-This helper will streamline our error checks below.</p>
+            <p>Citirea fișierelor presupune verificarea erorilor la
+majoritatea apelurilor. Această funcție ajutătoare
+ne va simplifica verificările de erori de mai jos.</p>
 
           </td>
           <td class="code leading">
@@ -95,8 +96,9 @@ This helper will streamline our error checks below.</p>
         
         <tr>
           <td class="docs">
-            <p>Perhaps the most basic file reading task is
-slurping a file&rsquo;s entire contents into memory.</p>
+            <p>Poate cea mai simplă operație de citire a unui
+fișier este încărcarea întregului său conținut în
+memorie.</p>
 
           </td>
           <td class="code leading">
@@ -110,9 +112,10 @@ slurping a file&rsquo;s entire contents into memory.</p>
         
         <tr>
           <td class="docs">
-            <p>You&rsquo;ll often want more control over how and what
-parts of a file are read. For these tasks, start
-by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
+            <p>Adesea vei vrea mai mult control asupra modului în
+care se citește un fișier și a părților citite.
+Pentru asta, începe prin a deschide (<code>Open</code>) un
+fișier, ca să obții o valoare <code>os.File</code>.</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +127,9 @@ by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
         
         <tr>
           <td class="docs">
-            <p>Read some bytes from the beginning of the file.
-Allow up to 5 to be read but also note how many
-actually were read.</p>
+            <p>Citim câțiva bytes de la începutul fișierului.
+Permitem citirea a cel mult 5, dar notăm și câți
+au fost citiți efectiv.</p>
 
           </td>
           <td class="code leading">
@@ -140,8 +143,9 @@ actually were read.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also <code>Seek</code> to a known location in the file
-and <code>Read</code> from there.</p>
+            <p>Poți și să te poziționezi (<code>Seek</code>) într-un loc
+cunoscut din fișier și să citești (<code>Read</code>) de
+acolo.</p>
 
           </td>
           <td class="code leading">
@@ -158,8 +162,8 @@ and <code>Read</code> from there.</p>
         
         <tr>
           <td class="docs">
-            <p>Other methods of seeking are relative to the
-current cursor position,</p>
+            <p>Alte moduri de poziționare sunt relative la
+poziția curentă a cursorului,</p>
 
           </td>
           <td class="code leading">
@@ -171,7 +175,7 @@ current cursor position,</p>
         
         <tr>
           <td class="docs">
-            <p>and relative to the end of the file.</p>
+            <p>și relative la sfârșitul fișierului.</p>
 
           </td>
           <td class="code leading">
@@ -183,10 +187,10 @@ current cursor position,</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>io</code> package provides some functions that may
-be helpful for file reading. For example, reads
-like the ones above can be more robustly
-implemented with <code>ReadAtLeast</code>.</p>
+            <p>Pachetul <code>io</code> oferă câteva funcții care pot fi
+utile la citirea fișierelor. De exemplu, citiri ca
+cele de mai sus pot fi implementate mai robust cu
+<code>ReadAtLeast</code>.</p>
 
           </td>
           <td class="code leading">
@@ -202,8 +206,9 @@ implemented with <code>ReadAtLeast</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>There is no built-in rewind, but
-<code>Seek(0, io.SeekStart)</code> accomplishes this.</p>
+            <p>Nu există o funcție predefinită de rewind
+(revenire la început), dar
+<code>Seek(0, io.SeekStart)</code> face exact asta.</p>
 
           </td>
           <td class="code leading">
@@ -215,10 +220,10 @@ implemented with <code>ReadAtLeast</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>bufio</code> package implements a buffered
-reader that may be useful both for its efficiency
-with many small reads and because of the additional
-reading methods it provides.</p>
+            <p>Pachetul <code>bufio</code> implementează un reader cu buffer,
+util atât pentru eficiența lui în cazul multor
+citiri mici, cât și pentru metodele de citire
+suplimentare pe care le oferă.</p>
 
           </td>
           <td class="code leading">
@@ -232,9 +237,9 @@ reading methods it provides.</p>
         
         <tr>
           <td class="docs">
-            <p>Close the file when you&rsquo;re done (usually this would
-be scheduled immediately after <code>Open</code>ing with
-<code>defer</code>).</p>
+            <p>Închide fișierul când ai terminat (de obicei, asta
+s-ar programa cu <code>defer</code> imediat după deschiderea
+cu <code>Open</code>).</p>
 
           </td>
           <td class="code">
@@ -268,7 +273,7 @@ be scheduled immediately after <code>Open</code>ing with
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at writing files.</p>
+            <p>În continuare vom vedea scrierea fișierelor.</p>
 
           </td>
           <td class="code empty">
@@ -286,7 +291,7 @@ be scheduled immediately after <code>Open</code>ing with
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

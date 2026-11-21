@@ -1,5 +1,5 @@
-# Running the program confirms that the file is closed
-# after being written.
+# Rularea programului confirmă că fișierul este închis
+# după ce s-a scris în el.
 $ go run defer.go
 creating
 writing

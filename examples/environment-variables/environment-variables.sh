@@ -1,20 +1,19 @@
-# Running the program shows that we pick up the value
-# for `FOO` that we set in the program, but that
-# `BAR` is empty.
+# Rulând programul, vedem că preluăm valoarea lui `FOO`
+# pe care am setat-o în program, dar că `BAR` este
+# gol.
 $ go run environment-variables.go
 FOO: 1
 BAR: 
 
-# The list of keys in the environment will depend on your
-# particular machine.
+# Lista cheilor din mediu va depinde de mașina ta.
 TERM_PROGRAM
 PATH
 SHELL
 ...
 FOO
 
-# If we set `BAR` in the environment first, the running
-# program picks that value up.
+# Dacă setăm mai întâi `BAR` în mediu, programul rulat
+# preia acea valoare.
 $ BAR=2 go run environment-variables.go
 FOO: 1
 BAR: 2

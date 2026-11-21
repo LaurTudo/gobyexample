@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>Unit testing is an important part of writing
-principled Go programs. The <code>testing</code> package
-provides the tools we need to write unit tests
-and the <code>go test</code> command runs tests.</p>
+            <p>Testarea unitară (unit testing) este o parte
+importantă a scrierii unor programe Go bine
+structurate. Pachetul <code>testing</code> oferă instrumentele
+de care avem nevoie pentru a scrie teste unitare, iar
+comanda <code>go test</code> rulează testele.</p>
 
           </td>
           <td class="code empty leading">
@@ -44,13 +45,14 @@ and the <code>go test</code> command runs tests.</p>
         
         <tr>
           <td class="docs">
-            <p>For the sake of demonstration, this code is in package
-<code>main</code>, but it could be any package. Testing code
-typically lives in the same package as the code it tests.</p>
+            <p>Pentru demonstrație, acest cod se află în pachetul
+<code>main</code>, dar ar putea fi în orice pachet. Codul de test
+se află de obicei în același pachet cu codul pe care
+îl testează.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/osZckbKSkse"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/NnYjYbuCHtj"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -70,11 +72,11 @@ typically lives in the same package as the code it tests.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll be testing this simple implementation of an
-integer minimum. Typically, the code we&rsquo;re testing
-would be in a source file named something like
-<code>intutils.go</code>, and the test file for it would then
-be named <code>intutils_test.go</code>.</p>
+            <p>Vom testa această implementare simplă a minimului a
+două numere întregi. De obicei, codul pe care îl
+testăm s-ar afla într-un fișier sursă cu un nume de
+genul <code>intutils.go</code>, iar fișierul de test pentru el
+s-ar numi <code>intutils_test.go</code>.</p>
 
           </td>
           <td class="code leading">
@@ -90,8 +92,8 @@ be named <code>intutils_test.go</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>A test is created by writing a function with a name
-beginning with <code>Test</code>.</p>
+            <p>Un test se creează scriind o funcție al cărei nume
+începe cu <code>Test</code>.</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +106,9 @@ beginning with <code>Test</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>t.Error*</code> will report test failures but continue
-executing the test. <code>t.Fatal*</code> will report test
-failures and stop the test immediately.</p>
+            <p><code>t.Error*</code> raportează eșecurile testului, dar
+continuă execuția lui. <code>t.Fatal*</code> raportează
+eșecurile și oprește testul imediat.</p>
 
           </td>
           <td class="code leading">
@@ -119,10 +121,12 @@ failures and stop the test immediately.</p>
         
         <tr>
           <td class="docs">
-            <p>Writing tests can be repetitive, so it&rsquo;s idiomatic to
-use a <em>table-driven style</em>, where test inputs and
-expected outputs are listed in a table and a single loop
-walks over them and performs the test logic.</p>
+            <p>Scrierea testelor poate fi repetitivă, așa că este
+idiomatic să folosim un <em>stil bazat pe tabele</em>
+(table-driven), în care input-urile testelor și
+output-urile așteptate sunt listate într-un tabel,
+iar o singură buclă le parcurge și execută logica de
+test.</p>
 
           </td>
           <td class="code leading">
@@ -143,9 +147,9 @@ walks over them and performs the test logic.</p>
         
         <tr>
           <td class="docs">
-            <p><code>t.Run</code> enables running &ldquo;subtests&rdquo;, one for each
-table entry. These are shown separately
-when executing <code>go test -v</code>.</p>
+            <p><code>t.Run</code> permite rularea de „subteste”, câte unul
+pentru fiecare intrare din tabel. Acestea sunt
+afișate separat la rularea <code>go test -v</code>.</p>
 
           </td>
           <td class="code leading">
@@ -174,10 +178,11 @@ when executing <code>go test -v</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Benchmark tests typically go in <code>_test.go</code> files and are
-named beginning with <code>Benchmark</code>.
-Any code that&rsquo;s required for the benchmark to run but should
-not be measured goes before this loop.</p>
+            <p>Testele de benchmark se pun de obicei în fișiere
+<code>_test.go</code> și au nume care încep cu <code>Benchmark</code>.
+Orice cod necesar pentru rularea benchmark-ului, dar
+care nu trebuie măsurat, se pune înaintea acestei
+bucle.</p>
 
           </td>
           <td class="code leading">
@@ -189,9 +194,10 @@ not be measured goes before this loop.</p>
         
         <tr>
           <td class="docs">
-            <p>The benchmark runner will automatically execute this loop
-body many times to determine a reasonable estimate of the
-run-time of a single iteration.</p>
+            <p>Runner-ul de benchmark va executa automat corpul
+acestei bucle de multe ori, pentru a obține o
+estimare rezonabilă a timpului de execuție al
+unei singure iterații.</p>
 
           </td>
           <td class="code">
@@ -208,7 +214,8 @@ run-time of a single iteration.</p>
         
         <tr>
           <td class="docs">
-            <p>Run all tests in the current project in verbose mode.</p>
+            <p>Rulăm toate testele din proiectul curent în modul
+detaliat (verbose).</p>
 
           </td>
           <td class="code leading">
@@ -235,9 +242,10 @@ run-time of a single iteration.</p>
         
         <tr>
           <td class="docs">
-            <p>Run all benchmarks in the current project. All tests
-are run prior to benchmarks. The <code>bench</code> flag filters
-benchmark function names with a regexp.</p>
+            <p>Rulăm toate benchmark-urile din proiectul curent.
+Toate testele sunt rulate înaintea benchmark-urilor.
+Flag-ul <code>bench</code> filtrează numele funcțiilor de
+benchmark cu un regexp.</p>
 
           </td>
           <td class="code">
@@ -261,7 +269,7 @@ benchmark function names with a regexp.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

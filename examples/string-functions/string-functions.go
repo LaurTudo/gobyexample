@@ -1,6 +1,6 @@
-// The standard library's `strings` package provides many
-// useful string-related functions. Here are some examples
-// to give you a sense of the package.
+// Pachetul `strings` din biblioteca standard oferă multe
+// funcții utile pentru lucrul cu string-uri. Iată câteva
+// exemple care să-ți facă o idee despre pachet.
 
 package main
 
@@ -9,19 +9,19 @@ import (
 	s "strings"
 )
 
-// We alias `fmt.Println` to a shorter name as we'll use
-// it a lot below.
+// Dăm lui `fmt.Println` un alias cu un nume mai scurt,
+// pentru că îl vom folosi des mai jos.
 var p = fmt.Println
 
 func main() {
 
-	// Here's a sample of the functions available in
-	// `strings`. Since these are functions from the
-	// package, not methods on the string object itself,
-	// we need to pass the string in question as the first
-	// argument to the function. You can find more
-	// functions in the [`strings`](https://pkg.go.dev/strings)
-	// package docs.
+	// Iată o selecție a funcțiilor disponibile în
+	// `strings`. Deoarece acestea sunt funcții ale
+	// pachetului, nu metode ale obiectului string în
+	// sine, trebuie să transmitem string-ul respectiv ca
+	// prim argument al funcției. Poți găsi mai multe
+	// funcții în documentația pachetului
+	// [`strings`](https://pkg.go.dev/strings).
 	p("Contains:  ", s.Contains("test", "es"))
 	p("Count:     ", s.Count("test", "t"))
 	p("HasPrefix: ", s.HasPrefix("test", "te"))

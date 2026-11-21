@@ -30,12 +30,14 @@
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;d like our Go programs to intelligently
-handle <a href="https://en.wikipedia.org/wiki/Unix_signal">Unix signals</a>.
-For example, we might want a server to gracefully
-shutdown when it receives a <code>SIGTERM</code>, or a command-line
-tool to stop processing input if it receives a <code>SIGINT</code>.
-Here&rsquo;s a modern way to handle signals using contexts.</p>
+            <p>Uneori vrem ca programele noastre Go să trateze
+inteligent <a href="https://en.wikipedia.org/wiki/Unix_signal">semnalele Unix</a>.
+De exemplu, am putea vrea ca un server să se oprească
+elegant (graceful shutdown) când primește un
+<code>SIGTERM</code>, sau ca o unealtă din linia de comandă să
+oprească procesarea input-ului dacă primește un
+<code>SIGINT</code>. Iată un mod modern de a trata semnalele
+folosind contexte.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +51,7 @@ Here&rsquo;s a modern way to handle signals using contexts.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/F3Wm7JT8wgn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/mwwUvJznwq0"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -71,8 +73,9 @@ Here&rsquo;s a modern way to handle signals using contexts.</p>
         
         <tr>
           <td class="docs">
-            <p><code>signal.NotifyContext</code> returns a context that&rsquo;s canceled
-when one of the listed signals arrives.</p>
+            <p><code>signal.NotifyContext</code> returnează un context care
+este anulat când sosește unul dintre semnalele
+enumerate.</p>
 
           </td>
           <td class="code leading">
@@ -95,8 +98,8 @@ when one of the listed signals arrives.</p>
         
         <tr>
           <td class="docs">
-            <p>The program will wait here until one of the
-configured signals is received.</p>
+            <p>Programul va aștepta aici până când primește unul
+dintre semnalele configurate.</p>
 
           </td>
           <td class="code leading">
@@ -108,9 +111,9 @@ configured signals is received.</p>
         
         <tr>
           <td class="docs">
-            <p><code>context.Cause</code> reports why the context was canceled.
-For a signal-triggered cancellation, this includes
-the signal value.</p>
+            <p><code>context.Cause</code> raportează de ce a fost anulat
+contextul. Pentru o anulare declanșată de un semnal,
+aceasta include valoarea semnalului.</p>
 
           </td>
           <td class="code">
@@ -128,10 +131,11 @@ the signal value.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run this program it will block waiting for a
-signal. By typing <code>ctrl-C</code> (which the
-terminal shows as <code>^C</code>) we can send a <code>SIGINT</code> signal,
-causing the program to print the cancellation cause and then exit.</p>
+            <p>Când rulăm acest program, se va bloca așteptând un
+semnal. Apăsând <code>ctrl-C</code> (pe care terminalul îl
+afișează ca <code>^C</code>), putem trimite un semnal <code>SIGINT</code>,
+iar programul va afișa cauza anulării și apoi se va
+termina.</p>
 
           </td>
           <td class="code">
@@ -153,7 +157,7 @@ causing the program to print the cancellation cause and then exit.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

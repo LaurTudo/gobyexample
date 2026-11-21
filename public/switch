@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p><em>Switch statements</em> express conditionals across many
-branches.</p>
+            <p><em>Instrucțiunile switch</em> exprimă condiții cu
+multe ramuri.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ branches.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/0bvw1aIeuFM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jYi9V8F95N5"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,7 +75,7 @@ branches.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic <code>switch</code>.</p>
+            <p>Iată un <code>switch</code> de bază.</p>
 
           </td>
           <td class="code leading">
@@ -95,9 +95,9 @@ branches.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use commas to separate multiple expressions
-in the same <code>case</code> statement. We use the optional
-<code>default</code> case in this example as well.</p>
+            <p>Poți folosi virgule pentru a separa mai multe expresii
+în aceeași ramură <code>case</code>. În acest exemplu folosim și
+ramura opțională <code>default</code>.</p>
 
           </td>
           <td class="code leading">
@@ -113,9 +113,9 @@ in the same <code>case</code> statement. We use the optional
         
         <tr>
           <td class="docs">
-            <p><code>switch</code> without an expression is an alternate way
-to express if/else logic. Here we also show how the
-<code>case</code> expressions can be non-constants.</p>
+            <p><code>switch</code> fără expresie este o modalitate alternativă
+de a exprima logica if/else. Aici arătăm și că
+expresiile din <code>case</code> pot fi neconstante.</p>
 
           </td>
           <td class="code leading">
@@ -132,10 +132,10 @@ to express if/else logic. Here we also show how the
         
         <tr>
           <td class="docs">
-            <p>A type <code>switch</code> compares types instead of values.  You
-can use this to discover the type of an interface
-value.  In this example, the variable <code>t</code> will have the
-type corresponding to its clause.</p>
+            <p>Un <code>switch</code> pe tipuri compară tipuri în loc de valori.
+Îl poți folosi pentru a afla tipul unei valori de tip
+interfață. În acest exemplu, variabila <code>t</code> va avea
+tipul corespunzător ramurii în care se află.</p>
 
           </td>
           <td class="code">
@@ -186,7 +186,7 @@ type corresponding to its clause.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

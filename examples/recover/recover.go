@@ -1,41 +1,42 @@
-// Go makes it possible to _recover_ from a panic, by
-// using the `recover` built-in function. A `recover` can
-// stop a `panic` from aborting the program and let it
-// continue with execution instead.
+// Go face posibilă _recuperarea_ (recover) după un
+// panic, folosind funcția predefinită `recover`. Un
+// `recover` poate împiedica un `panic` să oprească
+// programul și îl poate lăsa să-și continue execuția.
 
-// An example of where this can be useful: a server
-// wouldn't want to crash if one of the client connections
-// exhibits a critical error. Instead, the server would
-// want to close that connection and continue serving
-// other clients. In fact, this is what Go's `net/http`
-// does by default for HTTP servers.
+// Un exemplu în care asta poate fi util: un server
+// n-ar vrea să se oprească brusc dacă una dintre
+// conexiunile clienților are o eroare critică. În
+// schimb, serverul ar vrea să închidă acea conexiune și
+// să continue să servească alți clienți. De fapt, exact
+// asta face implicit `net/http` din Go pentru serverele
+// HTTP.
 
 package main
 
 import "fmt"
 
-// This function panics.
+// Această funcție intră în panică.
 func mayPanic() {
 	panic("a problem")
 }
 
 func main() {
-	// `recover` must be called within a deferred function.
-	// When the enclosing function panics, the defer will
-	// activate and a `recover` call within it will catch
-	// the panic.
+	// `recover` trebuie apelat într-o funcție amânată
+	// (deferred). Când funcția care o conține intră în
+	// panică, defer-ul se va activa, iar un apel `recover`
+	// din interiorul lui va prinde panic-ul.
 	defer func() {
 		if r := recover(); r != nil {
-			// The return value of `recover` is the error raised in
-			// the call to `panic`.
+			// Valoarea returnată de `recover` este eroarea
+			// generată în apelul către `panic`.
 			fmt.Println("Recovered. Error:\n", r)
 		}
 	}()
 
 	mayPanic()
 
-	// This code will not run, because `mayPanic` panics.
-	// The execution of `main` stops at the point of the
-	// panic and resumes in the deferred closure.
+	// Acest cod nu va rula, pentru că `mayPanic` intră
+	// în panică. Execuția lui `main` se oprește în punctul
+	// panic-ului și se reia în closure-ul amânat.
 	fmt.Println("After mayPanic()")
 }

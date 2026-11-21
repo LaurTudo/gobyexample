@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go makes it possible to <em>recover</em> from a panic, by
-using the <code>recover</code> built-in function. A <code>recover</code> can
-stop a <code>panic</code> from aborting the program and let it
-continue with execution instead.</p>
+            <p>Go face posibilă <em>recuperarea</em> (recover) după un
+panic, folosind funcția predefinită <code>recover</code>. Un
+<code>recover</code> poate împiedica un <code>panic</code> să oprească
+programul și îl poate lăsa să-și continue execuția.</p>
 
           </td>
           <td class="code empty leading">
@@ -44,12 +44,13 @@ continue with execution instead.</p>
         
         <tr>
           <td class="docs">
-            <p>An example of where this can be useful: a server
-wouldn&rsquo;t want to crash if one of the client connections
-exhibits a critical error. Instead, the server would
-want to close that connection and continue serving
-other clients. In fact, this is what Go&rsquo;s <code>net/http</code>
-does by default for HTTP servers.</p>
+            <p>Un exemplu în care asta poate fi util: un server
+n-ar vrea să se oprească brusc dacă una dintre
+conexiunile clienților are o eroare critică. În
+schimb, serverul ar vrea să închidă acea conexiune și
+să continue să servească alți clienți. De fapt, exact
+asta face implicit <code>net/http</code> din Go pentru serverele
+HTTP.</p>
 
           </td>
           <td class="code empty leading">
@@ -63,7 +64,7 @@ does by default for HTTP servers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Sk-SVdofEIZ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/QKoOfRCJw7R"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,7 +81,7 @@ does by default for HTTP servers.</p>
         
         <tr>
           <td class="docs">
-            <p>This function panics.</p>
+            <p>Această funcție intră în panică.</p>
 
           </td>
           <td class="code leading">
@@ -93,10 +94,10 @@ does by default for HTTP servers.</p>
         
         <tr>
           <td class="docs">
-            <p><code>recover</code> must be called within a deferred function.
-When the enclosing function panics, the defer will
-activate and a <code>recover</code> call within it will catch
-the panic.</p>
+            <p><code>recover</code> trebuie apelat într-o funcție amânată
+(deferred). Când funcția care o conține intră în
+panică, defer-ul se va activa, iar un apel <code>recover</code>
+din interiorul lui va prinde panic-ul.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +108,8 @@ the panic.</p>
         
         <tr>
           <td class="docs">
-            <p>The return value of <code>recover</code> is the error raised in
-the call to <code>panic</code>.</p>
+            <p>Valoarea returnată de <code>recover</code> este eroarea
+generată în apelul către <code>panic</code>.</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +143,9 @@ the call to <code>panic</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>This code will not run, because <code>mayPanic</code> panics.
-The execution of <code>main</code> stops at the point of the
-panic and resumes in the deferred closure.</p>
+            <p>Acest cod nu va rula, pentru că <code>mayPanic</code> intră
+în panică. Execuția lui <code>main</code> se oprește în punctul
+panic-ului și se reia în closure-ul amânat.</p>
 
           </td>
           <td class="code">
@@ -179,7 +180,7 @@ panic and resumes in the deferred closure.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

@@ -10,5 +10,5 @@ Worker 2 done
 Worker 5 done
 Worker 3 done
 
-# The order of workers starting up and finishing
-# is likely to be different for each invocation.
+# Ordinea în care workerii pornesc și se termină va fi,
+# cel mai probabil, diferită la fiecare rulare.

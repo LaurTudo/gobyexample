@@ -1,16 +1,16 @@
-// Go supports [_anonymous functions_](https://en.wikipedia.org/wiki/Anonymous_function),
-// which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-// Anonymous functions are useful when you want to define
-// a function inline without having to name it.
+// Go suportă [_funcții anonime_](https://en.wikipedia.org/wiki/Anonymous_function),
+// care pot forma <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closure-uri</em></a>.
+// Funcțiile anonime sunt utile când vrei să definești
+// o funcție direct în cod, fără să-i dai un nume.
 
 package main
 
 import "fmt"
 
-// This function `intSeq` returns another function, which
-// we define anonymously in the body of `intSeq`. The
-// returned function _closes over_ the variable `i` to
-// form a closure.
+// Funcția `intSeq` returnează o altă funcție, pe care
+// o definim anonim în corpul lui `intSeq`. Funcția
+// returnată _capturează_ variabila `i`, formând astfel
+// un closure.
 func intSeq() func() int {
 	i := 0
 	return func() int {
@@ -21,20 +21,20 @@ func intSeq() func() int {
 
 func main() {
 
-	// We call `intSeq`, assigning the result (a function)
-	// to `nextInt`. This function value captures its
-	// own `i` value, which will be updated each time
-	// we call `nextInt`.
+	// Apelăm `intSeq` și atribuim rezultatul (o funcție)
+	// lui `nextInt`. Această valoare de tip funcție își
+	// capturează propria valoare `i`, care va fi
+	// actualizată de fiecare dată când apelăm `nextInt`.
 	nextInt := intSeq()
 
-	// See the effect of the closure by calling `nextInt`
-	// a few times.
+	// Observă efectul closure-ului apelând `nextInt`
+	// de câteva ori.
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 
-	// To confirm that the state is unique to that
-	// particular function, create and test a new one.
+	// Pentru a confirma că starea este proprie acelei
+	// funcții, creează și testează una nouă.
 	newInts := intSeq()
 	fmt.Println(newInts())
 }

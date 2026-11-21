@@ -1,9 +1,9 @@
-// Some command-line tools, like the `go` tool or `git`
-// have many *subcommands*, each with its own set of
-// flags. For example, `go build` and `go get` are two
-// different subcommands of the `go` tool.
-// The `flag` package lets us easily define simple
-// subcommands that have their own flags.
+// Unele unelte din linia de comandă, precum unealta
+// `go` sau `git`, au multe *subcomenzi*, fiecare cu
+// propriul set de flag-uri. De exemplu, `go build` și
+// `go get` sunt două subcomenzi diferite ale uneltei
+// `go`. Pachetul `flag` ne permite să definim ușor
+// subcomenzi simple, cu flag-uri proprii.
 
 package main
 
@@ -15,30 +15,31 @@ import (
 
 func main() {
 
-	// We declare a subcommand using the `NewFlagSet`
-	// function, and proceed to define new flags specific
-	// for this subcommand.
+	// Declarăm o subcomandă folosind funcția
+	// `NewFlagSet`, apoi definim flag-uri noi, specifice
+	// acestei subcomenzi.
 	fooCmd := flag.NewFlagSet("foo", flag.ExitOnError)
 	fooEnable := fooCmd.Bool("enable", false, "enable")
 	fooName := fooCmd.String("name", "", "name")
 
-	// For a different subcommand we can define different
-	// supported flags.
+	// Pentru o altă subcomandă putem defini alte flag-uri
+	// suportate.
 	barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
 	barLevel := barCmd.Int("level", 0, "level")
 
-	// The subcommand is expected as the first argument
-	// to the program.
+	// Subcomanda este așteptată ca prim argument al
+	// programului.
 	if len(os.Args) < 2 {
 		fmt.Println("expected 'foo' or 'bar' subcommands")
 		os.Exit(1)
 	}
 
-	// Check which subcommand is invoked.
+	// Verificăm ce subcomandă este apelată.
 	switch os.Args[1] {
 
-	// For every subcommand, we parse its own flags and
-	// have access to trailing positional arguments.
+	// Pentru fiecare subcomandă, îi parsăm flag-urile
+	// proprii și avem acces la argumentele poziționale
+	// de la final.
 	case "foo":
 		fooCmd.Parse(os.Args[2:])
 		fmt.Println("subcommand 'foo'")

@@ -1,13 +1,14 @@
-#  If you run `exit.go` using `go run`, the exit
-# will be picked up by `go` and printed.
+# Dacă rulezi `exit.go` cu `go run`, ieșirea va fi
+# preluată de `go` și afișată.
 $ go run exit.go
 exit status 3
 
-# By building and executing a binary you can see
-# the status in the terminal.
+# Compilând și executând un binar, poți vedea
+# statusul în terminal.
 $ go build exit.go
 $ ./exit
 $ echo $?
 3
 
-# Note that the `!` from our program never got printed.
+# Observă că `!` din programul nostru nu a fost afișat
+# niciodată.

@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>In a <a href="range-over-built-in-types">previous</a> example we saw how <code>for</code> and
-<code>range</code> provide iteration over basic data structures.
-We can also use this syntax to iterate over
-values received from a channel.</p>
+            <p>Într-un exemplu <a href="range-over-built-in-types">anterior</a>
+am văzut cum <code>for</code> și <code>range</code> permit iterarea peste
+structurile de date de bază. Putem folosi aceeași
+sintaxă și pentru a itera peste valorile primite
+dintr-un canal.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ values received from a channel.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/8vAhX6eX1wy"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/hBiS6UYO_Ut"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,7 +75,7 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll iterate over 2 values in the <code>queue</code> channel.</p>
+            <p>Vom itera peste 2 valori din canalul <code>queue</code>.</p>
 
           </td>
           <td class="code leading">
@@ -88,10 +89,10 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>range</code> iterates over each element as it&rsquo;s
-received from <code>queue</code>. Because we <code>close</code>d the
-channel above, the iteration terminates after
-receiving the 2 elements.</p>
+            <p>Acest <code>range</code> iterează peste fiecare element pe
+măsură ce este primit din <code>queue</code>. Pentru că am
+închis canalul mai sus cu <code>close</code>, iterația se
+încheie după primirea celor 2 elemente.</p>
 
           </td>
           <td class="code">
@@ -121,9 +122,9 @@ receiving the 2 elements.</p>
         
         <tr>
           <td class="docs">
-            <p>This example also showed that it&rsquo;s possible to close
-a non-empty channel but still have the remaining
-values be received.</p>
+            <p>Acest exemplu a arătat și că putem închide un canal
+care nu e gol, iar valorile rămase în el vor fi totuși
+primite.</p>
 
           </td>
           <td class="code empty">
@@ -141,7 +142,7 @@ values be received.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

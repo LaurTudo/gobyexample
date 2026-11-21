@@ -30,23 +30,25 @@
         
         <tr>
           <td class="docs">
-            <p><code>//go:embed</code> is a <a href="https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives">compiler
-directive</a> that
-allows programs to include arbitrary files and folders in the Go binary at
-build time. Read more about the embed directive
-<a href="https://pkg.go.dev/embed">here</a>.</p>
+            <p><code>//go:embed</code> este o
+<a href="https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives">directivă de compilator</a>
+care permite programelor să includă fișiere și foldere
+arbitrare în binarul Go, la momentul compilării. Poți
+citi mai multe despre directiva embed
+<a href="https://pkg.go.dev/embed">aici</a>.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/6m2ll-D52BB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jL02IxCVMU_G"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Import the <code>embed</code> package; if you don&rsquo;t use any exported
-identifiers from this package, you can do a blank import with <code>_ &quot;embed&quot;</code>.</p>
+            <p>Importăm pachetul <code>embed</code>; dacă nu folosești niciun
+identificator exportat din acest pachet, poți face un
+import gol (blank import) cu <code>_ &quot;embed&quot;</code>.</p>
 
           </td>
           <td class="code leading">
@@ -59,9 +61,10 @@ identifiers from this package, you can do a blank import with <code>_ &quot;embe
         
         <tr>
           <td class="docs">
-            <p><code>embed</code> directives accept paths relative to the directory containing the
-Go source file. This directive embeds the contents of the file into the
-<code>string</code> variable immediately following it.</p>
+            <p>Directivele <code>embed</code> acceptă căi relative la
+directorul care conține fișierul sursă Go. Această
+directivă include conținutul fișierului în variabila
+<code>string</code> care urmează imediat după ea.</p>
 
           </td>
           <td class="code leading">
@@ -73,7 +76,7 @@ Go source file. This directive embeds the contents of the file into the
         
         <tr>
           <td class="docs">
-            <p>Or embed the contents of the file into a <code>[]byte</code>.</p>
+            <p>Sau includem conținutul fișierului într-un <code>[]byte</code>.</p>
 
           </td>
           <td class="code leading">
@@ -85,9 +88,10 @@ Go source file. This directive embeds the contents of the file into the
         
         <tr>
           <td class="docs">
-            <p>We can also embed multiple files or even folders with wildcards. This uses
-a variable of the <a href="https://pkg.go.dev/embed#FS">embed.FS type</a>, which
-implements a simple virtual file system.</p>
+            <p>Putem include și mai multe fișiere sau chiar foldere,
+folosind wildcard-uri. Pentru asta folosim o variabilă
+de <a href="https://pkg.go.dev/embed#FS">tipul embed.FS</a>, care
+implementează un sistem de fișiere virtual simplu.</p>
 
           </td>
           <td class="code leading">
@@ -110,7 +114,7 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Print out the contents of <code>single_file.txt</code>.</p>
+            <p>Afișăm conținutul lui <code>single_file.txt</code>.</p>
 
           </td>
           <td class="code leading">
@@ -122,7 +126,7 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Retrieve some files from the embedded folder.</p>
+            <p>Citim câteva fișiere din folderul inclus.</p>
 
           </td>
           <td class="code leading">
@@ -150,9 +154,9 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Use these commands to run the example.
-(Note: due to limitation on go playground,
-this example can only be run on your local machine.)</p>
+            <p>Folosește aceste comenzi pentru a rula exemplul.
+(Notă: din cauza limitărilor Go Playground, acest
+exemplu poate fi rulat doar pe mașina ta locală.)</p>
 
           </td>
           <td class="code leading">
@@ -187,7 +191,7 @@ this example can only be run on your local machine.)</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

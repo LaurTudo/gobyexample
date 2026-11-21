@@ -1,10 +1,10 @@
-# To experiment with the command-line flags program it's
-# best to first compile it and then run the resulting
-# binary directly.
+# Pentru a experimenta cu programul de flag-uri, e cel
+# mai bine să-l compilezi mai întâi și apoi să rulezi
+# direct binarul rezultat.
 $ go build command-line-flags.go
 
-# Try out the built program by first giving it values for
-# all flags.
+# Încearcă programul compilat, dându-i mai întâi valori
+# pentru toate flag-urile.
 $ ./command-line-flags -word=opt -numb=7 -fork -svar=flag
 word: opt
 numb: 7
@@ -12,8 +12,8 @@ fork: true
 svar: flag
 tail: []
 
-# Note that if you omit flags they automatically take
-# their default values.
+# Observă că, dacă omiți flag-uri, acestea iau automat
+# valorile implicite.
 $ ./command-line-flags -word=opt
 word: opt
 numb: 42
@@ -21,16 +21,17 @@ fork: false
 svar: bar
 tail: []
 
-# Trailing positional arguments can be provided after
-# any flags.
+# Argumentele poziționale pot fi date la final, după
+# flag-uri.
 $ ./command-line-flags -word=opt a1 a2 a3
 word: opt
 ...
 tail: [a1 a2 a3]
 
-# Note that the `flag` package requires all flags to
-# appear before positional arguments (otherwise the flags
-# will be interpreted as positional arguments).
+# Observă că pachetul `flag` cere ca toate flag-urile
+# să apară înaintea argumentelor poziționale (altfel,
+# flag-urile vor fi interpretate ca argumente
+# poziționale).
 $ ./command-line-flags -word=opt a1 a2 a3 -numb=7
 word: opt
 numb: 42
@@ -38,8 +39,8 @@ fork: false
 svar: bar
 tail: [a1 a2 a3 -numb=7]
 
-# Use `-h` or `--help` flags to get automatically
-# generated help text for the command-line program.
+# Folosește flag-urile `-h` sau `--help` pentru a obține
+# textul de ajutor generat automat pentru program.
 $ ./command-line-flags -h
 Usage of ./command-line-flags:
   -fork=false: a bool
@@ -47,9 +48,9 @@ Usage of ./command-line-flags:
   -svar="bar": a string var
   -word="foo": a string
 
-# If you provide a flag that wasn't specified to the
-# `flag` package, the program will print an error message
-# and show the help text again.
+# Dacă dai un flag care nu a fost declarat în pachetul
+# `flag`, programul va afișa un mesaj de eroare și va
+# arăta din nou textul de ajutor.
 $ ./command-line-flags -wat
 flag provided but not defined: -wat
 Usage of ./command-line-flags:

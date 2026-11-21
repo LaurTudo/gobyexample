@@ -30,11 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>Throughout program execution, we often want to create
-data that isn&rsquo;t needed after the program exits.
-<em>Temporary files and directories</em> are useful for this
-purpose since they don&rsquo;t pollute the file system over
-time.</p>
+            <p>În timpul execuției unui program, vrem adesea să
+creăm date de care nu mai avem nevoie după ce
+programul se termină. <em>Fișierele și directoarele
+temporare</em> sunt utile în acest scop, pentru că nu
+poluează sistemul de fișiere în timp.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ time.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/hVcPg9RH3_V"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/HOpxtqhekWc"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -93,11 +93,12 @@ time.</p>
         
         <tr>
           <td class="docs">
-            <p>The easiest way to create a temporary file is by
-calling <code>os.CreateTemp</code>. It creates a file <em>and</em>
-opens it for reading and writing. We provide <code>&quot;&quot;</code>
-as the first argument, so <code>os.CreateTemp</code> will
-create the file in the default location for our OS.</p>
+            <p>Cel mai simplu mod de a crea un fișier temporar
+este apelarea lui <code>os.CreateTemp</code>. Aceasta creează
+un fișier <em>și</em> îl deschide pentru citire și
+scriere. Dăm <code>&quot;&quot;</code> ca prim argument, așa că
+<code>os.CreateTemp</code> va crea fișierul în locația
+implicită a sistemului nostru de operare.</p>
 
           </td>
           <td class="code leading">
@@ -109,12 +110,12 @@ create the file in the default location for our OS.</p>
         
         <tr>
           <td class="docs">
-            <p>Display the name of the temporary file. On
-Unix-based OSes the directory will likely be <code>/tmp</code>.
-The file name starts with the prefix given as the
-second argument to <code>os.CreateTemp</code> and the rest
-is chosen automatically to ensure that concurrent
-calls will always create different file names.</p>
+            <p>Afișăm numele fișierului temporar. Pe sistemele de
+operare bazate pe Unix, directorul va fi probabil
+<code>/tmp</code>. Numele fișierului începe cu prefixul dat ca
+al doilea argument al lui <code>os.CreateTemp</code>, iar
+restul este ales automat, astfel încât apelurile
+concurente să creeze mereu nume de fișiere diferite.</p>
 
           </td>
           <td class="code leading">
@@ -125,10 +126,10 @@ calls will always create different file names.</p>
         
         <tr>
           <td class="docs">
-            <p>Clean up the file after we&rsquo;re done. The OS is
-likely to clean up temporary files by itself after
-some time, but it&rsquo;s good practice to do this
-explicitly.</p>
+            <p>Ștergem fișierul după ce am terminat. Sistemul de
+operare va șterge probabil singur fișierele
+temporare după o vreme, dar e o practică bună să
+facem asta explicit.</p>
 
           </td>
           <td class="code leading">
@@ -139,7 +140,7 @@ explicitly.</p>
         
         <tr>
           <td class="docs">
-            <p>We can write some data to the file.</p>
+            <p>Putem scrie niște date în fișier.</p>
 
           </td>
           <td class="code leading">
@@ -151,11 +152,11 @@ explicitly.</p>
         
         <tr>
           <td class="docs">
-            <p>If we intend to write many temporary files, we may
-prefer to create a temporary <em>directory</em>.
-<code>os.MkdirTemp</code>&rsquo;s arguments are the same as
-<code>CreateTemp</code>&rsquo;s, but it returns a directory <em>name</em>
-rather than an open file.</p>
+            <p>Dacă intenționăm să scriem multe fișiere temporare,
+am putea prefera să creăm un <em>director</em> temporar.
+Argumentele lui <code>os.MkdirTemp</code> sunt aceleași ca ale
+lui <code>CreateTemp</code>, dar returnează <em>numele</em> unui
+director, nu un fișier deschis.</p>
 
           </td>
           <td class="code leading">
@@ -178,8 +179,8 @@ rather than an open file.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we can synthesize temporary file names by
-prefixing them with our temporary directory.</p>
+            <p>Acum putem construi nume de fișiere temporare,
+punând în fața lor directorul nostru temporar.</p>
 
           </td>
           <td class="code">
@@ -216,7 +217,7 @@ prefixing them with our temporary directory.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

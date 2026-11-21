@@ -1,9 +1,11 @@
-// Sometimes we'd like our Go programs to intelligently
-// handle [Unix signals](https://en.wikipedia.org/wiki/Unix_signal).
-// For example, we might want a server to gracefully
-// shutdown when it receives a `SIGTERM`, or a command-line
-// tool to stop processing input if it receives a `SIGINT`.
-// Here's a modern way to handle signals using contexts.
+// Uneori vrem ca programele noastre Go să trateze
+// inteligent [semnalele Unix](https://en.wikipedia.org/wiki/Unix_signal).
+// De exemplu, am putea vrea ca un server să se oprească
+// elegant (graceful shutdown) când primește un
+// `SIGTERM`, sau ca o unealtă din linia de comandă să
+// oprească procesarea input-ului dacă primește un
+// `SIGINT`. Iată un mod modern de a trata semnalele
+// folosind contexte.
 
 package main
 
@@ -15,20 +17,21 @@ import (
 )
 
 func main() {
-	// `signal.NotifyContext` returns a context that's canceled
-	// when one of the listed signals arrives.
+	// `signal.NotifyContext` returnează un context care
+	// este anulat când sosește unul dintre semnalele
+	// enumerate.
 	ctx, stop := signal.NotifyContext(
 		context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	// The program will wait here until one of the
-	// configured signals is received.
+	// Programul va aștepta aici până când primește unul
+	// dintre semnalele configurate.
 	fmt.Println("awaiting signal")
 	<-ctx.Done()
 
-	// `context.Cause` reports why the context was canceled.
-	// For a signal-triggered cancellation, this includes
-	// the signal value.
+	// `context.Cause` raportează de ce a fost anulat
+	// contextul. Pentru o anulare declanșată de un semnal,
+	// aceasta include valoarea semnalului.
 	fmt.Println()
 	fmt.Println(context.Cause(ctx))
 	fmt.Println("exiting")

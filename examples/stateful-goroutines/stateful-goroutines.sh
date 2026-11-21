@@ -1,15 +1,16 @@
-# Running our program shows that the goroutine-based
-# state management example completes about 80,000
-# total operations.
+# Rulând programul, vedem că exemplul de gestionare a
+# stării bazat pe goroutine-uri realizează în total
+# aproximativ 80.000 de operații.
 $ go run stateful-goroutines.go
 readOps: 71708
 writeOps: 7177
 
-# For this particular case the goroutine-based approach
-# was a bit more involved than the mutex-based one. It
-# might be useful in certain cases though, for example
-# where you have other channels involved or when managing
-# multiple such mutexes would be error-prone. You should
-# use whichever approach feels most natural, especially
-# with respect to understanding the correctness of your
-# program.
+# În acest caz particular, abordarea bazată pe
+# goroutine-uri a fost puțin mai complicată decât cea
+# bazată pe mutex-uri. Totuși, poate fi utilă în anumite
+# situații, de exemplu când sunt implicate și alte
+# canale sau când gestionarea mai multor astfel de
+# mutex-uri ar fi predispusă la erori. Folosește
+# abordarea care ți se pare cea mai naturală, mai ales
+# în ceea ce privește înțelegerea corectitudinii
+# programului tău.

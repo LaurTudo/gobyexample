@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go provides built-in support for <a href="https://en.wikipedia.org/wiki/Base64">base64
-encoding/decoding</a>.</p>
+            <p>Go oferă suport integrat pentru
+<a href="https://en.wikipedia.org/wiki/Base64">codificarea/decodificarea base64</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,16 +45,16 @@ encoding/decoding</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yztzkirFEvv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/j3NsxlWTT9B"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>This syntax imports the <code>encoding/base64</code> package with
-the <code>b64</code> name instead of the default <code>base64</code>. It&rsquo;ll
-save us some space below.</p>
+            <p>Această sintaxă importă pachetul <code>encoding/base64</code> cu
+numele <code>b64</code> în loc de cel implicit, <code>base64</code>. Ne va
+economisi puțin spațiu mai jos.</p>
 
           </td>
           <td class="code leading">
@@ -78,7 +78,8 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>string</code> we&rsquo;ll encode/decode.</p>
+            <p>Iată <code>string</code>-ul pe care îl vom
+codifica/decodifica.</p>
 
           </td>
           <td class="code leading">
@@ -89,10 +90,11 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Go supports both standard and URL-compatible
-base64. Here&rsquo;s how to encode using the standard
-encoder. The encoder requires a <code>[]byte</code> so we
-convert our <code>string</code> to that type.</p>
+            <p>Go suportă atât base64 standard, cât și base64
+compatibil cu URL-urile. Iată cum codificăm folosind
+encoder-ul standard. Encoder-ul are nevoie de un
+<code>[]byte</code>, așa că ne convertim <code>string</code>-ul la acest
+tip.</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +106,9 @@ convert our <code>string</code> to that type.</p>
         
         <tr>
           <td class="docs">
-            <p>Decoding may return an error, which you can check
-if you don&rsquo;t already know the input to be
-well-formed.</p>
+            <p>Decodificarea poate returna o eroare, pe care o poți
+verifica dacă nu știi deja că input-ul este bine
+format.</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +121,8 @@ well-formed.</p>
         
         <tr>
           <td class="docs">
-            <p>This encodes/decodes using a URL-compatible base64
-format.</p>
+            <p>Aici codificăm/decodificăm folosind un format
+base64 compatibil cu URL-urile.</p>
 
           </td>
           <td class="code">
@@ -139,9 +141,10 @@ format.</p>
         
         <tr>
           <td class="docs">
-            <p>The string encodes to slightly different values with the
-standard and URL base64 encoders (trailing <code>+</code> vs <code>-</code>)
-but they both decode to the original string as desired.</p>
+            <p>String-ul se codifică în valori ușor diferite cu
+encoder-ele base64 standard și URL (<code>+</code> față de <code>-</code> la
+final), dar ambele se decodifică, cum ne dorim, în
+string-ul original.</p>
 
           </td>
           <td class="code leading">
@@ -172,7 +175,7 @@ but they both decode to the original string as desired.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

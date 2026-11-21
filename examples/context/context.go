@@ -1,9 +1,11 @@
-// In the previous example we looked at setting up a simple
-// [HTTP server](http-server). HTTP servers are useful for
-// demonstrating the usage of `context.Context` for
-// controlling cancellation. A `Context` carries deadlines,
-// cancellation signals, and other request-scoped values
-// across API boundaries and goroutines.
+// În exemplul anterior am văzut cum se configurează un
+// [server HTTP](http-server) simplu. Serverele HTTP sunt
+// utile pentru a demonstra folosirea lui
+// `context.Context` pentru controlul anulării. Un
+// `Context` transportă termene limită (deadlines),
+// semnale de anulare și alte valori specifice unei
+// cereri, peste granițele API-urilor și între
+// goroutine-uri.
 package main
 
 import (
@@ -14,25 +16,26 @@ import (
 
 func hello(w http.ResponseWriter, req *http.Request) {
 
-	// A `context.Context` is created for each request by
-	// the `net/http` machinery, and is available with
-	// the `Context()` method.
+	// Mecanismul din `net/http` creează un
+	// `context.Context` pentru fiecare cerere, disponibil
+	// prin metoda `Context()`.
 	ctx := req.Context()
 	fmt.Println("server: hello handler started")
 	defer fmt.Println("server: hello handler ended")
 
-	// Wait for a few seconds before sending a reply to the
-	// client. This could simulate some work the server is
-	// doing. While working, keep an eye on the context's
-	// `Done()` channel for a signal that we should cancel
-	// the work and return as soon as possible.
+	// Așteptăm câteva secunde înainte de a trimite un
+	// răspuns clientului. Asta ar putea simula o muncă pe
+	// care o face serverul. În timp ce lucrăm, urmărim
+	// canalul `Done()` al contextului pentru un semnal că
+	// ar trebui să anulăm munca și să ne întoarcem cât
+	// mai repede posibil.
 	select {
 	case <-time.After(10 * time.Second):
 		fmt.Fprintf(w, "hello\n")
 	case <-ctx.Done():
-		// The context's `Err()` method returns an error
-		// that explains why the `Done()` channel was
-		// closed.
+		// Metoda `Err()` a contextului returnează o eroare
+		// care explică de ce a fost închis canalul
+		// `Done()`.
 		err := ctx.Err()
 		fmt.Println("server:", err)
 		internalError := http.StatusInternalServerError
@@ -42,8 +45,8 @@ func hello(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
-	// As before, we register our handler on the "/hello"
-	// route, and start serving.
+	// Ca înainte, înregistrăm handler-ul pe ruta "/hello"
+	// și pornim serverul.
 	http.HandleFunc("/hello", hello)
 	http.ListenAndServe(":8090", nil)
 }

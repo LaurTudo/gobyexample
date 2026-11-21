@@ -1,7 +1,8 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// Trimiterile și primirile simple pe canale sunt
+// blocante. Totuși, putem folosi `select` cu o ramură
+// `default` pentru a implementa trimiteri și primiri
+// _neblocante_ și chiar instrucțiuni `select` neblocante
+// cu mai multe ramuri.
 
 package main
 
@@ -11,10 +12,10 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
-	// Here's a non-blocking receive. If a value is
-	// available on `messages` then `select` will take
-	// the `<-messages` `case` with that value. If not
-	// it will immediately take the `default` case.
+	// Iată o primire neblocantă. Dacă pe `messages` este
+	// disponibilă o valoare, `select` va intra pe ramura
+	// `case` `<-messages` cu acea valoare. Dacă nu, va
+	// intra imediat pe ramura `default`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -22,10 +23,10 @@ func main() {
 		fmt.Println("no message received")
 	}
 
-	// A non-blocking send works similarly. Here `msg`
-	// cannot be sent to the `messages` channel, because
-	// the channel has no buffer and there is no receiver.
-	// Therefore the `default` case is selected.
+	// O trimitere neblocantă funcționează similar. Aici
+	// `msg` nu poate fi trimis în canalul `messages`,
+	// pentru că acesta nu are buffer și nu există niciun
+	// receptor. Prin urmare, este aleasă ramura `default`.
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -34,10 +35,11 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple `case`s above the `default`
-	// clause to implement a multi-way non-blocking
-	// select. Here we attempt non-blocking receives
-	// on both `messages` and `signals`.
+	// Putem folosi mai multe ramuri `case` înaintea
+	// ramurii `default` pentru a implementa un select
+	// neblocant cu mai multe ramuri. Aici încercăm
+	// primiri neblocante atât pe `messages`, cât și pe
+	// `signals`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)

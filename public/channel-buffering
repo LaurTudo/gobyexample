@@ -30,12 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p>By default channels are <em>unbuffered</em>, meaning that they
-will only accept sends (<code>chan &lt;-</code>) if there is a
-corresponding receive (<code>&lt;- chan</code>) ready to receive the
-sent value. <em>Buffered channels</em> accept a limited
-number of  values without a corresponding receiver for
-those values.</p>
+            <p>Implicit, canalele sunt <em>fără buffer</em> (unbuffered),
+adică acceptă trimiteri (<code>chan &lt;-</code>) doar dacă există
+o primire corespunzătoare (<code>&lt;- chan</code>) pregătită să
+preia valoarea trimisă. <em>Canalele cu buffer</em> acceptă
+un număr limitat de valori fără un receptor
+corespunzător pentru ele.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +49,7 @@ those values.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3BRCdRnRszb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/dZMN4w4uvde"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,8 +76,8 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we <code>make</code> a channel of strings buffering up to
-2 values.</p>
+            <p>Aici creăm cu <code>make</code> un canal de string-uri cu un
+buffer de până la 2 valori.</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +88,9 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Because this channel is buffered, we can send these
-values into the channel without a corresponding
-concurrent receive.</p>
+            <p>Deoarece acest canal are buffer, putem trimite
+aceste valori în canal fără o primire concurentă
+corespunzătoare.</p>
 
           </td>
           <td class="code leading">
@@ -102,7 +102,8 @@ concurrent receive.</p>
         
         <tr>
           <td class="docs">
-            <p>Later we can receive these two values as usual.</p>
+            <p>Mai târziu putem primi aceste două valori în mod
+obișnuit.</p>
 
           </td>
           <td class="code">
@@ -138,7 +139,7 @@ concurrent receive.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

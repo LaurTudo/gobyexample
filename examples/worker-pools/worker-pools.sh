@@ -1,7 +1,8 @@
-# Our running program shows the 5 jobs being executed by
-# various workers. The program only takes about 2 seconds
-# despite doing about 5 seconds of total work because
-# there are 3 workers operating concurrently.
+# La rulare, programul arată cum cele 5 sarcini sunt
+# executate de diferiți workeri. Programul durează doar
+# aproximativ 2 secunde, deși face în total aproximativ
+# 5 secunde de muncă, pentru că avem 3 workeri care
+# lucrează concurent.
 $ time go run worker-pools.go 
 worker 1 started  job 1
 worker 2 started  job 2

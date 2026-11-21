@@ -30,8 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Parsing numbers from strings is a basic but common task
-in many programs; here&rsquo;s how to do it in Go.</p>
+            <p>Parsarea numerelor din string-uri este o operație
+simplă, dar frecventă în multe programe; iată cum se
+face în Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,15 +46,15 @@ in many programs; here&rsquo;s how to do it in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/ZAMEid6Fpmu"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/th7u71b85Kb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>The built-in package <code>strconv</code> provides the number
-parsing.</p>
+            <p>Pachetul predefinit <code>strconv</code> se ocupă de parsarea
+numerelor.</p>
 
           </td>
           <td class="code leading">
@@ -77,8 +78,8 @@ parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>With <code>ParseFloat</code>, this <code>64</code> tells how many bits of
-precision to parse.</p>
+            <p>La <code>ParseFloat</code>, acest <code>64</code> indică pe câți biți de
+precizie se face parsarea.</p>
 
           </td>
           <td class="code leading">
@@ -90,9 +91,9 @@ precision to parse.</p>
         
         <tr>
           <td class="docs">
-            <p>For <code>ParseInt</code>, the <code>0</code> means infer the base from
-the string. <code>64</code> requires that the result fit in 64
-bits.</p>
+            <p>La <code>ParseInt</code>, <code>0</code> înseamnă că baza se deduce din
+string. <code>64</code> cere ca rezultatul să încapă în 64 de
+biți.</p>
 
           </td>
           <td class="code leading">
@@ -104,7 +105,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ParseInt</code> will recognize hex-formatted numbers.</p>
+            <p><code>ParseInt</code> recunoaște numerele în format
+hexazecimal.</p>
 
           </td>
           <td class="code leading">
@@ -116,7 +118,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>ParseUint</code> is also available.</p>
+            <p>Este disponibilă și funcția <code>ParseUint</code>.</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +130,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Atoi</code> is a convenience function for basic base-10
-<code>int</code> parsing.</p>
+            <p><code>Atoi</code> este o funcție comodă pentru parsarea simplă
+a unui <code>int</code> în baza 10.</p>
 
           </td>
           <td class="code leading">
@@ -141,7 +143,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse functions return an error on bad input.</p>
+            <p>Funcțiile de parsare returnează o eroare la un
+input invalid.</p>
 
           </td>
           <td class="code">
@@ -174,7 +177,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at another common parsing task: URLs.</p>
+            <p>În continuare vom vedea o altă operație frecventă de
+parsare: URL-urile.</p>
 
           </td>
           <td class="code empty">
@@ -192,7 +196,7 @@ bits.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

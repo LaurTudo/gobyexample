@@ -1,8 +1,9 @@
-// We can use channels to synchronize execution
-// across goroutines. Here's an example of using a
-// blocking receive to wait for a goroutine to finish.
-// When waiting for multiple goroutines to finish,
-// you may prefer to use a [WaitGroup](waitgroups).
+// Putem folosi canale pentru a sincroniza execuția
+// între goroutine-uri. Iată un exemplu în care folosim
+// o primire blocantă pentru a aștepta terminarea unei
+// goroutine. Când aștepți terminarea mai multor
+// goroutine-uri, s-ar putea să preferi un
+// [WaitGroup](waitgroups).
 
 package main
 
@@ -11,26 +12,27 @@ import (
 	"time"
 )
 
-// This is the function we'll run in a goroutine. The
-// `done` channel will be used to notify another
-// goroutine that this function's work is done.
+// Aceasta este funcția pe care o vom rula într-o
+// goroutine. Canalul `done` va fi folosit pentru a
+// anunța o altă goroutine că funcția și-a terminat
+// treaba.
 func worker(done chan bool) {
 	fmt.Print("working...")
 	time.Sleep(time.Second)
 	fmt.Println("done")
 
-	// Send a value to notify that we're done.
+	// Trimitem o valoare pentru a anunța că am terminat.
 	done <- true
 }
 
 func main() {
 
-	// Start a worker goroutine, giving it the channel to
-	// notify on.
+	// Pornim o goroutine worker și îi dăm canalul pe care
+	// să trimită notificarea.
 	done := make(chan bool, 1)
 	go worker(done)
 
-	// Block until we receive a notification from the
-	// worker on the channel.
+	// Ne blocăm până când primim pe canal o notificare
+	// de la worker.
 	<-done
 }

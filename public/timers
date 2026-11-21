@@ -30,11 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>We often want to execute Go code at some point in the
-future, or repeatedly at some interval. Go&rsquo;s built-in
-<em>timer</em> and <em>ticker</em> features make both of these tasks
-easy. We&rsquo;ll look first at timers and then
-at <a href="tickers">tickers</a>.</p>
+            <p>Adesea vrem să executăm cod Go la un moment dat în
+viitor sau în mod repetat, la un anumit interval.
+Facilitățile predefinite <em>timer</em> și <em>ticker</em> din Go
+fac ușoare ambele sarcini. Vom vedea mai întâi
+timer-ele, apoi <a href="tickers">ticker-ele</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ at <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gF7VLRz3URM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/d8HHF6eFz7D"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +78,10 @@ at <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Timers represent a single event in the future. You
-tell the timer how long you want to wait, and it
-provides a channel that will be notified at that
-time. This timer will wait 2 seconds.</p>
+            <p>Timer-ele reprezintă un singur eveniment în viitor.
+Îi spui timer-ului cât vrei să aștepți, iar el
+oferă un canal care va fi notificat în acel moment.
+Acest timer va aștepta 2 secunde.</p>
 
           </td>
           <td class="code leading">
@@ -92,9 +92,9 @@ time. This timer will wait 2 seconds.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-timer1.C</code> blocks on the timer&rsquo;s channel <code>C</code>
-until it sends a value indicating that the timer
-fired.</p>
+            <p><code>&lt;-timer1.C</code> se blochează pe canalul <code>C</code> al
+timer-ului până când acesta trimite o valoare care
+indică faptul că timer-ul s-a declanșat.</p>
 
           </td>
           <td class="code leading">
@@ -106,10 +106,10 @@ fired.</p>
         
         <tr>
           <td class="docs">
-            <p>If you just wanted to wait, you could have used
-<code>time.Sleep</code>. One reason a timer may be useful is
-that you can cancel the timer before it fires.
-Here&rsquo;s an example of that.</p>
+            <p>Dacă ai fi vrut doar să aștepți, ai fi putut folosi
+<code>time.Sleep</code>. Un motiv pentru care un timer poate
+fi util este că îl poți anula înainte să se
+declanșeze. Iată un exemplu.</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +128,9 @@ Here&rsquo;s an example of that.</p>
         
         <tr>
           <td class="docs">
-            <p>Give the <code>timer2</code> enough time to fire, if it ever
-was going to, to show it is in fact stopped.</p>
+            <p>Îi dăm lui <code>timer2</code> suficient timp să se declanșeze,
+dacă ar fi urmat să o facă, pentru a arăta că este
+într-adevăr oprit.</p>
 
           </td>
           <td class="code">
@@ -145,9 +146,9 @@ was going to, to show it is in fact stopped.</p>
         
         <tr>
           <td class="docs">
-            <p>The first timer will fire ~2s after we start the
-program, but the second should be stopped before it has
-a chance to fire.</p>
+            <p>Primul timer se va declanșa la ~2s după pornirea
+programului, dar al doilea ar trebui să fie oprit
+înainte să apuce să se declanșeze.</p>
 
           </td>
           <td class="code">
@@ -167,7 +168,7 @@ a chance to fire.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

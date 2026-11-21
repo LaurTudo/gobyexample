@@ -1,5 +1,5 @@
-// Writing a basic HTTP server is easy using the
-// `net/http` package.
+// Scrierea unui server HTTP simplu este ușoară cu
+// pachetul `net/http`.
 package main
 
 import (
@@ -7,26 +7,27 @@ import (
 	"net/http"
 )
 
-// A fundamental concept in `net/http` servers is
-// *handlers*. A handler is an object implementing the
-// `http.Handler` interface. A common way to write
-// a handler is by using the `http.HandlerFunc` adapter
-// on functions with the appropriate signature.
+// Un concept fundamental al serverelor `net/http` îl
+// reprezintă *handler-ele*. Un handler este un obiect
+// care implementează interfața `http.Handler`. Un mod
+// obișnuit de a scrie un handler este folosirea
+// adaptorului `http.HandlerFunc` pe funcții cu
+// semnătura potrivită.
 func hello(w http.ResponseWriter, req *http.Request) {
 
-	// Functions serving as handlers take a
-	// `http.ResponseWriter` and a `http.Request` as
-	// arguments. The response writer is used to fill in the
-	// HTTP response. Here our simple response is just
-	// "hello\n".
+	// Funcțiile care servesc drept handler-e primesc ca
+	// argumente un `http.ResponseWriter` și un
+	// `http.Request`. Response writer-ul este folosit
+	// pentru a completa răspunsul HTTP. Aici, răspunsul
+	// nostru simplu este doar "hello\n".
 	fmt.Fprintf(w, "hello\n")
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {
 
-	// This handler does something a little more
-	// sophisticated by reading all the HTTP request
-	// headers and echoing them into the response body.
+	// Acest handler face ceva puțin mai sofisticat:
+	// citește toate header-ele cererii HTTP și le
+	// reproduce în corpul răspunsului.
 	for name, headers := range req.Header {
 		for _, h := range headers {
 			fmt.Fprintf(w, "%v: %v\n", name, h)
@@ -36,15 +37,15 @@ func headers(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
-	// We register our handlers on server routes using the
-	// `http.HandleFunc` convenience function. It sets up
-	// the *default router* in the `net/http` package and
-	// takes a function as an argument.
+	// Înregistrăm handler-ele pe rutele serverului
+	// folosind funcția comodă `http.HandleFunc`. Aceasta
+	// configurează *router-ul implicit* din pachetul
+	// `net/http` și primește o funcție ca argument.
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
 
-	// Finally, we call the `ListenAndServe` with the port
-	// and a handler. `nil` tells it to use the default
-	// router we've just set up.
+	// În final, apelăm `ListenAndServe` cu portul și un
+	// handler. `nil` îi spune să folosească router-ul
+	// implicit pe care tocmai l-am configurat.
 	http.ListenAndServe(":8090", nil)
 }

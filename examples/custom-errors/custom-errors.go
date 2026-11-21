@@ -1,7 +1,8 @@
-// It's possible to define custom error types by
-// implementing the `Error()` method on them. Here's a
-// variant on the example above that uses a custom type
-// to explicitly represent an argument error.
+// Putem defini tipuri de erori personalizate
+// implementând pe ele metoda `Error()`. Iată o variantă
+// a exemplului anterior, care folosește un tip
+// personalizat pentru a reprezenta explicit o eroare de
+// argument.
 
 package main
 
@@ -10,14 +11,15 @@ import (
 	"fmt"
 )
 
-// A custom error type usually has the suffix "Error".
+// Un tip de eroare personalizat are de obicei sufixul
+// "Error".
 type argError struct {
 	arg     int
 	message string
 }
 
-// Adding this `Error` method makes `argError` implement
-// the `error` interface.
+// Prin adăugarea acestei metode `Error`, `argError`
+// implementează interfața `error`.
 func (e *argError) Error() string {
 	return fmt.Sprintf("%d - %s", e.arg, e.message)
 }
@@ -25,7 +27,7 @@ func (e *argError) Error() string {
 func f(arg int) (int, error) {
 	if arg == 42 {
 
-		// Return our custom error.
+		// Returnăm eroarea noastră personalizată.
 		return -1, &argError{arg, "can't work with it"}
 	}
 	return arg + 3, nil
@@ -33,11 +35,12 @@ func f(arg int) (int, error) {
 
 func main() {
 
-	// `errors.AsType` is a more advanced version of `errors.Is`.
-	// It checks that a given error (or any error in its chain)
-	// matches a specific error type and converts to a value
-	// of that type, also returning `true`. If there's no match, the
-	// second return value is `false`.
+	// `errors.AsType` este o versiune mai avansată a lui
+	// `errors.Is`. Verifică dacă o eroare dată (sau orice
+	// eroare din lanțul ei) corespunde unui anumit tip de
+	// eroare și o convertește la o valoare de acel tip,
+	// returnând și `true`. Dacă nu există potrivire, a
+	// doua valoare returnată este `false`.
 	_, err := f(42)
 	if ae, ok := errors.AsType[*argError](err); ok {
 		fmt.Println(ae.arg)

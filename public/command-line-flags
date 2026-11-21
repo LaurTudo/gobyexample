@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line flags</em></a>
-are a common way to specify options for command-line
-programs. For example, in <code>wc -l</code> the <code>-l</code> is a
-command-line flag.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Flag-urile din linia de comandă</em></a>
+sunt un mod obișnuit de a specifica opțiuni pentru
+programele din linia de comandă. De exemplu, în
+<code>wc -l</code>, <code>-l</code> este un flag din linia de comandă.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,16 +47,17 @@ command-line flag.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IUPZlYSigc3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/T6NMPDx7gfU"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go provides a <code>flag</code> package supporting basic
-command-line flag parsing. We&rsquo;ll use this package to
-implement our example command-line program.</p>
+            <p>Go oferă pachetul <code>flag</code>, care suportă parsarea de
+bază a flag-urilor din linia de comandă. Vom folosi
+acest pachet pentru a implementa programul nostru de
+exemplu.</p>
 
           </td>
           <td class="code leading">
@@ -80,12 +81,13 @@ implement our example command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>Basic flag declarations are available for string,
-integer, and boolean options. Here we declare a
-string flag <code>word</code> with a default value <code>&quot;foo&quot;</code>
-and a short description. This <code>flag.String</code> function
-returns a string pointer (not a string value);
-we&rsquo;ll see how to use this pointer below.</p>
+            <p>Declarațiile de bază de flag-uri sunt disponibile
+pentru opțiuni de tip string, întreg și boolean.
+Aici declarăm un flag string <code>word</code> cu valoarea
+implicită <code>&quot;foo&quot;</code> și o scurtă descriere. Funcția
+<code>flag.String</code> returnează un pointer la string (nu o
+valoare string); vom vedea mai jos cum folosim
+acest pointer.</p>
 
           </td>
           <td class="code leading">
@@ -96,8 +98,8 @@ we&rsquo;ll see how to use this pointer below.</p>
         
         <tr>
           <td class="docs">
-            <p>This declares <code>numb</code> and <code>fork</code> flags, using a
-similar approach to the <code>word</code> flag.</p>
+            <p>Aici declarăm flag-urile <code>numb</code> și <code>fork</code>,
+folosind o abordare similară cu cea pentru <code>word</code>.</p>
 
           </td>
           <td class="code leading">
@@ -109,10 +111,10 @@ similar approach to the <code>word</code> flag.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s also possible to declare an option that uses an
-existing var declared elsewhere in the program.
-Note that we need to pass in a pointer to the flag
-declaration function.</p>
+            <p>Se poate declara și o opțiune care folosește o
+variabilă existentă, declarată în altă parte a
+programului. Observă că trebuie să transmitem un
+pointer funcției de declarare a flag-ului.</p>
 
           </td>
           <td class="code leading">
@@ -124,8 +126,8 @@ declaration function.</p>
         
         <tr>
           <td class="docs">
-            <p>Once all flags are declared, call <code>flag.Parse()</code>
-to execute the command-line parsing.</p>
+            <p>După ce toate flag-urile sunt declarate, apelează
+<code>flag.Parse()</code> pentru a parsa linia de comandă.</p>
 
           </td>
           <td class="code leading">
@@ -136,10 +138,11 @@ to execute the command-line parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we&rsquo;ll just dump out the parsed options and
-any trailing positional arguments. Note that we
-need to dereference the pointers with e.g. <code>*wordPtr</code>
-to get the actual option values.</p>
+            <p>Aici doar afișăm opțiunile parsate și eventualele
+argumente poziționale de la final. Observă că
+trebuie să dereferențiem pointerii, de exemplu cu
+<code>*wordPtr</code>, pentru a obține valorile efective ale
+opțiunilor.</p>
 
           </td>
           <td class="code">
@@ -159,9 +162,9 @@ to get the actual option values.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with the command-line flags program it&rsquo;s
-best to first compile it and then run the resulting
-binary directly.</p>
+            <p>Pentru a experimenta cu programul de flag-uri, e cel
+mai bine să-l compilezi mai întâi și apoi să rulezi
+direct binarul rezultat.</p>
 
           </td>
           <td class="code leading">
@@ -172,8 +175,8 @@ binary directly.</p>
         
         <tr>
           <td class="docs">
-            <p>Try out the built program by first giving it values for
-all flags.</p>
+            <p>Încearcă programul compilat, dându-i mai întâi valori
+pentru toate flag-urile.</p>
 
           </td>
           <td class="code leading">
@@ -189,8 +192,8 @@ all flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if you omit flags they automatically take
-their default values.</p>
+            <p>Observă că, dacă omiți flag-uri, acestea iau automat
+valorile implicite.</p>
 
           </td>
           <td class="code leading">
@@ -206,8 +209,8 @@ their default values.</p>
         
         <tr>
           <td class="docs">
-            <p>Trailing positional arguments can be provided after
-any flags.</p>
+            <p>Argumentele poziționale pot fi date la final, după
+flag-uri.</p>
 
           </td>
           <td class="code leading">
@@ -221,9 +224,10 @@ any flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>flag</code> package requires all flags to
-appear before positional arguments (otherwise the flags
-will be interpreted as positional arguments).</p>
+            <p>Observă că pachetul <code>flag</code> cere ca toate flag-urile
+să apară înaintea argumentelor poziționale (altfel,
+flag-urile vor fi interpretate ca argumente
+poziționale).</p>
 
           </td>
           <td class="code leading">
@@ -239,8 +243,8 @@ will be interpreted as positional arguments).</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
-generated help text for the command-line program.</p>
+            <p>Folosește flag-urile <code>-h</code> sau <code>--help</code> pentru a obține
+textul de ajutor generat automat pentru program.</p>
 
           </td>
           <td class="code leading">
@@ -256,9 +260,9 @@ generated help text for the command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>If you provide a flag that wasn&rsquo;t specified to the
-<code>flag</code> package, the program will print an error message
-and show the help text again.</p>
+            <p>Dacă dai un flag care nu a fost declarat în pachetul
+<code>flag</code>, programul va afișa un mesaj de eroare și va
+arăta din nou textul de ajutor.</p>
 
           </td>
           <td class="code">
@@ -279,7 +283,7 @@ and show the help text again.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

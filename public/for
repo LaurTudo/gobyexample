@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p><code>for</code> is Go&rsquo;s only looping construct. Here are
-some basic types of <code>for</code> loops.</p>
+            <p><code>for</code> este singura structură de buclă din Go. Iată
+câteva tipuri de bază de bucle <code>for</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ some basic types of <code>for</code> loops.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/_F2rYHNilKa"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/LxiPwUaSfkN"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -72,7 +72,7 @@ some basic types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p>The most basic type, with a single condition.</p>
+            <p>Tipul cel mai simplu, cu o singură condiție.</p>
 
           </td>
           <td class="code leading">
@@ -87,7 +87,7 @@ some basic types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p>A classic initial/condition/after <code>for</code> loop.</p>
+            <p>O buclă <code>for</code> clasică, cu inițializare/condiție/pas.</p>
 
           </td>
           <td class="code leading">
@@ -100,8 +100,8 @@ some basic types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p>Another way of accomplishing the basic &ldquo;do this
-N times&rdquo; iteration is <code>range</code> over an integer.</p>
+            <p>O altă modalitate de a realiza iterația simplă „fă
+asta de N ori” este <code>range</code> peste un număr întreg.</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +114,9 @@ N times&rdquo; iteration is <code>range</code> over an integer.</p>
         
         <tr>
           <td class="docs">
-            <p><code>for</code> without a condition will loop repeatedly
-until you <code>break</code> out of the loop or <code>return</code> from
-the enclosing function.</p>
+            <p><code>for</code> fără condiție se va repeta la nesfârșit până
+când ieși din buclă cu <code>break</code> sau te întorci din
+funcția care o conține cu <code>return</code>.</p>
 
           </td>
           <td class="code leading">
@@ -130,8 +130,8 @@ the enclosing function.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also <code>continue</code> to the next iteration of
-the loop.</p>
+            <p>Poți folosi și <code>continue</code> pentru a trece la
+următoarea iterație a buclei.</p>
 
           </td>
           <td class="code">
@@ -175,9 +175,9 @@ the loop.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll see some other <code>for</code> forms later when we look at
-<code>range</code> statements, channels, and other data
-structures.</p>
+            <p>Vom vedea și alte forme ale lui <code>for</code> mai târziu, când
+vom discuta despre instrucțiunile <code>range</code>, canale și
+alte structuri de date.</p>
 
           </td>
           <td class="code empty">
@@ -195,7 +195,7 @@ structures.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

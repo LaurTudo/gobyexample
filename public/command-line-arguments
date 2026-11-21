@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Command-line arguments</em></a>
-are a common way to parameterize execution of programs.
-For example, <code>go run hello.go</code> uses <code>run</code> and
-<code>hello.go</code> arguments to the <code>go</code> program.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Argumentele din linia de comandă</em></a>
+sunt un mod obișnuit de a parametriza execuția
+programelor. De exemplu, <code>go run hello.go</code> transmite
+programului <code>go</code> argumentele <code>run</code> și <code>hello.go</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/UYCEvh9d2Zb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Wb-hV0IqINr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,10 +77,10 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
         
         <tr>
           <td class="docs">
-            <p><code>os.Args</code> provides access to raw command-line
-arguments. Note that the first value in this slice
-is the path to the program, and <code>os.Args[1:]</code>
-holds the arguments to the program.</p>
+            <p><code>os.Args</code> oferă acces la argumentele brute din
+linia de comandă. Observă că prima valoare din
+acest slice este calea către program, iar
+<code>os.Args[1:]</code> conține argumentele programului.</p>
 
           </td>
           <td class="code leading">
@@ -92,7 +92,8 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>You can get individual args with normal indexing.</p>
+            <p>Poți obține argumente individuale prin indexare
+obișnuită.</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +121,9 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with command-line arguments it&rsquo;s best to
-build a binary with <code>go build</code> first.</p>
+            <p>Pentru a experimenta cu argumentele din linia de
+comandă, e cel mai bine să construiești mai întâi un
+binar cu <code>go build</code>.</p>
 
           </td>
           <td class="code leading">
@@ -136,8 +138,8 @@ build a binary with <code>go build</code> first.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at more advanced command-line processing
-with flags.</p>
+            <p>În continuare vom vedea o procesare mai avansată a
+liniei de comandă, cu flag-uri.</p>
 
           </td>
           <td class="code empty">
@@ -155,7 +157,7 @@ with flags.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

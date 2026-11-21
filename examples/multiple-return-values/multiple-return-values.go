@@ -1,27 +1,28 @@
-// Go has built-in support for _multiple return values_.
-// This feature is used often in idiomatic Go, for example
-// to return both result and error values from a function.
+// Go are suport integrat pentru _valori returnate
+// multiple_. Această facilitate este folosită des în
+// codul Go idiomatic, de exemplu pentru a returna dintr-o
+// funcție atât rezultatul, cât și o eroare.
 
 package main
 
 import "fmt"
 
-// The `(int, int)` in this function signature shows that
-// the function returns 2 `int`s.
+// `(int, int)` din semnătura acestei funcții arată că
+// funcția returnează 2 valori `int`.
 func vals() (int, int) {
 	return 3, 7
 }
 
 func main() {
 
-	// Here we use the 2 different return values from the
-	// call with _multiple assignment_.
+	// Aici folosim cele 2 valori returnate de apel prin
+	// _atribuire multiplă_.
 	a, b := vals()
 	fmt.Println(a)
 	fmt.Println(b)
 
-	// If you only want a subset of the returned values,
-	// use the blank identifier `_`.
+	// Dacă vrei doar o parte din valorile returnate,
+	// folosește identificatorul gol `_`.
 	_, c := vals()
 	fmt.Println(c)
 }

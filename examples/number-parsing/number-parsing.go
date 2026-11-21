@@ -1,10 +1,11 @@
-// Parsing numbers from strings is a basic but common task
-// in many programs; here's how to do it in Go.
+// Parsarea numerelor din string-uri este o operație
+// simplă, dar frecventă în multe programe; iată cum se
+// face în Go.
 
 package main
 
-// The built-in package `strconv` provides the number
-// parsing.
+// Pachetul predefinit `strconv` se ocupă de parsarea
+// numerelor.
 import (
 	"fmt"
 	"strconv"
@@ -12,31 +13,33 @@ import (
 
 func main() {
 
-	// With `ParseFloat`, this `64` tells how many bits of
-	// precision to parse.
+	// La `ParseFloat`, acest `64` indică pe câți biți de
+	// precizie se face parsarea.
 	f, _ := strconv.ParseFloat("1.234", 64)
 	fmt.Println(f)
 
-	// For `ParseInt`, the `0` means infer the base from
-	// the string. `64` requires that the result fit in 64
-	// bits.
+	// La `ParseInt`, `0` înseamnă că baza se deduce din
+	// string. `64` cere ca rezultatul să încapă în 64 de
+	// biți.
 	i, _ := strconv.ParseInt("123", 0, 64)
 	fmt.Println(i)
 
-	// `ParseInt` will recognize hex-formatted numbers.
+	// `ParseInt` recunoaște numerele în format
+	// hexazecimal.
 	d, _ := strconv.ParseInt("0x1c8", 0, 64)
 	fmt.Println(d)
 
-	// A `ParseUint` is also available.
+	// Este disponibilă și funcția `ParseUint`.
 	u, _ := strconv.ParseUint("789", 0, 64)
 	fmt.Println(u)
 
-	// `Atoi` is a convenience function for basic base-10
-	// `int` parsing.
+	// `Atoi` este o funcție comodă pentru parsarea simplă
+	// a unui `int` în baza 10.
 	k, _ := strconv.Atoi("135")
 	fmt.Println(k)
 
-	// Parse functions return an error on bad input.
+	// Funcțiile de parsare returnează o eroare la un
+	// input invalid.
 	_, e := strconv.Atoi("wat")
 	fmt.Println(e)
 }

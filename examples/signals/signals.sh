@@ -1,7 +1,8 @@
-# When we run this program it will block waiting for a
-# signal. By typing `ctrl-C` (which the
-# terminal shows as `^C`) we can send a `SIGINT` signal,
-# causing the program to print the cancellation cause and then exit.
+# Când rulăm acest program, se va bloca așteptând un
+# semnal. Apăsând `ctrl-C` (pe care terminalul îl
+# afișează ca `^C`), putem trimite un semnal `SIGINT`,
+# iar programul va afișa cauza anulării și apoi se va
+# termina.
 $ go run signals.go
 awaiting signal
 ^C

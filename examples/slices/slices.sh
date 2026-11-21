@@ -1,5 +1,5 @@
-# Note that while slices are different types than arrays,
-# they are rendered similarly by `fmt.Println`.
+# Observă că, deși slice-urile sunt tipuri diferite de
+# array-uri, `fmt.Println` le afișează în mod similar.
 $ go run slices.go
 uninit: [] true true
 emp: [  ] len: 3 cap: 3
@@ -15,9 +15,11 @@ dcl: [g h i]
 t == t2
 2d:  [[0] [1 2] [2 3 4]]
 
-# Check out this [great blog post](https://go.dev/blog/slices-intro)
-# by the Go team for more details on the design and
-# implementation of slices in Go.
+# Citește acest
+# [articol excelent](https://go.dev/blog/slices-intro)
+# scris de echipa Go pentru mai multe detalii despre
+# designul și implementarea slice-urilor în Go.
 
-# Now that we've seen arrays and slices we'll look at
-# Go's other key builtin data structure: maps.
+# Acum că am văzut array-urile și slice-urile, vom
+# trece la cealaltă structură de date predefinită
+# esențială din Go: map-urile.

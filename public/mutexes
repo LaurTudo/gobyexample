@@ -30,10 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we saw how to manage simple
-counter state using <a href="atomic-counters">atomic operations</a>.
-For more complex state we can use a <a href="https://en.wikipedia.org/wiki/Mutual_exclusion"><em>mutex</em></a>
-to safely access data across multiple goroutines.</p>
+            <p>În exemplul anterior am văzut cum să gestionăm o stare
+simplă de contor folosind <a href="atomic-counters">operații atomice</a>.
+Pentru stări mai complexe putem folosi un <a href="https://en.wikipedia.org/wiki/Mutual_exclusion"><em>mutex</em></a>
+pentru a accesa în siguranță date din mai multe
+goroutine-uri.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ to safely access data across multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/u0VAVSWRlU0"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/kP5WrJSJq06"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,12 +68,12 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>Container holds a map of counters; since we want to
-update it concurrently from multiple goroutines, we
-add a <code>Mutex</code> to synchronize access.
-Note that mutexes must not be copied, so if this
-<code>struct</code> is passed around, it should be done by
-pointer.</p>
+            <p>Container conține un map de contoare; deoarece vrem
+să-l actualizăm concurent din mai multe goroutine-uri,
+adăugăm un <code>Mutex</code> pentru a sincroniza accesul.
+Observă că mutex-urile nu trebuie copiate, așa că,
+dacă acest <code>struct</code> este transmis mai departe, trebuie
+transmis prin pointer.</p>
 
           </td>
           <td class="code leading">
@@ -86,9 +87,9 @@ pointer.</p>
         
         <tr>
           <td class="docs">
-            <p>Lock the mutex before accessing <code>counters</code>; unlock
-it at the end of the function using a <a href="defer">defer</a>
-statement.</p>
+            <p>Blocăm mutex-ul înainte de a accesa <code>counters</code>; îl
+deblocăm la finalul funcției folosind o instrucțiune
+<a href="defer">defer</a>.</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +113,9 @@ statement.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the zero value of a mutex is usable as-is, so no
-initialization is required here.</p>
+            <p>Observă că valoarea zero a unui mutex poate fi
+folosită ca atare, deci nu este necesară nicio
+inițializare aici.</p>
 
           </td>
           <td class="code leading">
@@ -146,8 +148,8 @@ initialization is required here.</p>
         
         <tr>
           <td class="docs">
-            <p>This function increments a named counter
-in a loop.</p>
+            <p>Această funcție incrementează contorul cu numele
+dat, într-o buclă.</p>
 
           </td>
           <td class="code leading">
@@ -162,9 +164,9 @@ in a loop.</p>
         
         <tr>
           <td class="docs">
-            <p>Run several goroutines concurrently; note
-that they all access the same <code>Container</code>,
-and two of them access the same counter.</p>
+            <p>Rulăm concurent mai multe goroutine-uri; observă
+că toate accesează același <code>Container</code>,
+iar două dintre ele accesează același contor.</p>
 
           </td>
           <td class="code leading">
@@ -201,7 +203,7 @@ and two of them access the same counter.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait for the goroutines to finish</p>
+            <p>Așteptăm ca goroutine-urile să se termine</p>
 
           </td>
           <td class="code">
@@ -218,8 +220,8 @@ and two of them access the same counter.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that the counters
-updated as expected.</p>
+            <p>Rulând programul, vedem că contoarele au fost
+actualizate cum ne așteptam.</p>
 
           </td>
           <td class="code leading">
@@ -231,8 +233,9 @@ updated as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at implementing this same state
-management task using only goroutines and channels.</p>
+            <p>În continuare vom vedea cum putem implementa aceeași
+gestionare a stării folosind doar goroutine-uri și
+canale.</p>
 
           </td>
           <td class="code empty">
@@ -250,7 +253,7 @@ management task using only goroutines and channels.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

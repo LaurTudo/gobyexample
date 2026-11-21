@@ -9,5 +9,5 @@ sent all jobs
 received all jobs
 received more jobs: false
 
-# The idea of closed channels leads naturally to our next
-# example: `range` over channels.
+# Ideea de canale închise ne conduce firesc la următorul
+# exemplu: `range` peste canale.

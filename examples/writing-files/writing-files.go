@@ -1,5 +1,5 @@
-// Writing files in Go follows similar patterns to the
-// ones we saw earlier for reading.
+// Scrierea fișierelor în Go urmează tipare similare
+// celor pe care le-am văzut mai devreme la citire.
 
 package main
 
@@ -18,45 +18,49 @@ func check(e error) {
 
 func main() {
 
-	// To start, here's how to dump a string (or just
-	// bytes) into a file.
+	// Pentru început, iată cum scriem un string (sau pur
+	// și simplu bytes) într-un fișier.
 	d1 := []byte("hello\ngo\n")
 	path1 := filepath.Join(os.TempDir(), "dat1")
 	err := os.WriteFile(path1, d1, 0644)
 	check(err)
 
-	// For more granular writes, open a file for writing.
+	// Pentru scrieri mai granulare, deschide un fișier
+	// pentru scriere.
 	path2 := filepath.Join(os.TempDir(), "dat2")
 	f, err := os.Create(path2)
 	check(err)
 
-	// It's idiomatic to defer a `Close` immediately
-	// after opening a file.
+	// Este idiomatic să amâni cu defer un `Close`
+	// imediat după deschiderea unui fișier.
 	defer f.Close()
 
-	// You can `Write` byte slices as you'd expect.
+	// Poți scrie (`Write`) slice-uri de bytes, cum era
+	// de așteptat.
 	d2 := []byte{115, 111, 109, 101, 10}
 	n2, err := f.Write(d2)
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n2)
 
-	// A `WriteString` is also available.
+	// Este disponibilă și metoda `WriteString`.
 	n3, err := f.WriteString("writes\n")
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n3)
 
-	// Issue a `Sync` to flush writes to stable storage.
+	// Apelează `Sync` pentru a scrie efectiv datele pe
+	// mediul de stocare permanent.
 	f.Sync()
 
-	// `bufio` provides buffered writers in addition
-	// to the buffered readers we saw earlier.
+	// `bufio` oferă writeri cu buffer, pe lângă readerii
+	// cu buffer pe care i-am văzut mai devreme.
 	w := bufio.NewWriter(f)
 	n4, err := w.WriteString("buffered\n")
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n4)
 
-	// Use `Flush` to ensure all buffered operations have
-	// been applied to the underlying writer.
+	// Folosește `Flush` pentru a te asigura că toate
+	// operațiile din buffer au fost aplicate writer-ului
+	// de dedesubt.
 	w.Flush()
 
 }

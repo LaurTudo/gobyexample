@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports time formatting and parsing via
-pattern-based layouts.</p>
+            <p>Go suportă formatarea și parsarea timpului prin
+layout-uri bazate pe pattern-uri.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ pattern-based layouts.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/0dgIUsTgEYs"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/eR5ROQDTjvI"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,9 +76,9 @@ pattern-based layouts.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example of formatting a time
-according to RFC3339, using the corresponding layout
-constant.</p>
+            <p>Iată un exemplu simplu de formatare a unui moment
+de timp conform RFC3339, folosind constanta de
+layout corespunzătoare.</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +90,8 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p>Time parsing uses the same layout values as <code>Format</code>.</p>
+            <p>Parsarea timpului folosește aceleași valori de
+layout ca <code>Format</code>.</p>
 
           </td>
           <td class="code leading">
@@ -102,13 +103,17 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> and <code>Parse</code> use example-based layouts. Usually
-you&rsquo;ll use a constant from <code>time</code> for these layouts, but
-you can also supply custom layouts. Layouts must use the
-reference time <code>Mon Jan 2 15:04:05 MST 2006</code> to show the
-pattern with which to format/parse a given time/string.
-The example time must be exactly as shown: the year 2006,
-15 for the hour, Monday for the day of the week, etc.</p>
+            <p><code>Format</code> și <code>Parse</code> folosesc layout-uri bazate pe
+exemple. De obicei vei folosi o constantă din
+<code>time</code> pentru aceste layout-uri, dar poți oferi și
+layout-uri personalizate. Layout-urile trebuie să
+folosească momentul de referință
+<code>Mon Jan 2 15:04:05 MST 2006</code> pentru a arăta
+pattern-ul după care se formatează/parsează un
+anumit moment de timp/string. Momentul din exemplu
+trebuie să fie exact cel arătat: anul 2006, 15
+pentru oră, Monday (luni) pentru ziua săptămânii
+etc.</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +129,9 @@ The example time must be exactly as shown: the year 2006,
         
         <tr>
           <td class="docs">
-            <p>For purely numeric representations you can also
-use standard string formatting with the extracted
-components of the time value.</p>
+            <p>Pentru reprezentări pur numerice poți folosi și
+formatarea standard a string-urilor, cu
+componentele extrase din valoarea de timp.</p>
 
           </td>
           <td class="code leading">
@@ -139,8 +144,8 @@ components of the time value.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> will return an error on malformed input
-explaining the parsing problem.</p>
+            <p>La un input malformat, <code>Parse</code> va returna o eroare
+care explică problema de parsare.</p>
 
           </td>
           <td class="code">
@@ -182,7 +187,7 @@ explaining the parsing problem.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

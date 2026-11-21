@@ -30,11 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;ll want to sort a collection by something
-other than its natural order. For example, suppose we
-wanted to sort strings by their length instead of
-alphabetically. Here&rsquo;s an example of custom sorts
-in Go.</p>
+            <p>Uneori vom dori să sortăm o colecție după alt criteriu
+decât ordinea ei naturală. De exemplu, să presupunem
+că vrem să sortăm string-uri după lungime în loc de
+ordinea alfabetică. Iată un exemplu de sortări
+personalizate în Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/iGFsjG4fr4F"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zNbLnrkW8l_t"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,8 +80,9 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We implement a comparison function for string
-lengths. <code>cmp.Compare</code> is helpful for this.</p>
+            <p>Implementăm o funcție de comparare pentru
+lungimile string-urilor. <code>cmp.Compare</code> ne ajută
+aici.</p>
 
           </td>
           <td class="code leading">
@@ -94,8 +95,9 @@ lengths. <code>cmp.Compare</code> is helpful for this.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we can call <code>slices.SortFunc</code> with this custom
-comparison function to sort <code>fruits</code> by name length.</p>
+            <p>Acum putem apela <code>slices.SortFunc</code> cu această
+funcție de comparare personalizată pentru a sorta
+<code>fruits</code> după lungimea numelui.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +109,8 @@ comparison function to sort <code>fruits</code> by name length.</p>
         
         <tr>
           <td class="docs">
-            <p>We can use the same technique to sort a slice of
-values that aren&rsquo;t built-in types.</p>
+            <p>Putem folosi aceeași tehnică pentru a sorta un
+slice de valori care nu sunt de tipuri predefinite.</p>
 
           </td>
           <td class="code leading">
@@ -136,12 +138,13 @@ values that aren&rsquo;t built-in types.</p>
         
         <tr>
           <td class="docs">
-            <p>Sort <code>people</code> by age using <code>slices.SortFunc</code>.</p>
+            <p>Sortăm <code>people</code> după vârstă folosind
+<code>slices.SortFunc</code>.</p>
 
-<p>Note: if the <code>Person</code> struct is large,
-you may want the slice to contain <code>*Person</code> instead
-and adjust the sorting function accordingly. If in
-doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
+<p>Notă: dacă struct-ul <code>Person</code> este mare, poate
+vrei ca slice-ul să conțină în schimb <code>*Person</code> și
+să adaptezi funcția de sortare în consecință. Dacă
+ai dubii, fă un <a href="testing-and-benchmarking">benchmark</a>!</p>
 
           </td>
           <td class="code">
@@ -180,7 +183,7 @@ doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

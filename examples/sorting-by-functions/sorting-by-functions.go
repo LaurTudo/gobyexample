@@ -1,8 +1,8 @@
-// Sometimes we'll want to sort a collection by something
-// other than its natural order. For example, suppose we
-// wanted to sort strings by their length instead of
-// alphabetically. Here's an example of custom sorts
-// in Go.
+// Uneori vom dori să sortăm o colecție după alt criteriu
+// decât ordinea ei naturală. De exemplu, să presupunem
+// că vrem să sortăm string-uri după lungime în loc de
+// ordinea alfabetică. Iată un exemplu de sortări
+// personalizate în Go.
 
 package main
 
@@ -15,19 +15,21 @@ import (
 func main() {
 	fruits := []string{"peach", "banana", "kiwi"}
 
-	// We implement a comparison function for string
-	// lengths. `cmp.Compare` is helpful for this.
+	// Implementăm o funcție de comparare pentru
+	// lungimile string-urilor. `cmp.Compare` ne ajută
+	// aici.
 	lenCmp := func(a, b string) int {
 		return cmp.Compare(len(a), len(b))
 	}
 
-	// Now we can call `slices.SortFunc` with this custom
-	// comparison function to sort `fruits` by name length.
+	// Acum putem apela `slices.SortFunc` cu această
+	// funcție de comparare personalizată pentru a sorta
+	// `fruits` după lungimea numelui.
 	slices.SortFunc(fruits, lenCmp)
 	fmt.Println(fruits)
 
-	// We can use the same technique to sort a slice of
-	// values that aren't built-in types.
+	// Putem folosi aceeași tehnică pentru a sorta un
+	// slice de valori care nu sunt de tipuri predefinite.
 	type Person struct {
 		name string
 		age  int
@@ -39,12 +41,13 @@ func main() {
 		{name: "Alex", age: 72},
 	}
 
-	// Sort `people` by age using `slices.SortFunc`.
+	// Sortăm `people` după vârstă folosind
+	// `slices.SortFunc`.
 	//
-	// Note: if the `Person` struct is large,
-	// you may want the slice to contain `*Person` instead
-	// and adjust the sorting function accordingly. If in
-	// doubt, [benchmark](testing-and-benchmarking)!
+	// Notă: dacă struct-ul `Person` este mare, poate
+	// vrei ca slice-ul să conțină în schimb `*Person` și
+	// să adaptezi funcția de sortare în consecință. Dacă
+	// ai dubii, fă un [benchmark](testing-and-benchmarking)!
 	slices.SortFunc(people,
 		func(a, b Person) int {
 			return cmp.Compare(a.age, b.age)

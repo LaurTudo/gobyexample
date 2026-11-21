@@ -30,14 +30,15 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we used explicit locking with
-<a href="mutexes">mutexes</a> to synchronize access to shared state
-across multiple goroutines. Another option is to use the
-built-in synchronization features of  goroutines and
-channels to achieve the same result. This channel-based
-approach aligns with Go&rsquo;s ideas of sharing memory by
-communicating and having each piece of data owned
-by exactly one goroutine.</p>
+            <p>În exemplul anterior am folosit blocare explicită cu
+<a href="mutexes">mutex-uri</a> pentru a sincroniza accesul la o
+stare partajată între mai multe goroutine-uri. O altă
+opțiune este să folosim mecanismele de sincronizare
+integrate în goroutine-uri și canale pentru a obține
+același rezultat. Această abordare bazată pe canale
+se potrivește cu ideile din Go de a partaja memoria
+prin comunicare și de a avea fiecare bucată de date
+deținută de exact o singură goroutine.</p>
 
           </td>
           <td class="code empty leading">
@@ -51,7 +52,7 @@ by exactly one goroutine.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/N71jZPWVA4B"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/YjRtl4q0GHG"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,14 +74,15 @@ by exactly one goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example our state will be owned by a single
-goroutine. This will guarantee that the data is never
-corrupted with concurrent access. In order to read or
-write that state, other goroutines will send messages
-to the owning goroutine and receive corresponding
-replies. These <code>readOp</code> and <code>writeOp</code> <code>struct</code>s
-encapsulate those requests and a way for the owning
-goroutine to respond.</p>
+            <p>În acest exemplu, starea noastră va fi deținută de o
+singură goroutine. Astfel garantăm că datele nu vor fi
+niciodată corupte prin acces concurent. Pentru a citi
+sau a scrie acea stare, alte goroutine-uri vor trimite
+mesaje goroutine-ei care o deține și vor primi
+răspunsurile corespunzătoare. Aceste <code>struct</code>-uri
+<code>readOp</code> și <code>writeOp</code> încapsulează acele cereri și o
+modalitate prin care goroutine-a care deține starea
+să răspundă.</p>
 
           </td>
           <td class="code leading">
@@ -109,7 +111,7 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>As before we&rsquo;ll count how many operations we perform.</p>
+            <p>Ca înainte, vom număra câte operații efectuăm.</p>
 
           </td>
           <td class="code leading">
@@ -121,9 +123,9 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>reads</code> and <code>writes</code> channels will be used by
-other goroutines to issue read and write requests,
-respectively.</p>
+            <p>Canalele <code>reads</code> și <code>writes</code> vor fi folosite de
+alte goroutine-uri pentru a trimite cereri de
+citire, respectiv de scriere.</p>
 
           </td>
           <td class="code leading">
@@ -135,15 +137,15 @@ respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>Here is the goroutine that owns the <code>state</code>, which
-is a map as in the previous example but now private
-to the stateful goroutine. This goroutine repeatedly
-selects on the <code>reads</code> and <code>writes</code> channels,
-responding to requests as they arrive. A response
-is executed by first performing the requested
-operation and then sending a value on the response
-channel <code>resp</code> to indicate success (and the desired
-value in the case of <code>reads</code>).</p>
+            <p>Aceasta este goroutine-a care deține <code>state</code>, un
+map ca în exemplul anterior, dar acum privat
+goroutine-ei cu stare. Această goroutine face în
+mod repetat <code>select</code> pe canalele <code>reads</code> și
+<code>writes</code>, răspunzând cererilor pe măsură ce sosesc.
+Un răspuns constă în efectuarea operației cerute,
+urmată de trimiterea unei valori pe canalul de
+răspuns <code>resp</code> pentru a indica succesul (și
+valoarea dorită, în cazul <code>reads</code>).</p>
 
           </td>
           <td class="code leading">
@@ -165,11 +167,11 @@ value in the case of <code>reads</code>).</p>
         
         <tr>
           <td class="docs">
-            <p>This starts 100 goroutines to issue reads to the
-state-owning goroutine via the <code>reads</code> channel.
-Each read requires constructing a <code>readOp</code>, sending
-it over the <code>reads</code> channel, and then receiving the
-result over the provided <code>resp</code> channel.</p>
+            <p>Pornim 100 de goroutine-uri care trimit citiri
+goroutine-ei care deține starea, prin canalul
+<code>reads</code>. Fiecare citire presupune construirea unui
+<code>readOp</code>, trimiterea lui pe canalul <code>reads</code> și apoi
+primirea rezultatului pe canalul <code>resp</code> furnizat.</p>
 
           </td>
           <td class="code leading">
@@ -192,8 +194,8 @@ result over the provided <code>resp</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We start 10 writes as well, using a similar
-approach.</p>
+            <p>Pornim și 10 scrieri, folosind o abordare
+similară.</p>
 
           </td>
           <td class="code leading">
@@ -217,7 +219,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Let the goroutines work for a second.</p>
+            <p>Lăsăm goroutine-urile să lucreze o secundă.</p>
 
           </td>
           <td class="code leading">
@@ -228,7 +230,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, report the op counts.</p>
+            <p>În final, raportăm numărul de operații.</p>
 
           </td>
           <td class="code">
@@ -245,9 +247,9 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program shows that the goroutine-based
-state management example completes about 80,000
-total operations.</p>
+            <p>Rulând programul, vedem că exemplul de gestionare a
+stării bazat pe goroutine-uri realizează în total
+aproximativ 80.000 de operații.</p>
 
           </td>
           <td class="code leading">
@@ -260,14 +262,15 @@ total operations.</p>
         
         <tr>
           <td class="docs">
-            <p>For this particular case the goroutine-based approach
-was a bit more involved than the mutex-based one. It
-might be useful in certain cases though, for example
-where you have other channels involved or when managing
-multiple such mutexes would be error-prone. You should
-use whichever approach feels most natural, especially
-with respect to understanding the correctness of your
-program.</p>
+            <p>În acest caz particular, abordarea bazată pe
+goroutine-uri a fost puțin mai complicată decât cea
+bazată pe mutex-uri. Totuși, poate fi utilă în anumite
+situații, de exemplu când sunt implicate și alte
+canale sau când gestionarea mai multor astfel de
+mutex-uri ar fi predispusă la erori. Folosește
+abordarea care ți se pare cea mai naturală, mai ales
+în ceea ce privește înțelegerea corectitudinii
+programului tău.</p>
 
           </td>
           <td class="code empty">
@@ -285,7 +288,7 @@ program.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

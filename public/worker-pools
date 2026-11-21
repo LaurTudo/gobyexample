@@ -30,8 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll look at how to implement
-a <em>worker pool</em> using goroutines and channels.</p>
+            <p>În acest exemplu vom vedea cum să implementăm un
+<em>worker pool</em> (un grup de workeri) folosind
+goroutine-uri și canale.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +46,7 @@ a <em>worker pool</em> using goroutines and channels.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/hiSJJsYZJKL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ayAxu50G2Qn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,11 +66,12 @@ a <em>worker pool</em> using goroutines and channels.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker, of which we&rsquo;ll run several
-concurrent instances. These workers will receive
-work on the <code>jobs</code> channel and send the corresponding
-results on <code>results</code>. We&rsquo;ll sleep a second per job to
-simulate an expensive task.</p>
+            <p>Iată worker-ul, din care vom rula mai multe instanțe
+concurente. Acești workeri vor primi sarcini pe
+canalul <code>jobs</code> și vor trimite rezultatele
+corespunzătoare pe <code>results</code>. Vom aștepta câte o
+secundă pentru fiecare sarcină, ca să simulăm o
+operație costisitoare.</p>
 
           </td>
           <td class="code leading">
@@ -97,9 +99,9 @@ simulate an expensive task.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use our pool of workers we need to send
-them work and collect their results. We make 2
-channels for this.</p>
+            <p>Pentru a folosi grupul nostru de workeri, trebuie
+să le trimitem sarcini și să le colectăm
+rezultatele. Pentru asta creăm 2 canale.</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +114,8 @@ channels for this.</p>
         
         <tr>
           <td class="docs">
-            <p>This starts up 3 workers, initially blocked
-because there are no jobs yet.</p>
+            <p>Aici pornim 3 workeri, inițial blocați pentru că
+încă nu există sarcini.</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +128,9 @@ because there are no jobs yet.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we send 5 <code>jobs</code> and then <code>close</code> that
-channel to indicate that&rsquo;s all the work we have.</p>
+            <p>Aici trimitem 5 sarcini pe <code>jobs</code>, apoi închidem
+canalul cu <code>close</code> pentru a indica că asta e toată
+munca pe care o avem.</p>
 
           </td>
           <td class="code leading">
@@ -141,10 +144,11 @@ channel to indicate that&rsquo;s all the work we have.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally we collect all the results of the work.
-This also ensures that the worker goroutines have
-finished. An alternative way to wait for multiple
-goroutines is to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>În final, colectăm toate rezultatele. Asta ne
+asigură și că goroutine-urile worker s-au terminat.
+O altă modalitate de a aștepta mai multe
+goroutine-uri este să folosești un
+<a href="waitgroups">WaitGroup</a>.</p>
 
           </td>
           <td class="code">
@@ -162,10 +166,11 @@ goroutines is to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Our running program shows the 5 jobs being executed by
-various workers. The program only takes about 2 seconds
-despite doing about 5 seconds of total work because
-there are 3 workers operating concurrently.</p>
+            <p>La rulare, programul arată cum cele 5 sarcini sunt
+executate de diferiți workeri. Programul durează doar
+aproximativ 2 secunde, deși face în total aproximativ
+5 secunde de muncă, pentru că avem 3 workeri care
+lucrează concurent.</p>
 
           </td>
           <td class="code leading">
@@ -203,7 +208,7 @@ there are 3 workers operating concurrently.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

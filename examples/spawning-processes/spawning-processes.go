@@ -1,5 +1,5 @@
-// Sometimes our Go programs need to spawn other
-// processes.
+// Uneori, programele noastre Go trebuie să lanseze alte
+// procese.
 
 package main
 
@@ -12,16 +12,16 @@ import (
 
 func main() {
 
-	// We'll start with a simple command that takes no
-	// arguments or input and just prints something to
-	// stdout. The `exec.Command` helper creates an object
-	// to represent this external process.
+	// Vom începe cu o comandă simplă, care nu primește
+	// argumente sau input și doar afișează ceva la
+	// stdout. Funcția ajutătoare `exec.Command` creează
+	// un obiect care reprezintă acest proces extern.
 	dateCmd := exec.Command("date")
 
-	// The `Output` method runs the command, waits for it
-	// to finish and collects its standard output.
-	//  If there were no errors, `dateOut` will hold bytes
-	// with the date info.
+	// Metoda `Output` rulează comanda, așteaptă să se
+	// termine și colectează ieșirea ei standard.
+	// Dacă nu au apărut erori, `dateOut` va conține
+	// bytes cu informațiile despre dată.
 	dateOut, err := dateCmd.Output()
 	if err != nil {
 		panic(err)
@@ -29,11 +29,11 @@ func main() {
 	fmt.Println("> date")
 	fmt.Println(string(dateOut))
 
-	// `Output` and other methods of `Command` will return
-	// `*exec.Error` if there was a problem executing the
-	// command (e.g. wrong path), and `*exec.ExitError`
-	// if the command ran but exited with a non-zero return
-	// code.
+	// `Output` și alte metode ale lui `Command` vor
+	// returna `*exec.Error` dacă a apărut o problemă la
+	// executarea comenzii (de exemplu, o cale greșită) și
+	// `*exec.ExitError` dacă comanda a rulat, dar s-a
+	// terminat cu un cod de ieșire diferit de zero.
 	_, err = exec.Command("date", "-x").Output()
 	if err != nil {
 		if e, ok := errors.AsType[*exec.Error](err); ok {
@@ -46,15 +46,16 @@ func main() {
 		}
 	}
 
-	// Next we'll look at a slightly more involved case
-	// where we pipe data to the external process on its
-	// `stdin` and collect the results from its `stdout`.
+	// În continuare vom vedea un caz puțin mai complicat,
+	// în care trimitem prin pipe date către procesul
+	// extern, pe `stdin`-ul lui, și colectăm rezultatele
+	// de pe `stdout`-ul lui.
 	grepCmd := exec.Command("grep", "hello")
 
-	// Here we explicitly grab input/output pipes, start
-	// the process, write some input to it, read the
-	// resulting output, and finally wait for the process
-	// to exit.
+	// Aici obținem explicit pipe-urile de input/output,
+	// pornim procesul, îi scriem niște input, citim
+	// output-ul rezultat și, în final, așteptăm ca
+	// procesul să se termine.
 	grepIn, _ := grepCmd.StdinPipe()
 	grepOut, _ := grepCmd.StdoutPipe()
 	grepCmd.Start()
@@ -63,20 +64,20 @@ func main() {
 	grepBytes, _ := io.ReadAll(grepOut)
 	grepCmd.Wait()
 
-	// We omitted error checks in the above example, but
-	// you could use the usual `if err != nil` pattern for
-	// all of them. We also only collect the `StdoutPipe`
-	// results, but you could collect the `StderrPipe` in
-	// exactly the same way.
+	// Am omis verificările de erori în exemplul de mai
+	// sus, dar ai putea folosi tiparul obișnuit
+	// `if err != nil` pentru toate. De asemenea, colectăm
+	// doar rezultatele din `StdoutPipe`, dar ai putea
+	// colecta `StderrPipe` exact în același mod.
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
-	// Note that when spawning commands we need to
-	// provide an explicitly delineated command and
-	// argument array, vs. being able to just pass in one
-	// command-line string. If you want to spawn a full
-	// command with a string, you can use `bash`'s `-c`
-	// option:
+	// Observă că, atunci când lansăm comenzi, trebuie să
+	// dăm explicit comanda și array-ul de argumente
+	// separat, în loc să putem transmite un singur string
+	// de linie de comandă. Dacă vrei să lansezi o comandă
+	// completă dintr-un string, poți folosi opțiunea `-c`
+	// a lui `bash`:
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {

@@ -1,5 +1,5 @@
-// Go offers extensive support for times and durations;
-// here are some examples.
+// Go oferă un suport amplu pentru momente de timp și
+// durate; iată câteva exemple.
 
 package main
 
@@ -11,19 +11,19 @@ import (
 func main() {
 	p := fmt.Println
 
-	// We'll start by getting the current time.
+	// Vom începe prin a obține timpul curent.
 	now := time.Now()
 	p(now)
 
-	// You can build a `time` struct by providing the
-	// year, month, day, etc. Times are always associated
-	// with a `Location`, i.e. time zone.
+	// Poți construi un struct `time` specificând anul,
+	// luna, ziua etc. Momentele de timp sunt mereu
+	// asociate cu o `Location`, adică un fus orar.
 	then := time.Date(
 		2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
 	p(then)
 
-	// You can extract the various components of the time
-	// value as expected.
+	// Poți extrage diversele componente ale valorii de
+	// timp, cum era de așteptat.
 	p(then.Year())
 	p(then.Month())
 	p(then.Day())
@@ -33,31 +33,32 @@ func main() {
 	p(then.Nanosecond())
 	p(then.Location())
 
-	// The Monday-Sunday `Weekday` is also available.
+	// Este disponibilă și ziua săptămânii, `Weekday`
+	// (de luni până duminică).
 	p(then.Weekday())
 
-	// These methods compare two times, testing if the
-	// first occurs before, after, or at the same time
-	// as the second, respectively.
+	// Aceste metode compară două momente de timp,
+	// testând dacă primul are loc înainte, după, respectiv
+	// în același timp cu al doilea.
 	p(then.Before(now))
 	p(then.After(now))
 	p(then.Equal(now))
 
-	// The `Sub` methods returns a `Duration` representing
-	// the interval between two times.
+	// Metoda `Sub` returnează o `Duration` care
+	// reprezintă intervalul dintre două momente de timp.
 	diff := now.Sub(then)
 	p(diff)
 
-	// We can compute the length of the duration in
-	// various units.
+	// Putem calcula lungimea duratei în diverse unități
+	// de măsură.
 	p(diff.Hours())
 	p(diff.Minutes())
 	p(diff.Seconds())
 	p(diff.Nanoseconds())
 
-	// You can use `Add` to advance a time by a given
-	// duration, or with a `-` to move backwards by a
-	// duration.
+	// Poți folosi `Add` pentru a avansa un moment de timp
+	// cu o durată dată, sau cu `-` pentru a-l muta înapoi
+	// cu o durată.
 	p(then.Add(diff))
 	p(then.Add(-diff))
 }

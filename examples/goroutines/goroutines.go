@@ -1,4 +1,4 @@
-// A _goroutine_ is a lightweight thread of execution.
+// O _goroutine_ este un fir de execuție ușor.
 
 package main
 
@@ -15,25 +15,26 @@ func f(from string) {
 
 func main() {
 
-	// Suppose we have a function call `f(s)`. Here's how
-	// we'd call that in the usual way, running it
-	// synchronously.
+	// Să presupunem că avem un apel de funcție `f(s)`.
+	// Iată cum l-am apela în mod obișnuit, rulându-l
+	// sincron.
 	f("direct")
 
-	// To invoke this function in a goroutine, use
-	// `go f(s)`. This new goroutine will execute
-	// concurrently with the calling one.
+	// Pentru a apela această funcție într-o goroutine,
+	// folosește `go f(s)`. Noua goroutine se va executa
+	// concurent cu cea care a apelat-o.
 	go f("goroutine")
 
-	// You can also start a goroutine for an anonymous
-	// function call.
+	// Poți porni o goroutine și pentru apelul unei
+	// funcții anonime.
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
 
-	// Our two function calls are running asynchronously in
-	// separate goroutines now. Wait for them to finish
-	// (for a more robust approach, use a [WaitGroup](waitgroups)).
+	// Cele două apeluri de funcții rulează acum asincron,
+	// în goroutine-uri separate. Așteptăm să se termine
+	// (pentru o abordare mai robustă, folosește un
+	// [WaitGroup](waitgroups)).
 	time.Sleep(time.Second)
 	fmt.Println("done")
 }

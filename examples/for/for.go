@@ -1,5 +1,5 @@
-// `for` is Go's only looping construct. Here are
-// some basic types of `for` loops.
+// `for` este singura structură de buclă din Go. Iată
+// câteva tipuri de bază de bucle `for`.
 
 package main
 
@@ -7,34 +7,34 @@ import "fmt"
 
 func main() {
 
-	// The most basic type, with a single condition.
+	// Tipul cel mai simplu, cu o singură condiție.
 	i := 1
 	for i <= 3 {
 		fmt.Println(i)
 		i = i + 1
 	}
 
-	// A classic initial/condition/after `for` loop.
+	// O buclă `for` clasică, cu inițializare/condiție/pas.
 	for j := 0; j < 3; j++ {
 		fmt.Println(j)
 	}
 
-	// Another way of accomplishing the basic "do this
-	// N times" iteration is `range` over an integer.
+	// O altă modalitate de a realiza iterația simplă „fă
+	// asta de N ori” este `range` peste un număr întreg.
 	for i := range 3 {
 		fmt.Println("range", i)
 	}
 
-	// `for` without a condition will loop repeatedly
-	// until you `break` out of the loop or `return` from
-	// the enclosing function.
+	// `for` fără condiție se va repeta la nesfârșit până
+	// când ieși din buclă cu `break` sau te întorci din
+	// funcția care o conține cu `return`.
 	for {
 		fmt.Println("loop")
 		break
 	}
 
-	// You can also `continue` to the next iteration of
-	// the loop.
+	// Poți folosi și `continue` pentru a trece la
+	// următoarea iterație a buclei.
 	for n := range 6 {
 		if n%2 == 0 {
 			continue

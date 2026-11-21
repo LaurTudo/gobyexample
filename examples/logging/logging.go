@@ -1,9 +1,8 @@
-// The Go standard library provides straightforward
-// tools for outputting logs from Go programs, with
-// the [log](https://pkg.go.dev/log) package for
-// free-form output and the
-// [log/slog](https://pkg.go.dev/log/slog) package for
-// structured output.
+// Biblioteca standard Go oferă unelte simple pentru
+// scrierea de loguri din programele Go: pachetul
+// [log](https://pkg.go.dev/log) pentru output liber și
+// pachetul [log/slog](https://pkg.go.dev/log/slog)
+// pentru output structurat.
 package main
 
 import (
@@ -17,61 +16,61 @@ import (
 
 func main() {
 
-	// Simply invoking functions like `Println` from the
-	// `log` package uses the _standard_ logger, which
-	// is already pre-configured for reasonable logging
-	// output to `os.Stderr`. Additional methods like
-	// `Fatal*` or `Panic*` will exit the program after
-	// logging.
+	// Simpla apelare a unor funcții precum `Println` din
+	// pachetul `log` folosește logger-ul _standard_, care
+	// este deja preconfigurat pentru un output de log
+	// rezonabil în `os.Stderr`. Metode suplimentare
+	// precum `Fatal*` sau `Panic*` vor opri programul
+	// după scrierea în log.
 	log.Println("standard logger")
 
-	// Loggers can be configured with _flags_ to set
-	// their output format. By default, the standard
-	// logger has the `log.Ldate` and `log.Ltime` flags
-	// set, and these are collected in `log.LstdFlags`.
-	// We can change its flags to emit time with
-	// microsecond accuracy, for example.
+	// Logger-ele pot fi configurate cu _flag-uri_ care
+	// le stabilesc formatul output-ului. Implicit,
+	// logger-ul standard are setate flag-urile
+	// `log.Ldate` și `log.Ltime`, reunite în
+	// `log.LstdFlags`. Putem să-i schimbăm flag-urile,
+	// de exemplu, ca să afișeze timpul cu precizie de
+	// microsecunde.
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 	log.Println("with micro")
 
-	// It also supports emitting the file name and
-	// line from which the `log` function is called.
+	// Suportă și afișarea numelui fișierului și a liniei
+	// din care este apelată funcția `log`.
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("with file/line")
 
-	// It may be useful to create a custom logger and
-	// pass it around. When creating a new logger, we
-	// can set a _prefix_ to distinguish its output
-	// from other loggers.
+	// Poate fi util să creăm un logger personalizat și
+	// să-l transmitem mai departe. Când creăm un logger
+	// nou, putem seta un _prefix_ pentru a-i deosebi
+	// output-ul de cel al altor logger-e.
 	mylog := log.New(os.Stdout, "my:", log.LstdFlags)
 	mylog.Println("from mylog")
 
-	// We can set the prefix
-	// on existing loggers (including the standard one)
-	// with the `SetPrefix` method.
+	// Putem seta prefixul logger-elor existente
+	// (inclusiv al celui standard) cu metoda
+	// `SetPrefix`.
 	mylog.SetPrefix("ohmy:")
 	mylog.Println("from mylog")
 
-	// Loggers can have custom output targets;
-	// any `io.Writer` works.
+	// Logger-ele pot avea destinații de output
+	// personalizate; merge orice `io.Writer`.
 	var buf bytes.Buffer
 	buflog := log.New(&buf, "buf:", log.LstdFlags)
 
-	// This call writes the log output into `buf`.
+	// Acest apel scrie output-ul de log în `buf`.
 	buflog.Println("hello")
 
-	// This will actually show it on standard output.
+	// Iar aici îl afișăm efectiv la ieșirea standard.
 	fmt.Print("from buflog:", buf.String())
 
-	// The `slog` package provides
-	// _structured_ log output. For example, logging
-	// in JSON format is straightforward.
+	// Pachetul `slog` oferă output de log _structurat_.
+	// De exemplu, scrierea de loguri în format JSON
+	// este simplă.
 	jsonHandler := slog.NewJSONHandler(os.Stderr, nil)
 	myslog := slog.New(jsonHandler)
 	myslog.Info("hi there")
 
-	// In addition to the message, `slog` output can
-	// contain an arbitrary number of key=value
-	// pairs.
+	// Pe lângă mesaj, output-ul `slog` poate conține
+	// oricâte perechi cheie=valoare.
 	myslog.Info("hello again", "key", "val", "age", 25)
 }

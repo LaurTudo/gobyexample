@@ -4,5 +4,5 @@ $ go run closures.go
 3
 1
 
-# The last feature of functions we'll look at for now is
-# recursion.
+# Ultima facilitate a funcțiilor pe care o vom studia
+# deocamdată este recursivitatea.

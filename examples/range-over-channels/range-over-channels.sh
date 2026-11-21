@@ -2,6 +2,6 @@ $ go run range-over-channels.go
 one
 two
 
-# This example also showed that it's possible to close
-# a non-empty channel but still have the remaining
-# values be received.
+# Acest exemplu a arătat și că putem închide un canal
+# care nu e gol, iar valorile rămase în el vor fi totuși
+# primite.

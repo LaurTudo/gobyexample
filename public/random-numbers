@@ -30,9 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>math/rand/v2</code> package provides
-<a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number</a>
-generation.</p>
+            <p>Pachetul <code>math/rand/v2</code> din Go oferă generarea de
+<a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">numere pseudoaleatoare</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ generation.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TkgmNAl8euK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/yjjAfb2jDaC"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,8 +75,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>For example, <code>rand.IntN</code> returns a random <code>int</code> n,
-<code>0 &lt;= n &lt; 100</code>.</p>
+            <p>De exemplu, <code>rand.IntN</code> returnează un <code>int</code>
+aleator n, <code>0 &lt;= n &lt; 100</code>.</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +89,7 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p><code>rand.Float64</code> returns a <code>float64</code> <code>f</code>,
+            <p><code>rand.Float64</code> returnează un <code>float64</code> <code>f</code>,
 <code>0.0 &lt;= f &lt; 1.0</code>.</p>
 
           </td>
@@ -102,8 +101,9 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>This can be used to generate random floats in
-other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
+            <p>Asta poate fi folosit pentru a genera float-uri
+aleatoare în alte intervale, de exemplu
+<code>5.0 &lt;= f' &lt; 10.0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -116,12 +116,12 @@ other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you want a known seed, create a new
-<code>rand.Source</code> and pass it into the <code>New</code>
-constructor. <code>NewPCG</code> creates a new
+            <p>Dacă vrei un seed cunoscut, creează un nou
+<code>rand.Source</code> și transmite-l constructorului
+<code>New</code>. <code>NewPCG</code> creează o nouă sursă
 <a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">PCG</a>
-source that requires a seed of two <code>uint64</code>
-numbers.</p>
+care necesită un seed format din două numere
+<code>uint64</code>.</p>
 
           </td>
           <td class="code leading">
@@ -155,8 +155,8 @@ numbers.</p>
         
         <tr>
           <td class="docs">
-            <p>Some of the generated numbers may be
-different when you run the sample.</p>
+            <p>Unele dintre numerele generate pot fi
+diferite când rulezi exemplul.</p>
 
           </td>
           <td class="code leading">
@@ -172,9 +172,10 @@ different when you run the sample.</p>
         
         <tr>
           <td class="docs">
-            <p>See the <a href="https://pkg.go.dev/math/rand/v2"><code>math/rand/v2</code></a>
-package docs for references on other random quantities
-that Go can provide.</p>
+            <p>Vezi documentația pachetului
+<a href="https://pkg.go.dev/math/rand/v2"><code>math/rand/v2</code></a>
+pentru referințe despre alte valori aleatoare pe care
+le poate oferi Go.</p>
 
           </td>
           <td class="code empty">
@@ -192,7 +193,7 @@ that Go can provide.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

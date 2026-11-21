@@ -1,8 +1,8 @@
-// We often want to execute Go code at some point in the
-// future, or repeatedly at some interval. Go's built-in
-// _timer_ and _ticker_ features make both of these tasks
-// easy. We'll look first at timers and then
-// at [tickers](tickers).
+// Adesea vrem să executăm cod Go la un moment dat în
+// viitor sau în mod repetat, la un anumit interval.
+// Facilitățile predefinite _timer_ și _ticker_ din Go
+// fac ușoare ambele sarcini. Vom vedea mai întâi
+// timer-ele, apoi [ticker-ele](tickers).
 
 package main
 
@@ -13,22 +13,22 @@ import (
 
 func main() {
 
-	// Timers represent a single event in the future. You
-	// tell the timer how long you want to wait, and it
-	// provides a channel that will be notified at that
-	// time. This timer will wait 2 seconds.
+	// Timer-ele reprezintă un singur eveniment în viitor.
+	// Îi spui timer-ului cât vrei să aștepți, iar el
+	// oferă un canal care va fi notificat în acel moment.
+	// Acest timer va aștepta 2 secunde.
 	timer1 := time.NewTimer(2 * time.Second)
 
-	// The `<-timer1.C` blocks on the timer's channel `C`
-	// until it sends a value indicating that the timer
-	// fired.
+	// `<-timer1.C` se blochează pe canalul `C` al
+	// timer-ului până când acesta trimite o valoare care
+	// indică faptul că timer-ul s-a declanșat.
 	<-timer1.C
 	fmt.Println("Timer 1 fired")
 
-	// If you just wanted to wait, you could have used
-	// `time.Sleep`. One reason a timer may be useful is
-	// that you can cancel the timer before it fires.
-	// Here's an example of that.
+	// Dacă ai fi vrut doar să aștepți, ai fi putut folosi
+	// `time.Sleep`. Un motiv pentru care un timer poate
+	// fi util este că îl poți anula înainte să se
+	// declanșeze. Iată un exemplu.
 	timer2 := time.NewTimer(time.Second)
 	go func() {
 		<-timer2.C
@@ -39,7 +39,8 @@ func main() {
 		fmt.Println("Timer 2 stopped")
 	}
 
-	// Give the `timer2` enough time to fire, if it ever
-	// was going to, to show it is in fact stopped.
+	// Îi dăm lui `timer2` suficient timp să se declanșeze,
+	// dacă ar fi urmat să o facă, pentru a arăta că este
+	// într-adevăr oprit.
 	time.Sleep(2 * time.Second)
 }

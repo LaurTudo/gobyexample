@@ -1,8 +1,9 @@
-// [_Rate limiting_](https://en.wikipedia.org/wiki/Rate_limiting)
-// is an important mechanism for controlling resource
-// utilization and maintaining quality of service. Go
-// elegantly supports rate limiting with goroutines,
-// channels, and [tickers](tickers).
+// [_Limitarea ratei_](https://en.wikipedia.org/wiki/Rate_limiting)
+// (rate limiting) este un mecanism important pentru
+// controlul utilizării resurselor și menținerea
+// calității serviciului. Go suportă elegant limitarea
+// ratei cu goroutine-uri, canale și
+// [ticker-e](tickers).
 
 package main
 
@@ -13,52 +14,54 @@ import (
 
 func main() {
 
-	// First we'll look at basic rate limiting. Suppose
-	// we want to limit our handling of incoming requests.
-	// We'll serve these requests off a channel of the
-	// same name.
+	// Mai întâi vom vedea o limitare simplă a ratei. Să
+	// presupunem că vrem să limităm procesarea cererilor
+	// primite. Vom servi aceste cereri dintr-un canal cu
+	// același nume (`requests`).
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
 	}
 	close(requests)
 
-	// This `limiter` channel will receive a value
-	// every 200 milliseconds. This is the regulator in
-	// our rate limiting scheme.
+	// Canalul `limiter` va primi o valoare la fiecare
+	// 200 de milisecunde. Acesta este regulatorul din
+	// schema noastră de limitare a ratei.
 	limiter := time.Tick(200 * time.Millisecond)
 
-	// By blocking on a receive from the `limiter` channel
-	// before serving each request, we limit ourselves to
-	// 1 request every 200 milliseconds.
+	// Blocându-ne pe o primire din canalul `limiter`
+	// înainte de a servi fiecare cerere, ne limităm la
+	// o cerere la fiecare 200 de milisecunde.
 	for req := range requests {
 		<-limiter
 		fmt.Println("request", req, time.Now())
 	}
 
-	// We may want to allow short bursts of requests in
-	// our rate limiting scheme while preserving the
-	// overall rate limit. We can accomplish this by
-	// buffering our limiter channel. This `burstyLimiter`
-	// channel will allow bursts of up to 3 events.
+	// Am putea dori să permitem rafale scurte de cereri
+	// în schema noastră de limitare, păstrând totuși
+	// limita generală a ratei. Putem face asta adăugând
+	// un buffer canalului limitator. Canalul
+	// `burstyLimiter` va permite rafale de până la 3
+	// evenimente.
 	burstyLimiter := make(chan time.Time, 3)
 
-	// Fill up the channel to represent allowed bursting.
+	// Umplem canalul pentru a reprezenta rafala permisă.
 	for range 3 {
 		burstyLimiter <- time.Now()
 	}
 
-	// Every 200 milliseconds we'll try to add a new
-	// value to `burstyLimiter`, up to its limit of 3.
+	// La fiecare 200 de milisecunde vom încerca să
+	// adăugăm o valoare nouă în `burstyLimiter`, până la
+	// limita lui de 3.
 	go func() {
 		for t := range time.Tick(200 * time.Millisecond) {
 			burstyLimiter <- t
 		}
 	}()
 
-	// Now simulate 5 more incoming requests. The first
-	// 3 of these will benefit from the burst capability
-	// of `burstyLimiter`.
+	// Acum simulăm încă 5 cereri primite. Primele 3
+	// dintre ele vor beneficia de capacitatea de rafală
+	// a lui `burstyLimiter`.
 	burstyRequests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		burstyRequests <- i

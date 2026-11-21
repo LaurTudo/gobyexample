@@ -30,11 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/SHA-2"><em>SHA256 hashes</em></a> are
-frequently used to compute short identities for binary
-or text blobs. For example, TLS/SSL certificates use SHA256
-to compute a certificate&rsquo;s signature. Here&rsquo;s how to compute
-SHA256 hashes in Go.</p>
+            <p><a href="https://en.wikipedia.org/wiki/SHA-2"><em>Hash-urile SHA256</em></a>
+sunt folosite frecvent pentru a calcula identificatori
+scurți pentru blob-uri binare sau de text. De exemplu,
+certificatele TLS/SSL folosesc SHA256 pentru a calcula
+semnătura unui certificat. Iată cum se calculează
+hash-uri SHA256 în Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,15 +49,15 @@ SHA256 hashes in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IHM1lZVm_Jm"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/UK1lX_f3FCO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go implements several hash functions in various
-<code>crypto/*</code> packages.</p>
+            <p>Go implementează mai multe funcții hash în diverse
+pachete <code>crypto/*</code>.</p>
 
           </td>
           <td class="code leading">
@@ -81,7 +82,7 @@ SHA256 hashes in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we start with a new hash.</p>
+            <p>Aici pornim cu un hash nou.</p>
 
           </td>
           <td class="code leading">
@@ -92,8 +93,8 @@ SHA256 hashes in Go.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Write</code> expects bytes. If you have a string <code>s</code>,
-use <code>[]byte(s)</code> to coerce it to bytes.</p>
+            <p><code>Write</code> așteaptă bytes. Dacă ai un string <code>s</code>,
+folosește <code>[]byte(s)</code> pentru a-l converti în bytes.</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +105,10 @@ use <code>[]byte(s)</code> to coerce it to bytes.</p>
         
         <tr>
           <td class="docs">
-            <p>This gets the finalized hash result as a byte
-slice. The argument to <code>Sum</code> can be used to append
-to an existing byte slice: it usually isn&rsquo;t needed.</p>
+            <p>Aici obținem rezultatul final al hash-ului ca slice
+de bytes. Argumentul lui <code>Sum</code> poate fi folosit
+pentru a adăuga la un slice de bytes existent: de
+obicei nu e necesar.</p>
 
           </td>
           <td class="code leading">
@@ -133,8 +135,8 @@ to an existing byte slice: it usually isn&rsquo;t needed.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program computes the hash and prints it in
-a human-readable hex format.</p>
+            <p>Rularea programului calculează hash-ul și îl afișează
+într-un format hexazecimal ușor de citit.</p>
 
           </td>
           <td class="code leading">
@@ -147,9 +149,9 @@ a human-readable hex format.</p>
         
         <tr>
           <td class="docs">
-            <p>You can compute other hashes using a similar pattern to
-the one shown above. For example, to compute
-SHA512 hashes import <code>crypto/sha512</code> and use
+            <p>Poți calcula alte hash-uri folosind un tipar similar
+celui de mai sus. De exemplu, pentru a calcula
+hash-uri SHA512, importă <code>crypto/sha512</code> și folosește
 <code>sha512.New()</code>.</p>
 
           </td>
@@ -161,9 +163,10 @@ SHA512 hashes import <code>crypto/sha512</code> and use
         
         <tr>
           <td class="docs">
-            <p>Note that if you need cryptographically secure hashes,
-you should carefully research
-<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hash strength</a>!</p>
+            <p>Observă că, dacă ai nevoie de hash-uri sigure din punct
+de vedere criptografic, ar trebui să te documentezi
+atent despre
+<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">puterea hash-urilor</a>!</p>
 
           </td>
           <td class="code empty">
@@ -181,7 +184,7 @@ you should carefully research
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

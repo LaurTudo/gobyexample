@@ -1,6 +1,6 @@
-# Run the server in the background.
+# Rulăm serverul în fundal.
 $ go run http-server.go &
 
-# Access the `/hello` route.
+# Accesăm ruta `/hello`.
 $ curl localhost:8090/hello
 hello

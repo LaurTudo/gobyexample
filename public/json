@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for JSON encoding and
-decoding, including to and from built-in and custom
-data types.</p>
+            <p>Go oferă suport integrat pentru codificarea și
+decodificarea JSON, inclusiv din și în tipuri de date
+predefinite și personalizate.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ data types.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/09HfDq_PP3G"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/KX2Kfonqd6T"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,8 +68,9 @@ data types.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use these two structs to demonstrate encoding and
-decoding of custom types below.</p>
+            <p>Vom folosi aceste două struct-uri pentru a demonstra
+mai jos codificarea și decodificarea tipurilor
+personalizate.</p>
 
           </td>
           <td class="code leading">
@@ -83,8 +84,9 @@ decoding of custom types below.</p>
         
         <tr>
           <td class="docs">
-            <p>Only exported fields will be encoded/decoded in JSON.
-Fields must start with capital letters to be exported.</p>
+            <p>Doar câmpurile exportate vor fi codificate/decodificate
+în JSON. Câmpurile trebuie să înceapă cu literă mare
+pentru a fi exportate.</p>
 
           </td>
           <td class="code leading">
@@ -108,9 +110,9 @@ Fields must start with capital letters to be exported.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at encoding basic data types to
-JSON strings. Here are some examples for atomic
-values.</p>
+            <p>Mai întâi vom vedea codificarea tipurilor de date
+de bază în string-uri JSON. Iată câteva exemple
+pentru valori atomice.</p>
 
           </td>
           <td class="code leading">
@@ -155,8 +157,9 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>And here are some for slices and maps, which encode
-to JSON arrays and objects as you&rsquo;d expect.</p>
+            <p>Iar aici câteva pentru slice-uri și map-uri, care
+se codifică, cum era de așteptat, în array-uri și
+obiecte JSON.</p>
 
           </td>
           <td class="code leading">
@@ -181,10 +184,10 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
         
         <tr>
           <td class="docs">
-            <p>The JSON package can automatically encode your
-custom data types. It will only include exported
-fields in the encoded output and will by default
-use those names as the JSON keys.</p>
+            <p>Pachetul JSON poate codifica automat tipurile tale
+de date personalizate. Va include în output-ul
+codificat doar câmpurile exportate și va folosi
+implicit numele lor drept chei JSON.</p>
 
           </td>
           <td class="code leading">
@@ -199,10 +202,11 @@ use those names as the JSON keys.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use tags on struct field declarations
-to customize the encoded JSON key names. Check the
-definition of <code>response2</code> above to see an example
-of such tags.</p>
+            <p>Poți folosi tag-uri în declarațiile câmpurilor
+struct-ului pentru a personaliza numele cheilor
+JSON codificate. Uită-te la definiția lui
+<code>response2</code> de mai sus pentru un exemplu de astfel
+de tag-uri.</p>
 
           </td>
           <td class="code leading">
@@ -217,9 +221,9 @@ of such tags.</p>
         
         <tr>
           <td class="docs">
-            <p>Now let&rsquo;s look at decoding JSON data into Go
-values. Here&rsquo;s an example for a generic data
-structure.</p>
+            <p>Acum să vedem decodificarea datelor JSON în valori
+Go. Iată un exemplu pentru o structură de date
+generică.</p>
 
           </td>
           <td class="code leading">
@@ -230,10 +234,10 @@ structure.</p>
         
         <tr>
           <td class="docs">
-            <p>We need to provide a variable where the JSON
-package can put the decoded data. This
-<code>map[string]any</code> will hold a map of strings
-to arbitrary data types.</p>
+            <p>Trebuie să oferim o variabilă în care pachetul
+JSON să pună datele decodificate. Acest
+<code>map[string]any</code> va conține un map de la string-uri
+la tipuri de date arbitrare.</p>
 
           </td>
           <td class="code leading">
@@ -244,11 +248,11 @@ to arbitrary data types.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual decoding, and a check for
-associated errors.
-For the sake of brevity we ignore the errors in
-these examples; in real code, you should always check
-for errors and act upon them.</p>
+            <p>Iată decodificarea propriu-zisă și o verificare a
+erorilor asociate.
+Pentru concizie, ignorăm erorile în aceste
+exemple; în codul real, ar trebui să verifici
+mereu erorile și să acționezi în consecință.</p>
 
           </td>
           <td class="code leading">
@@ -262,10 +266,10 @@ for errors and act upon them.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use the values in the decoded map,
-we&rsquo;ll need to convert them to their appropriate type.
-For example here we convert the value in <code>num</code> to
-the expected <code>float64</code> type.</p>
+            <p>Pentru a folosi valorile din map-ul decodificat,
+va trebui să le convertim la tipul potrivit. De
+exemplu, aici convertim valoarea din <code>num</code> la tipul
+așteptat, <code>float64</code>.</p>
 
           </td>
           <td class="code leading">
@@ -277,8 +281,8 @@ the expected <code>float64</code> type.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing nested data requires a series of
-conversions.</p>
+            <p>Accesarea datelor imbricate necesită o serie de
+conversii.</p>
 
           </td>
           <td class="code leading">
@@ -291,11 +295,11 @@ conversions.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also decode JSON into custom data types.
-This has the advantages of adding additional
-type-safety to our programs and eliminating the
-need for type assertions when accessing the decoded
-data.</p>
+            <p>Putem decodifica JSON și în tipuri de date
+personalizate. Avantajele sunt că programele
+noastre câștigă un plus de siguranță a tipurilor
+și că dispare nevoia de type assertions la
+accesarea datelor decodificate.</p>
 
           </td>
           <td class="code leading">
@@ -310,11 +314,12 @@ data.</p>
         
         <tr>
           <td class="docs">
-            <p>In the examples above we always used bytes and
-strings as intermediates between the data and
-JSON representation on standard out. We can also
-stream JSON encodings directly to <code>io.Writer</code>s like
-<code>os.Stdout</code> or even HTTP response bodies.</p>
+            <p>În exemplele de mai sus am folosit mereu bytes și
+string-uri ca intermediari între date și
+reprezentarea JSON afișată la ieșirea standard.
+Putem trimite codificările JSON și direct, ca
+stream, către <code>io.Writer</code>-e precum <code>os.Stdout</code> sau
+chiar corpurile răspunsurilor HTTP.</p>
 
           </td>
           <td class="code leading">
@@ -328,8 +333,9 @@ stream JSON encodings directly to <code>io.Writer</code>s like
         
         <tr>
           <td class="docs">
-            <p>Streaming reads from <code>io.Reader</code>s like <code>os.Stdin</code>
-or HTTP request bodies is done with <code>json.UnmarshalRead</code>.</p>
+            <p>Citirea ca stream din <code>io.Reader</code>-e precum
+<code>os.Stdin</code> sau corpurile cererilor HTTP se face cu
+<code>json.UnmarshalRead</code>.</p>
 
           </td>
           <td class="code">
@@ -372,10 +378,10 @@ or HTTP request bodies is done with <code>json.UnmarshalRead</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ve covered the basic of JSON in Go here, but check
-out the <a href="https://go.dev/blog/json">JSON and Go</a>
-blog post and the <a href="https://pkg.go.dev/encoding/json/v2">JSON package docs</a>
-for more.</p>
+            <p>Am acoperit aici elementele de bază ale JSON în Go,
+dar pentru mai multe detalii citește articolul de
+blog <a href="https://go.dev/blog/json">JSON and Go</a> și
+<a href="https://pkg.go.dev/encoding/json/v2">documentația pachetului JSON</a>.</p>
 
           </td>
           <td class="code empty">
@@ -393,7 +399,7 @@ for more.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

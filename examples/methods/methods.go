@@ -1,4 +1,4 @@
-// Go supports _methods_ defined on struct types.
+// Go suportă _metode_ definite pe tipuri struct.
 
 package main
 
@@ -8,13 +8,14 @@ type rect struct {
 	width, height int
 }
 
-// This `area` method has a _receiver type_ of `*rect`.
+// Metoda `area` are _tipul receptorului_ `*rect`.
 func (r *rect) area() int {
 	return r.width * r.height
 }
 
-// Methods can be defined for either pointer or value
-// receiver types. Here's an example of a value receiver.
+// Metodele pot fi definite fie pentru receptori de tip
+// pointer, fie pentru receptori de tip valoare. Iată un
+// exemplu de receptor de tip valoare.
 func (r rect) perim() int {
 	return 2*r.width + 2*r.height
 }
@@ -22,15 +23,16 @@ func (r rect) perim() int {
 func main() {
 	r := rect{width: 10, height: 5}
 
-	// Here we call the 2 methods defined for our struct.
+	// Aici apelăm cele 2 metode definite pentru
+	// struct-ul nostru.
 	fmt.Println("area: ", r.area())
 	fmt.Println("perim:", r.perim())
 
-	// Go automatically handles conversion between values
-	// and pointers for method calls. You may want to use
-	// a pointer receiver type to avoid copying on method
-	// calls or to allow the method to mutate the
-	// receiving struct.
+	// Go gestionează automat conversia dintre valori și
+	// pointeri la apelurile de metode. Poate vrei să
+	// folosești un receptor de tip pointer ca să eviți
+	// copierea la apelurile de metode sau ca să permiți
+	// metodei să modifice struct-ul receptor.
 	rp := &r
 	fmt.Println("area: ", rp.area())
 	fmt.Println("perim:", rp.perim())

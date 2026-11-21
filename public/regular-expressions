@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>.
-Here are some examples of  common regexp-related tasks
-in Go.</p>
+            <p>Go oferă suport integrat pentru <a href="https://en.wikipedia.org/wiki/Regular_expression">expresii regulate</a>.
+Iată câteva exemple de operații obișnuite cu regexp-uri
+în Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/fI2YIfYsCaL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zeAPPdOJs0r"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,7 +77,8 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>This tests whether a pattern matches a string.</p>
+            <p>Aici testăm dacă un pattern se potrivește cu un
+string.</p>
 
           </td>
           <td class="code leading">
@@ -89,9 +90,10 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Above we used a string pattern directly, but for
-other regexp tasks you&rsquo;ll need to <code>Compile</code> an
-optimized <code>Regexp</code> struct.</p>
+            <p>Mai sus am folosit direct un pattern de tip string,
+dar pentru alte operații cu regexp-uri va trebui
+să compilezi (<code>Compile</code>) un struct <code>Regexp</code>
+optimizat.</p>
 
           </td>
           <td class="code leading">
@@ -102,8 +104,8 @@ optimized <code>Regexp</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Many methods are available on these structs. Here&rsquo;s
-a match test like we saw earlier.</p>
+            <p>Aceste struct-uri au multe metode disponibile. Iată
+un test de potrivire ca cel de mai devreme.</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +116,7 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This finds the match for the regexp.</p>
+            <p>Aici găsim potrivirea pentru regexp.</p>
 
           </td>
           <td class="code leading">
@@ -125,9 +127,9 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This also finds the first match but returns the
-start and end indexes for the match instead of the
-matching text.</p>
+            <p>Și aici găsim prima potrivire, dar returnăm
+indicii de început și de sfârșit ai potrivirii în
+locul textului potrivit.</p>
 
           </td>
           <td class="code leading">
@@ -138,10 +140,11 @@ matching text.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Submatch</code> variants include information about
-both the whole-pattern matches and the submatches
-within those matches. For example this will return
-information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
+            <p>Variantele <code>Submatch</code> includ informații atât despre
+potrivirile întregului pattern, cât și despre
+subpotrivirile din interiorul acestora. De exemplu,
+aici vom primi informații atât pentru <code>p([a-z]+)ch</code>,
+cât și pentru <code>([a-z]+)</code>.</p>
 
           </td>
           <td class="code leading">
@@ -152,8 +155,8 @@ information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Similarly this will return information about the
-indexes of matches and submatches.</p>
+            <p>Similar, aici vom primi informații despre indicii
+potrivirilor și ai subpotrivirilor.</p>
 
           </td>
           <td class="code leading">
@@ -164,9 +167,10 @@ indexes of matches and submatches.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>All</code> variants of these functions apply to all
-matches in the input, not just the first. For
-example to find all matches for a regexp.</p>
+            <p>Variantele <code>All</code> ale acestor funcții se aplică
+tuturor potrivirilor din input, nu doar primei. De
+exemplu, pentru a găsi toate potrivirile unui
+regexp:</p>
 
           </td>
           <td class="code leading">
@@ -177,8 +181,8 @@ example to find all matches for a regexp.</p>
         
         <tr>
           <td class="docs">
-            <p>These <code>All</code> variants are available for the other
-functions we saw above as well.</p>
+            <p>Aceste variante <code>All</code> sunt disponibile și pentru
+celelalte funcții văzute mai sus.</p>
 
           </td>
           <td class="code leading">
@@ -190,9 +194,9 @@ functions we saw above as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Providing a non-negative integer as the second
-argument to these functions will limit the number
-of matches.</p>
+            <p>Dacă dăm un număr întreg nenegativ ca al doilea
+argument al acestor funcții, limităm numărul de
+potriviri.</p>
 
           </td>
           <td class="code leading">
@@ -203,10 +207,10 @@ of matches.</p>
         
         <tr>
           <td class="docs">
-            <p>Our examples above had string arguments and used
-names like <code>MatchString</code>. We can also provide
-<code>[]byte</code> arguments and drop <code>String</code> from the
-function name.</p>
+            <p>Exemplele de mai sus aveau argumente de tip string
+și foloseau nume precum <code>MatchString</code>. Putem da și
+argumente <code>[]byte</code>, renunțând la <code>String</code> din
+numele funcției.</p>
 
           </td>
           <td class="code leading">
@@ -217,11 +221,11 @@ function name.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating global variables with regular
-expressions you can use the <code>MustCompile</code> variation
-of <code>Compile</code>. <code>MustCompile</code> panics instead of
-returning an error, which makes it safer to use for
-global variables.</p>
+            <p>Când creezi variabile globale cu expresii regulate,
+poți folosi varianta <code>MustCompile</code> a lui <code>Compile</code>.
+<code>MustCompile</code> intră în panică în loc să returneze o
+eroare, ceea ce o face mai sigură pentru variabile
+globale.</p>
 
           </td>
           <td class="code leading">
@@ -233,8 +237,8 @@ global variables.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>regexp</code> package can also be used to replace
-subsets of strings with other values.</p>
+            <p>Pachetul <code>regexp</code> poate fi folosit și pentru a
+înlocui porțiuni din string-uri cu alte valori.</p>
 
           </td>
           <td class="code leading">
@@ -245,8 +249,8 @@ subsets of strings with other values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Func</code> variant allows you to transform matched
-text with a given function.</p>
+            <p>Varianta <code>Func</code> îți permite să transformi textul
+potrivit cu o funcție dată.</p>
 
           </td>
           <td class="code">
@@ -287,8 +291,9 @@ text with a given function.</p>
         
         <tr>
           <td class="docs">
-            <p>For a complete reference on Go regular expressions check
-the <a href="https://pkg.go.dev/regexp"><code>regexp</code></a> package docs.</p>
+            <p>Pentru o referință completă despre expresiile regulate
+în Go, consultă documentația pachetului
+<a href="https://pkg.go.dev/regexp"><code>regexp</code></a>.</p>
 
           </td>
           <td class="code empty">
@@ -306,7 +311,7 @@ the <a href="https://pkg.go.dev/regexp"><code>regexp</code></a> package docs.</p
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

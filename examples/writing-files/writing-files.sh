@@ -1,10 +1,10 @@
-# Try running the file-writing code.
+# Încearcă să rulezi codul de scriere a fișierelor.
 $ go run writing-files.go 
 wrote 5 bytes
 wrote 7 bytes
 wrote 9 bytes
 
-# Then check the contents of the written files.
+# Apoi verifică conținutul fișierelor scrise.
 $ cat /tmp/dat1
 hello
 go
@@ -13,5 +13,6 @@ some
 writes
 buffered
 
-# Next we'll look at applying some of the file I/O ideas
-# we've just seen to the `stdin` and `stdout` streams.
+# În continuare vom vedea cum aplicăm câteva dintre
+# ideile de I/O cu fișiere pe care tocmai le-am văzut
+# la stream-urile `stdin` și `stdout`.

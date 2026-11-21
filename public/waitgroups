@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>To wait for multiple goroutines to finish, we can
-use a <em>wait group</em>.</p>
+            <p>Pentru a aștepta terminarea mai multor goroutine-uri,
+putem folosi un <em>wait group</em>.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ use a <em>wait group</em>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/csaELahJTWt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/x8AK7oMcrt-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -66,7 +66,8 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in every goroutine.</p>
+            <p>Aceasta este funcția pe care o vom rula în fiecare
+goroutine.</p>
 
           </td>
           <td class="code leading">
@@ -78,7 +79,7 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sleep to simulate an expensive task.</p>
+            <p>Așteptăm, ca să simulăm o operație costisitoare.</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +102,10 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This WaitGroup is used to wait for all the
-goroutines launched here to finish. Note: if a WaitGroup is
-explicitly passed into functions, it should be done <em>by pointer</em>.</p>
+            <p>Acest WaitGroup este folosit pentru a aștepta
+terminarea tuturor goroutine-urilor pornite aici.
+Notă: dacă un WaitGroup este transmis explicit
+către funcții, trebuie transmis <em>prin pointer</em>.</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +116,8 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Launch several goroutines using <code>WaitGroup.Go</code></p>
+            <p>Pornim mai multe goroutine-uri folosind
+<code>WaitGroup.Go</code>.</p>
 
           </td>
           <td class="code leading">
@@ -129,9 +132,9 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until all the goroutines started by <code>wg</code> are
-done. A goroutine is done when the function it invokes
-returns.</p>
+            <p>Ne blocăm până când toate goroutine-urile pornite
+de <code>wg</code> s-au terminat. O goroutine s-a terminat
+când funcția pe care o apelează a returnat.</p>
 
           </td>
           <td class="code leading">
@@ -142,10 +145,10 @@ returns.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that this approach has no straightforward way
-to propagate errors from workers. For more
-advanced use cases, consider using the
-<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a>.</p>
+            <p>Observă că această abordare nu oferă o modalitate
+simplă de a propaga erorile de la workeri. Pentru
+cazuri de utilizare mai avansate, poți folosi
+<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">pachetul errgroup</a>.</p>
 
           </td>
           <td class="code">
@@ -180,8 +183,8 @@ advanced use cases, consider using the
         
         <tr>
           <td class="docs">
-            <p>The order of workers starting up and finishing
-is likely to be different for each invocation.</p>
+            <p>Ordinea în care workerii pornesc și se termină va fi,
+cel mai probabil, diferită la fiecare rulare.</p>
 
           </td>
           <td class="code empty">
@@ -199,7 +202,7 @@ is likely to be different for each invocation.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>

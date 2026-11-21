@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p><em>Închiderea</em> unui canal indică faptul că nu vor mai fi
+trimise valori pe el. Asta poate fi util pentru a le
+comunica receptorilor canalului că s-a terminat.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ completion to the channel&rsquo;s receivers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yZijZHYe22y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/F5prjgkRzfn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,10 +63,10 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>În acest exemplu vom folosi un canal <code>jobs</code> pentru a
+transmite sarcinile de lucru din goroutine-a <code>main()</code>
+către o goroutine worker. Când nu mai avem sarcini
+pentru worker, vom închide canalul <code>jobs</code> cu <code>close</code>.</p>
 
           </td>
           <td class="code leading">
@@ -79,13 +79,14 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>Iată worker-ul, care rulează într-o goroutine.
+Primește în mod repetat din <code>jobs</code> cu
+<code>j, more := &lt;-jobs</code>. În această formă specială de
+primire, cu 2 valori, <code>more</code> va fi <code>false</code> dacă
+<code>jobs</code> a fost închis cu <code>close</code> și toate valorile
+din canal au fost deja primite. Folosim asta pentru
+a trimite o notificare pe <code>done</code> când am terminat
+toate sarcinile.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +108,8 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>Aici trimitem 3 sarcini către worker prin canalul
+<code>jobs</code>, apoi îl închidem.</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +125,9 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>Așteptăm worker-ul folosind metoda de
+<a href="channel-synchronization">sincronizare</a> pe care am
+văzut-o mai devreme.</p>
 
           </td>
           <td class="code leading">
@@ -137,13 +138,13 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading from a closed channel succeeds immediately,
-returning the zero value of the underlying type.
-The optional second return value is <code>true</code> if the
-value received was delivered by a successful send
-operation to the channel, or <code>false</code> if it was a
-zero value generated because the channel is closed
-and empty.</p>
+            <p>Citirea dintr-un canal închis reușește imediat și
+returnează valoarea zero a tipului de bază. A doua
+valoare returnată, opțională, este <code>true</code> dacă
+valoarea primită a fost livrată printr-o operație
+de trimitere reușită în canal, sau <code>false</code> dacă a
+fost o valoare zero generată pentru că canalul este
+închis și gol.</p>
 
           </td>
           <td class="code">
@@ -179,8 +180,8 @@ and empty.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>Ideea de canale închise ne conduce firesc la următorul
+exemplu: <code>range</code> peste canale.</p>
 
           </td>
           <td class="code empty">
@@ -198,7 +199,7 @@ example: <code>range</code> over channels.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/LaurTudo">tradus în limba română de LaurTudo</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
     </p>
 
     </div>
