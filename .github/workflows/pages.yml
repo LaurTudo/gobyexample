@@ -1,0 +1,60 @@
+name: pages
+
+on:
+  push:
+    branches: [ ro-gobyexample ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: go.mod
+
+    - name: Build
+      run: tools/build
+      env:
+        VERBOSE: 1
+
+    # Generated pages have no file extension; GitHub Pages only
+    # serves them as HTML if they end in .html.
+    - name: Prepare site
+      run: |
+        cp -r public _site
+        cd _site
+        for f in *; do
+          case "$f" in
+            *.*) ;;
+            *) mv "$f" "$f.html" ;;
+          esac
+        done
+
+    - uses: actions/configure-pages@v5
+
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - id: deployment
+      uses: actions/deploy-pages@v4
